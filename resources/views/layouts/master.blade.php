@@ -8,9 +8,10 @@
     <meta name="description" content="@yield('description', 'Leading IT services company in Ethiopia, providing innovative technology solutions for businesses.')">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        
     <!-- Custom Styles -->
     <style>
         * {
@@ -31,86 +32,241 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
+        /* Top Bar */
+    .top-bar {
+        background: #f8f9fa;
+        padding: 8px 0;
+        font-size: 13px;
+        color: #666;
+        border-bottom: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
 
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-        }
+    .top-bar.hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2563eb;
-        }
+    .top-bar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .logo i {
-            font-size: 1.8rem;
-        }
+    .top-bar-left {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
 
-        .nav {
-            display: flex;
-            gap: 2rem;
-        }
+    .top-bar-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+    }
 
-        .nav-link {
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .top-bar-item i {
+        color: #3B82F6;
+        font-size: 12px;
+    }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: #2563eb;
-        }
+    .top-bar-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+    .social-icon {
+        color: #666;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
 
-        .phone {
-            color: #64748b;
-            font-weight: 500;
-        }
+    .social-icon:hover {
+        color: #3B82F6;
+    }
 
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
+    /* Main Navbar */
+    .navbar-custom {
+        background: white;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
 
-        .btn-primary:hover {
-            background: #1d4ed8;
-        }
+    .navbar-custom.scrolled {
+        padding: 10px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
 
-        .btn-large {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-        }
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333 !important;
+    }
+
+    .navbar-brand:hover {
+        color: #333 !important;
+    }
+
+    .logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+    .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+    }
+
+    .logo-main {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .logo-sub {
+        font-size: 10px;
+        font-weight: 400;
+        color: #666;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .nav-link {
+        color: #333 !important;
+        font-weight: 500;
+        font-size: 15px;
+        text-decoration: none;
+        position: relative;
+        padding: 8px 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        color: #3B82F6 !important;
+    }
+
+    .nav-link.active {
+        color: #333 !important;
+        font-weight: 600;
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #3B82F6;
+    }
+
+    /* Apple-style Full Width Dropdown */
+    .nav-item.mega-dropdown {
+        position: static;
+    }
+
+    .mega-dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border: none;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        padding: 40px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 999;
+    }
+
+    .mega-dropdown:hover .mega-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mega-dropdown-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .mega-dropdown-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+
+    .mega-dropdown-section h6 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+
+    .mega-dropdown-item {
+        display: block;
+        padding: 12px 0;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid transparent;
+    }
+
+    .mega-dropdown-item:hover {
+        color: #3B82F6;
+        transform: translateX(10px);
+        border-bottom-color: #3B82F6;
+    }
+
+    .mega-dropdown-item i {
+        margin-right: 10px;
+        width: 20px;
+        color: #3B82F6;
+    }
+
+    .btn-get-started {
+        background: linear-gradient(135deg, #3B82F6, #1E40AF);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-get-started:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        color: white;
+    }
 
         /* Hero Section */
         .hero {
@@ -543,75 +699,51 @@
 
         /* Footer */
         .footer {
-            background: #1e293b;
-            color: white;
-            padding: 3rem 0 1rem;
+            background-color: #f8f9fa;
+            padding: 60px 0 30px;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .footer h5 {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #f1f5f9;
-        }
-
-        .footer-section ul {
+        .footer ul {
             list-style: none;
+            padding: 0;
         }
 
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
+        .footer ul li {
+            margin-bottom: 10px;
         }
 
-        .footer-section ul li a {
-            color: #94a3b8;
+        .footer ul li a {
+            color: #666;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
-        .footer-section ul li a:hover {
-            color: white;
-        }
-
-        .footer-section ul li i {
-            margin-right: 0.5rem;
-            color: #2563eb;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: #2563eb;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #1d4ed8;
+        .footer ul li a:hover {
+            color: var(--primary-blue);
         }
 
         .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 40px;
             text-align: center;
-            color: #94a3b8;
+            color: #666;
+        }
+
+        .social-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-footer a {
+            color: #666;
+            font-size: 18px;
         }
 
         /* Responsive Design */
@@ -687,28 +819,206 @@
     @stack('styles')
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <i class="fas fa-link"></i>
-                    <span>Sky Link</span>
+    <!-- Top Bar -->
+<div class="top-bar" id="topBar">
+    <div class="container">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <div class="top-bar-item">
+                    <i class="far fa-clock"></i>
+                    <span>Mon - Fri 08:00 - 18:00 / Sunday 8:00 - 14:00</span>
                 </div>
-                <nav class="nav">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </nav>
-                <div class="header-actions">
-                    <span class="phone">{{ config('app.phone', '+251 911 123 456') }}</span>
-                    <button class="btn-primary">Get Started</button>
+                <div class="top-bar-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+90 (555) 123 45 67</span>
+                </div>
+                <div class="top-bar-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Addis Ababa, Bole Tropical Mall No. 217</span>
                 </div>
             </div>
+            <div class="top-bar-right">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
         </div>
-    </header>
+    </div>
+</div>
+
+<!-- Main Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
+            <div class="container">
+                <a href="/" class="d-flex align-items-center text-decoration-none">
+                    <img src="{{ asset('assets/images/skylink-48a05ef2.svg') }}" alt="Skylink Logo" class="logo-img me-2">
+                    
+                </a>
+
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item mega-dropdown">
+                            <a class="nav-link" href="#services">Services</a>
+                            <div class="mega-dropdown-menu">
+                                <div class="mega-dropdown-content">
+                                    <div class="mega-dropdown-grid">
+                                        <div class="mega-dropdown-section">
+                                            <h6>Web Development</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-code"></i>Frontend Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-server"></i>Backend Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-layer-group"></i>Full Stack Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-shopping-cart"></i>E-commerce Solutions
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Mobile Development</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fab fa-apple"></i>iOS Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fab fa-android"></i>Android Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-mobile-alt"></i>Cross-Platform Apps
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-tablet-alt"></i>Tablet Applications
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Design Services</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-paint-brush"></i>UI/UX Design
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-palette"></i>Graphic Design
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-drafting-compass"></i>Prototyping
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-eye"></i>Brand Identity
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Digital Marketing</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-search"></i>SEO Services
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-bullhorn"></i>Social Media Marketing
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-envelope"></i>Email Marketing
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-chart-line"></i>Analytics & Reporting
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item mega-dropdown">
+                            <a class="nav-link" href="#products">Products</a>
+                            <div class="mega-dropdown-menu">
+                                <div class="mega-dropdown-content">
+                                    <div class="mega-dropdown-grid">
+                                        <div class="mega-dropdown-section">
+                                            <h6>Web Applications</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-globe"></i>Business Websites
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-store"></i>E-commerce Platforms
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-blog"></i>Content Management
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-users"></i>Social Platforms
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Mobile Apps</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-mobile"></i>Native iOS Apps
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fab fa-android"></i>Native Android Apps
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-sync"></i>Hybrid Applications
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-gamepad"></i>Gaming Apps
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Enterprise Solutions</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-building"></i>CRM Systems
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-chart-bar"></i>Analytics Dashboards
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-cogs"></i>Workflow Automation
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-database"></i>Data Management
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>API & Integration</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-plug"></i>REST APIs
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-link"></i>Third-party Integration
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-cloud"></i>Cloud Services
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-shield-alt"></i>Security Solutions
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+                    
+                    <a href="#" class="btn-get-started">Get Started</a>
+                </div>
+            </div>
+        </nav>
+
 
     <!-- Main Content -->
     <main>
@@ -716,53 +1026,52 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <i class="fas fa-link"></i>
-                        <span>Sky Link</span>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo mb-3">
+                        sky link
+                        <small style="display: block; font-size: 12px; font-weight: normal;">TECHNOLOGIES</small>
                     </div>
-                    <p>Leading IT services company in Ethiopia, providing innovative technology solutions.</p>
-                    <div class="social-links">
+                    <p>Desires to obtain pain of itself because pain, but occasionally circumstances.</p>
+                    <div class="social-footer">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Page Link</h4>
+                <div class="col-lg-3">
+                    <h5>Page Link</h5>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog Page</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
+                <div class="col-lg-3">
+                    <h5>Services</h5>
                     <ul>
+                        <li><a href="#">Cyber Security</a></li>
                         <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">Cloud Solutions</a></li>
-                        <li><a href="#">IT Consulting</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">AI Software</a></li>
+                        <li><a href="#">Content Writing</a></li>
+                        <li><a href="#">UI Design</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> {{ config('app.phone', '+251 911 123 456') }}</li>
-                        <li><i class="fas fa-envelope"></i> {{ config('app.email', 'info@skylink.et') }}</li>
-                        <li><i class="fas fa-map-marker-alt"></i> {{ config('app.address', 'Addis Ababa, Ethiopia') }}</li>
-                    </ul>
+                <div class="col-lg-3">
+                    <h5>Contact</h5>
+                    <p>89 Brooklyn Street, 600 New York, USA</p>
+                    <p><i class="fas fa-globe"></i> www.yourwebsite.com</p>
+                    <p><i class="fas fa-envelope"></i> example@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 555-555-0184</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; {{ date('Y') }} Sky Link. All rights reserved.</p>
+                <p>Copyright © 2023 Skylink | Powered By</p>
             </div>
         </div>
     </footer>

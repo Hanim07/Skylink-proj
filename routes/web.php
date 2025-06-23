@@ -26,11 +26,11 @@ Route::get('/api/portfolio/search', [PortfolioController::class, 'search'])->nam
 
 // Additional routes for other pages
 Route::get('/about', function () {
-    return view('pages.about');
+    return view('pages.aboutpage');
 })->name('about');
 
 Route::get('/services', function () {
-    return view('pages.services');
+    return view('pages.servicepage');
 })->name('services');
 
 Route::get('/portfolio', function () {
@@ -48,6 +48,10 @@ Route::get('/news', function () {
 Route::get('/news-detail', function () {
     return view('pages.news-detail');
 })->name('news-detail');
+
+Route::get('/service-detail', function () {
+    return view('pages.servicedetail');
+})->name('service-detail');
 
 
 
