@@ -41,6 +41,14 @@ Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
 
+Route::get('/news', function () {
+    return view('pages.news-events');
+})->name('news-events');
+
+Route::get('/news-detail', function () {
+    return view('pages.news-detail');
+})->name('news-detail');
+
 
 
 
