@@ -19,12 +19,6 @@ class HomeController extends Controller
                 ['number' => '600+', 'label' => 'Projects Completed']
             ],
             
-            'partners' => [
-                ['name' => 'Microsoft', 'logo' => 'https://via.placeholder.com/120x40/0078D4/FFFFFF?text=Microsoft'],
-                ['name' => 'Google Meet', 'logo' => 'https://via.placeholder.com/120x40/4285F4/FFFFFF?text=Google'],
-                ['name' => 'Zoom', 'logo' => 'https://via.placeholder.com/120x40/2D8CFF/FFFFFF?text=Zoom']
-            ],
-            
             'services' => [
                 [
                     'title' => 'Web Development',
@@ -51,45 +45,45 @@ class HomeController extends Controller
                     'title' => 'How to Start a Career in Tech',
                     'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry and building a successful career.',
                     'date' => 'Dec 15, 2024',
-                    'image' => 'https://via.placeholder.com/300x200/2563EB/FFFFFF?text=Tech+Career'
+                    'image' => asset('images/news/tech-career.jpg')
                 ],
                 [
                     'title' => 'Latest Technology Trends 2024',
                     'excerpt' => 'Discover the most important technology trends that will shape the future of business and innovation.',
                     'date' => 'Dec 12, 2024',
-                    'image' => 'https://via.placeholder.com/300x200/0891B2/FFFFFF?text=Tech+Trends'
+                    'image' => asset('images/news/tech-trends.jpg')
                 ],
                 [
                     'title' => 'Digital Transformation Guide',
                     'excerpt' => 'A comprehensive guide to digital transformation for businesses looking to modernize their operations.',
                     'date' => 'Dec 10, 2024',
-                    'image' => 'https://via.placeholder.com/300x200/06B6D4/FFFFFF?text=Digital+Transform'
+                    'image' => asset('images/news/digital-transform.jpg')
                 ]
             ],
             
             'portfolio' => [
-                'https://via.placeholder.com/350x250/10B981/FFFFFF?text=E-commerce+Platform',
-                'https://via.placeholder.com/350x250/8B5CF6/FFFFFF?text=Mobile+Banking+App',
-                'https://via.placeholder.com/350x250/F59E0B/FFFFFF?text=Cloud+Migration',
-                'https://via.placeholder.com/350x250/EF4444/FFFFFF?text=Healthcare+System',
-                'https://via.placeholder.com/350x250/3B82F6/FFFFFF?text=Analytics+Dashboard',
-                'https://via.placeholder.com/350x250/06B6D4/FFFFFF?text=IoT+Solution'
+                asset('images/portfolio/ecommerce-platform.jpg'),
+                asset('images/portfolio/mobile-app.jpg'),
+                asset('images/portfolio/cloud-solution.jpg'),
+                asset('images/portfolio/healthcare-system.jpg'),
+                asset('images/portfolio/analytics-dashboard.jpg'),
+                asset('images/portfolio/iot-solution.jpg')
             ],
             
             'products' => [
                 [
                     'name' => 'iPhone 14 Pro Max 256GB',
-                    'image' => 'https://via.placeholder.com/150x200/000000/FFFFFF?text=iPhone+14+Pro+Max',
+                    'image' => asset('images/products/iphone-14-pro-max.png'),
                     'rating' => 5
                 ],
                 [
                     'name' => 'Apple AirPods Pro',
-                    'image' => 'https://via.placeholder.com/150x200/FFFFFF/000000?text=AirPods+Pro',
+                    'image' => asset('images/products/airpods.png'),
                     'rating' => 5
                 ],
                 [
                     'name' => 'iPhone 14 Pro 128GB',
-                    'image' => 'https://via.placeholder.com/150x200/1D1D1F/FFFFFF?text=iPhone+14+Pro',
+                    'image' => asset('images/products/iphone-14-pro.png'),
                     'rating' => 5
                 ]
             ],
@@ -98,24 +92,24 @@ class HomeController extends Controller
                 [
                     'name' => 'Abebe Kebede',
                     'position' => 'CEO, Tech Solutions Ethiopia',
-                    'avatar' => 'https://via.placeholder.com/50x50/2563EB/FFFFFF?text=AK',
+                    'avatar' => asset('images/testimonials/client-1.jpg'),
                     'content' => 'Sky Link provided exceptional IT services that transformed our business operations. Their team is professional and delivers quality results on time.'
                 ],
                 [
                     'name' => 'Meron Tadesse',
                     'position' => 'CTO, Digital Innovations',
-                    'avatar' => 'https://via.placeholder.com/50x50/0891B2/FFFFFF?text=MT',
+                    'avatar' => asset('images/testimonials/client-2.jpg'),
                     'content' => 'Outstanding service and support. Sky Link helped us implement modern solutions that improved our efficiency and productivity significantly.'
                 ],
                 [
                     'name' => 'Daniel Haile',
                     'position' => 'Manager, StartUp Ethiopia',
-                    'avatar' => 'https://via.placeholder.com/50x50/10B981/FFFFFF?text=DH',
+                    'avatar' => asset('images/testimonials/client-3.jpg'),
                     'content' => 'Reliable, innovative, and customer-focused. Sky Link is our go-to partner for all IT-related needs and digital transformation solutions.'
                 ]
             ]
         ];
         
-        return view('index', $data);
+        return view('pages.index', $data);
     }
 }

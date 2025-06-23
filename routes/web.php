@@ -4,15 +4,24 @@ use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\AboutController;
+
 
 Route::get('/', function () {
-    return view('index');
+    return view('pages.index');
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::post('/quote/request', [ServicesController::class, 'requestQuote'])->name('quote.request');
+
+// Portfolio routes
+Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
+Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('portfolio.show');
+Route::get('/api/portfolio/search', [PortfolioController::class, 'search'])->name('portfolio.search');
+
 
 
 // Additional routes for other pages
@@ -31,6 +40,9 @@ Route::get('/portfolio', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
+
+
+
 
 
 // Newsletter subscription route (optional)

@@ -3,18 +3,168 @@
 @section('title', 'Sky Link - IT Services in Ethiopia')
 @section('description', 'Leading IT services company in Ethiopia, helping businesses succeed with innovative technology solutions.')
 
+@section('additional-styles')
+<style>
+   
+
+
+
+   .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    background: transparent !important; /* clear any color */
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 1; /* No tint! */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    background: none; /* No background card */
+}
+
+.hero-content h1 {
+    color: #000;
+}
+
+.hero-content p {
+    color: #333;
+}
+
+/* FLOATING ICONS ON TOP RIGHT */
+.hero-floating-icons {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 3;
+}
+
+.floating-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+    background: white;
+    color: #1d4ed8;
+}
+
+/* Tooltip (optional) */
+.floating-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.floating-icon:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-floating-icons {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .floating-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .floating-icon::before {
+        display: none;
+    }
+}
+
+
+
+
+</style>
+@endsection
+
+
 @section('content')
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>{{ $heroTitle ?? 'Helping businesses succeed with the best IT services in Ethiopia' }}</h1>
-                <p>{{ $heroDescription ?? 'Discover IT solutions that drive growth and innovation for your business. We provide comprehensive technology services tailored to your needs.' }}</p>
-                <button class="btn-primary btn-large">More</button>
-            </div>
+   
+
+
+<section class="hero" id="home">
+    <div class="hero-bg" style="background-image: url('{{ asset('assets/images/hero-bg.jpg') }}');"></div>
+
+    <!-- Floating Icons -->
+    <div class="hero-floating-icons">
+        <div class="floating-icon" data-tooltip="Call Us" onclick="handleIconClick('phone')">
+            <i class="fas fa-phone"></i>
         </div>
-    </section>
+        <div class="floating-icon" data-tooltip="Email Us" onclick="handleIconClick('email')">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="floating-icon" data-tooltip="Chat Support" onclick="handleIconClick('chat')">
+            <i class="fas fa-comments"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero-content">
+            <h1>{{ $heroTitle ?? 'Helping businesses succeed with the best IT services in Ethiopia' }}</h1>
+            <p>{{ $heroDescription ?? 'Discover IT solutions that drive growth and innovation for your business. We provide comprehensive technology services tailored to your needs.' }}</p>
+            <button class="btn-primary btn-large">More</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 
     <!-- Company Overview -->
     <section class="company-overview" id="about">
@@ -47,17 +197,9 @@
         <div class="container">
             <h3>TRUSTED PARTNERS</h3>
             <div class="partners-logos">
-                @php
-                    $defaultPartners = [
-                        ['name' => 'Microsoft', 'logo' => 'https://via.placeholder.com/120x40/0078D4/FFFFFF?text=Microsoft'],
-                        ['name' => 'Google Meet', 'logo' => 'https://via.placeholder.com/120x40/4285F4/FFFFFF?text=Google'],
-                        ['name' => 'Zoom', 'logo' => 'https://via.placeholder.com/120x40/2D8CFF/FFFFFF?text=Zoom']
-                    ];
-                @endphp
-                
-                @foreach($partners ?? $defaultPartners as $partner)
-                <img src="{{ $partner['logo'] }}" alt="{{ $partner['name'] }}" class="partner-logo">
-                @endforeach
+                <img src="{{ asset('images/partners/microsoft-logo.png') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('images/partners/google-meet-logo.png') }}" alt="Google Meet" class="partner-logo">
+                <img src="{{ asset('images/partners/zoom-logo.png') }}" alt="Zoom" class="partner-logo">
             </div>
         </div>
     </section>
@@ -118,19 +260,19 @@
                             'title' => 'How to Start a Career in Tech',
                             'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
                             'date' => 'Dec 15, 2024',
-                            'image' => 'https://via.placeholder.com/300x200/2563EB/FFFFFF?text=Tech+Career'
+                            'image' => asset('images/news/tech-career.jpg')
                         ],
                         [
                             'title' => 'How to Start a Career in Tech',
                             'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
                             'date' => 'Dec 12, 2024',
-                            'image' => 'https://via.placeholder.com/300x200/0891B2/FFFFFF?text=Tech+News'
+                            'image' => asset('images/news/tech-trends.jpg')
                         ],
                         [
                             'title' => 'How to Start a Career in Tech',
                             'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
                             'date' => 'Dec 10, 2024',
-                            'image' => 'https://via.placeholder.com/300x200/06B6D4/FFFFFF?text=Latest+Tech'
+                            'image' => asset('images/news/digital-transform.jpg')
                         ]
                     ];
                 @endphp
@@ -156,22 +298,18 @@
             <div class="portfolio-grid">
                 @php
                     $portfolioImages = [
-                        'https://via.placeholder.com/350x250/10B981/FFFFFF?text=Web+Project',
-                        'https://via.placeholder.com/350x250/8B5CF6/FFFFFF?text=Mobile+App',
-                        'https://via.placeholder.com/350x250/F59E0B/FFFFFF?text=Cloud+Solution',
-                        'https://via.placeholder.com/350x250/EF4444/FFFFFF?text=E-commerce',
-                        'https://via.placeholder.com/350x250/3B82F6/FFFFFF?text=Dashboard',
-                        'https://via.placeholder.com/350x250/06B6D4/FFFFFF?text=Analytics'
+                        asset('images/portfolio/ecommerce-platform.jpg'),
+                        asset('images/portfolio/mobile-app.jpg'),
+                        asset('images/portfolio/cloud-solution.jpg'),
+                        asset('images/portfolio/healthcare-system.jpg'),
+                        asset('images/portfolio/analytics-dashboard.jpg'),
+                        asset('images/portfolio/iot-solution.jpg')
                     ];
                 @endphp
                 
                 @foreach($portfolio ?? $portfolioImages as $index => $image)
                 <div class="portfolio-item">
-                    @if(is_array($image))
-                        <img src="{{ $image['image'] }}" alt="Portfolio {{ $index + 1 }}">
-                    @else
-                        <img src="{{ $image }}" alt="Portfolio {{ $index + 1 }}">
-                    @endif
+                    <img src="{{ $image }}" alt="Portfolio {{ $index + 1 }}">
                 </div>
                 @endforeach
             </div>
@@ -187,17 +325,17 @@
                     $defaultProducts = [
                         [
                             'name' => 'iPhone 14 Pro Max 256GB',
-                            'image' => 'https://via.placeholder.com/150x200/000000/FFFFFF?text=iPhone+14+Pro+Max',
+                            'image' => asset('images/products/iphone-14-pro-max.png'),
                             'rating' => 5
                         ],
                         [
                             'name' => 'Apple AirPods',
-                            'image' => 'https://via.placeholder.com/150x200/FFFFFF/000000?text=AirPods',
+                            'image' => asset('images/products/airpods.png'),
                             'rating' => 5
                         ],
                         [
                             'name' => 'iPhone 14 Pro 128GB',
-                            'image' => 'https://via.placeholder.com/150x200/1D1D1F/FFFFFF?text=iPhone+14+Pro',
+                            'image' => asset('images/products/iphone-14-pro.png'),
                             'rating' => 5
                         ]
                     ];
@@ -229,19 +367,19 @@
                         [
                             'name' => 'Abebe Kebede',
                             'position' => 'CEO, Tech Solutions',
-                            'avatar' => 'https://via.placeholder.com/50x50/2563EB/FFFFFF?text=AK',
+                            'avatar' => asset('images/testimonials/client-1.jpg'),
                             'content' => 'Sky Link provided exceptional IT services that transformed our business operations. Their team is professional and delivers quality results.'
                         ],
                         [
                             'name' => 'Meron Tadesse',
                             'position' => 'CTO, Digital Agency',
-                            'avatar' => 'https://via.placeholder.com/50x50/0891B2/FFFFFF?text=MT',
+                            'avatar' => asset('images/testimonials/client-2.jpg'),
                             'content' => 'Outstanding service and support. Sky Link helped us implement modern solutions that improved our efficiency significantly.'
                         ],
                         [
                             'name' => 'Daniel Haile',
                             'position' => 'Manager, StartUp Inc',
-                            'avatar' => 'https://via.placeholder.com/50x50/10B981/FFFFFF?text=DH',
+                            'avatar' => asset('images/testimonials/client-3.jpg'),
                             'content' => 'Reliable, innovative, and customer-focused. Sky Link is our go-to partner for all IT-related needs and solutions.'
                         ]
                     ];
@@ -282,6 +420,75 @@
 @endsection
 
 @section('additional-scripts')
-    // Additional page-specific JavaScript can go here
-    console.log('Sky Link website loaded successfully');
+    // Handle floating icon clicks
+    function handleIconClick(type) {
+        switch(type) {
+            case 'phone':
+                window.location.href = 'tel:+251911123456';
+                break;
+            case 'email':
+                window.location.href = 'mailto:info@skylink.et';
+                break;
+            case 'chat':
+                alert('Chat support coming soon! Please call or email us for immediate assistance.');
+                break;
+        }
+    }
+
+    // Add animation delay for staggered entrance
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.floating-icon').forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.1}s`;
+        });
+    });
+
+    // Carousel functionality
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const servicesGrid = document.querySelector('.services-grid');
+    
+    if (prevBtn && nextBtn && servicesGrid) {
+        let currentIndex = 0;
+        const cards = servicesGrid.children;
+        const totalCards = cards.length;
+        
+        function updateCarousel() {
+            const translateX = -currentIndex * (100 / totalCards);
+            servicesGrid.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        prevBtn.addEventListener('click', function() {
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : totalCards - 1;
+            updateCarousel();
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            currentIndex = currentIndex < totalCards - 1 ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+    }
+
+    // Portfolio hover effects
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+
+    // Product card animations
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    console.log('Sky Link homepage loaded successfully');
 @endsection
