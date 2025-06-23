@@ -4,138 +4,333 @@
 @section('description', 'Leading IT services company in Ethiopia, helping businesses succeed with innovative technology solutions.')
 
 @section('additional-styles')
+
+@push('styles')
+
 <style>
-   
 
 
 
-   .hero {
+/* HERO SECTION IMAGE + TEXT ONLY */
+.hero.light-hero {
     position: relative;
-    height: 100vh;
+    min-height: 70vh; /* you can adjust this if needed */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     text-align: center;
+    color: #111; /* black text */
+    background: transparent !important; /* no background color */
     overflow: hidden;
-    background: transparent !important; /* clear any color */
+    padding: 4rem 0 2rem;
 }
 
 .hero-bg {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-    opacity: 1; /* No tint! */
+    opacity: 1; /* fully visible image */
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    padding: 2rem;
-    background: none; /* No background card */
+    max-width: 900px;
+    margin: auto;
+    padding: 1rem 2rem;
+    background: none; /* no background card */
 }
 
-.hero-content h1 {
-    color: #000;
-}
-
+.hero-content h1,
 .hero-content p {
+    color: #111; /* pure black */
+}
+
+/* Optional: Remove any residual background on merged overview */
+
+
+
+.company-overview-simple {
+    background-color:  #ffffff; /* light blue */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+    margin: 2rem auto 0;
+    z-index: 2;
+    position: relative;
+}
+
+.company-overview-simple h2 {
+    color: #0f172a; /* dark blue/gray for contrast */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.company-overview-simple p {
+    color: #1e293b; /* slate color */
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.hero-stat h3 {
+    font-size: 1.75rem;
+    color: #0284c7; /* vibrant blue */
+    font-weight: bold;
+}
+
+.hero-stat p {
+    color: #334155;
+    font-size: 1rem;
+}
+
+/* Stats no cards, just numbers/text */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.hero-stat h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111;
+}
+
+.hero-stat p {
+    font-size: 1rem;
     color: #333;
 }
 
-/* FLOATING ICONS ON TOP RIGHT */
-.hero-floating-icons {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
+
+.partners {
+    padding: 4rem 0;
+    background: #fdf6e3;
+    text-align: center;
+}
+
+.partners h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.partners-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.partners-track {
+    display: flex;
+    animation: scrollLeft 40s linear infinite;
+    gap: 3rem;
+}
+
+.partner-logo {
+    height: 100px; /* Increase logo size */
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(0%);
+    transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Animation keyframes */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .partner-logo {
+        height: 70px;
+    }
+
+    .partners-track {
+        gap: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+.services {
+    padding: 4rem 0;
+    background-color: #ffffff; /* Light background */
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #1e3a8aff;
+}
+
+.services-carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.services-carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    animation: scrollLeft 30s linear infinite;
+}
+
+.service-card {
+    
+    min-width: 50px; /* You can try 120px if needed */
+    max-width: 360px; /* Limit the max width */
+    height: 300px;
+    padding: 0.75rem;
+    background-color: #5ebdcb;
+    color: #1f2937;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    z-index: 3;
-}
-
-.floating-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    color: #2563eb;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.floating-icon:hover {
-    transform: scale(1.1);
-    background: white;
-    color: #1d4ed8;
+
+
+
+.service-card:hover {
+    transform: translateY(-6px);
+}
+.service-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #2563eb; /* Blue icon for visual consistency */
 }
 
-/* Tooltip (optional) */
-.floating-icon::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    right: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+.service-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
 
-.floating-icon:hover::before {
-    opacity: 1;
-    visibility: visible;
+.service-card p {
+    font-size: 0.85rem;
+    color: #4b5563; /* subtle gray text */
+}
+
+
+
+/* Infinite scroll */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .service-card {
+        min-width: 220px;
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+
+
+/* Scroll animation */
+@keyframes scrollServices {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .hero-floating-icons {
-        top: 1rem;
-        right: 1rem;
-    }
-
-    .floating-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-
-    .floating-icon::before {
-        display: none;
+@media (max-width: 992px) {
+    .service-card {
+        flex: 0 0 45%;
     }
 }
+
+@media (max-width: 600px) {
+    .service-card {
+        flex: 0 0 80%;
+    }
+
+    .services-carousel-track {
+        animation-duration: 25s;
+    }
+}
+
+
+
 
 
 
 
 </style>
-@endsection
+@endpush
+
+
+
 
 
 @section('content')
-    <!-- Hero Section -->
-   
-
-
-<section class="hero" id="home">
+<section class="hero light-hero" id="home">
+    <!-- Background Image -->
     <div class="hero-bg" style="background-image: url('{{ asset('assets/images/hero-bg.jpg') }}');"></div>
 
     <!-- Floating Icons -->
@@ -151,11 +346,53 @@
         </div>
     </div>
 
+    <!-- Hero Content -->
+    <div class="container hero-content">
+        <h1>{{ $heroTitle ?? 'Helping businesses succeed with the best IT services in Ethiopia' }}</h1>
+        <p>{{ $heroDescription ?? 'Discover IT solutions that drive growth and innovation for your business. We provide comprehensive technology services tailored to your needs.' }}</p>
+
+        <!-- Company Overview (merged into hero) -->
+        <div class="company-overview-simple">
+            <h2>Company Overview</h2>
+            <p>{{ $companyDescription ?? 'Sky Link is a leading IT services company in Ethiopia, dedicated to providing innovative technology solutions that help businesses thrive in the digital age. With years of experience and a team of skilled professionals, we deliver comprehensive IT services and solutions.' }}</p>
+
+            <div class="hero-stats">
+                @php
+                    $defaultStats = [
+                        ['number' => '15+', 'label' => 'Years Experience'],
+                        ['number' => '84k', 'label' => 'Happy Clients'],
+                        ['number' => '600+', 'label' => 'Projects Completed']
+                    ];
+                @endphp
+
+                @foreach($stats ?? $defaultStats as $stat)
+                    <div class="hero-stat">
+                        <h3>{{ $stat['number'] }}</h3>
+                        <p>{{ $stat['label'] }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+  <section class="partners">
     <div class="container">
-        <div class="hero-content">
-            <h1>{{ $heroTitle ?? 'Helping businesses succeed with the best IT services in Ethiopia' }}</h1>
-            <p>{{ $heroDescription ?? 'Discover IT solutions that drive growth and innovation for your business. We provide comprehensive technology services tailored to your needs.' }}</p>
-            <button class="btn-primary btn-large">More</button>
+        <h3>TRUSTED PARTNERS</h3>
+        <div class="partners-carousel">
+            <div class="partners-track">
+                @foreach([
+                    'minbertech.png', 'afar.webp', 'befan.jpg', 'betopia.webp', 'bilalul.jpg',
+                    'hayat.jpg', 'iman.webp', 'kirbgebeya.webp', 'minbertv.webp',
+                    'mirkuz.jpg', 'newleaf.webp'
+                ] as $logo)
+                    <img src="{{ asset('assets/images/' . $logo) }}" alt="Partner Logo" class="partner-logo">
+                @endforeach
+            </div>
         </div>
     </div>
 </section>
@@ -165,89 +402,42 @@
 
 
 
-
-    <!-- Company Overview -->
-    <section class="company-overview" id="about">
-        <div class="container">
-            <div class="overview-content">
-                <h2>Company overview</h2>
-                <p>{{ $companyDescription ?? 'Sky Link is a leading IT services company in Ethiopia, dedicated to providing innovative technology solutions that help businesses thrive in the digital age. With years of experience and a team of skilled professionals, we deliver comprehensive IT services and solutions.' }}</p>
-            </div>
-            <div class="stats">
-                @php
-                    $defaultStats = [
-                        ['number' => '15+', 'label' => 'Years Experience'],
-                        ['number' => '84k', 'label' => 'Happy Clients'],
-                        ['number' => '600+', 'label' => 'Projects Completed']
-                    ];
-                @endphp
-                
-                @foreach($stats ?? $defaultStats as $stat)
-                <div class="stat-item">
-                    <h3>{{ $stat['number'] }}</h3>
-                    <p>{{ $stat['label'] }}</p>
+<section class="services" id="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-carousel-wrapper">
+            <div class="services-carousel-track">
+                @foreach($services ?? $defaultServices as $service)
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="{{ $service['icon'] }}"></i>
+                    </div>
+                    <h3>{{ $service['title'] }}</h3>
+                    <p>{{ $service['description'] }}</p>
+                </div>
+                @endforeach
+                {{-- Duplicate for infinite loop effect --}}
+                @foreach($services ?? $defaultServices as $service)
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="{{ $service['icon'] }}"></i>
+                    </div>
+                    <h3>{{ $service['title'] }}</h3>
+                    <p>{{ $service['description'] }}</p>
                 </div>
                 @endforeach
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Trusted Partners -->
-    <section class="partners">
-        <div class="container">
-            <h3>TRUSTED PARTNERS</h3>
-            <div class="partners-logos">
-                <img src="{{ asset('images/partners/microsoft-logo.png') }}" alt="Microsoft" class="partner-logo">
-                <img src="{{ asset('images/partners/google-meet-logo.png') }}" alt="Google Meet" class="partner-logo">
-                <img src="{{ asset('images/partners/zoom-logo.png') }}" alt="Zoom" class="partner-logo">
-            </div>
-        </div>
-    </section>
+   
 
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-carousel">
-                <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-                <div class="services-grid">
-                    @php
-                        $defaultServices = [
-                            [
-                                'title' => 'Web Development',
-                                'description' => 'Professional web development services using modern technologies and frameworks to create responsive, user-friendly websites.',
-                                'icon' => 'fas fa-laptop-code',
-                                'featured' => false
-                            ],
-                            [
-                                'title' => 'SERVICE 1',
-                                'description' => 'Comprehensive mobile application development for iOS and Android platforms with cutting-edge features and seamless user experience.',
-                                'icon' => 'fas fa-mobile-alt',
-                                'featured' => true
-                            ],
-                            [
-                                'title' => 'Cloud Solutions',
-                                'description' => 'Scalable cloud infrastructure and migration services to help your business leverage the power of cloud computing.',
-                                'icon' => 'fas fa-cloud',
-                                'featured' => false
-                            ]
-                        ];
-                    @endphp
-                    
-                    @foreach($services ?? $defaultServices as $service)
-                    <div class="service-card {{ $service['featured'] ? 'featured' : '' }}">
-                        <div class="service-icon">
-                            <i class="{{ $service['icon'] }}"></i>
-                        </div>
-                        <h3>{{ $service['title'] }}</h3>
-                        <p>{{ $service['description'] }}</p>
-                    </div>
-                    @endforeach
-                </div>
-                <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
+
+
+
+
+    
 
     <!-- Latest News -->
     <section class="news">
@@ -316,6 +506,8 @@
         </div>
     </section>
 
+
+
     <!-- Featured Products -->
     <section class="products">
         <div class="container">
@@ -356,6 +548,9 @@
             <button class="btn-primary">View All</button>
         </div>
     </section>
+
+
+
 
     <!-- Testimonials -->
     <section class="testimonials">
@@ -419,7 +614,11 @@
     </section>
 @endsection
 
-@section('additional-scripts')
+
+
+@push('scripts')
+
+
     // Handle floating icon clicks
     function handleIconClick(type) {
         switch(type) {
@@ -491,4 +690,4 @@
     });
 
     console.log('Sky Link homepage loaded successfully');
-@endsection
+@endpush
