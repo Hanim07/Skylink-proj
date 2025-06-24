@@ -34,11 +34,13 @@
 
         /* Top Bar */
     .top-bar {
-        background: #f8f9fa;
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+        background: #ced7fa;
         padding: 8px 0;
         font-size: 13px;
-        color: #666;
-        border-bottom: 1px solid #e9ecef;
+        color: #a9b9f2;
         transition: all 0.3s ease;
     }
 
@@ -68,7 +70,7 @@
 
     .top-bar-item i {
         color: #3B82F6;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .top-bar-right {
@@ -79,7 +81,7 @@
 
     .social-icon {
         color: #666;
-        font-size: 14px;
+        font-size: 20px;
         transition: all 0.3s ease;
         text-decoration: none;
     }
@@ -94,8 +96,8 @@
         padding: 15px 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         position: sticky;
-        top: 0;
-        z-index: 1000;
+        z-index: 1020;
+        top:35px;
         transition: all 0.3s ease;
     }
 
@@ -116,7 +118,7 @@
     }
 
     .logo-img {
-    width: 50px;
+    width: 130px;
     height: 50px;
     object-fit: contain;
     border-radius: 10px;
@@ -268,435 +270,6 @@
         color: white;
     }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            margin-top: 80px;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="tech" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23tech)"/></svg>') center/cover;
-            opacity: 0.1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            color: white;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* Company Overview */
-        .company-overview {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            color: white;
-        }
-
-        .overview-content {
-            max-width: 600px;
-            margin-bottom: 3rem;
-        }
-
-        .overview-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .overview-content p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            border-left: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .stat-item:first-child {
-            border-left: none;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-
-        /* Partners */
-        .partners {
-            padding: 3rem 0;
-            background: #f8fafc;
-            text-align: center;
-        }
-
-        .partners h3 {
-            color: #64748b;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            margin-bottom: 2rem;
-        }
-
-        .partners-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .partner-logo {
-            height: 40px;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-
-        .partner-logo:hover {
-            opacity: 1;
-        }
-
-        /* Services */
-        .services {
-            padding: 5rem 0;
-            background: #f8fafc;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .services-carousel {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .carousel-btn {
-            background: #2563eb;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .carousel-btn:hover {
-            background: #1d4ed8;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            flex: 1;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card.featured {
-            background: #0891b2;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: #e0f2fe;
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: #0891b2;
-        }
-
-        .service-card.featured .service-icon {
-            background: rgba(255,255,255,0.2);
-            color: white;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        .service-card.featured p {
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* News */
-        .news {
-            padding: 5rem 0;
-        }
-
-        .news h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .news-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-        }
-
-        .news-date {
-            color: #0891b2;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .news-content h3 {
-            font-size: 1.3rem;
-            margin: 0.5rem 0;
-            color: #1e293b;
-        }
-
-        .news-content p {
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* Portfolio */
-        .portfolio {
-            padding: 5rem 0;
-            background: #f8fafc;
-        }
-
-        .portfolio h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .portfolio-item {
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        /* Products */
-        .products {
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .products h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .product-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        .product-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
-        }
-
-        .rating {
-            color: #fbbf24;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 0;
-            background: #f8fafc;
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-header img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .testimonial-header h4 {
-            color: #1e293b;
-            margin-bottom: 0.25rem;
-        }
-
-        .testimonial-header span {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        .testimonial-card p {
-            color: #64748b;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
-            text-align: center;
-        }
-
-        .newsletter-content h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
         /* Footer */
         .footer {
             background-color: #f8f9fa;
@@ -747,71 +320,117 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav {
-                display: none;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .carousel-btn {
-                display: none;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat-item {
-                border-left: none;
-                border-top: 2px solid rgba(255,255,255,0.3);
-            }
-            
-            .stat-item:first-child {
-                border-top: none;
-            }
-            
-            .partners-logos {
-                gap: 1.5rem;
-            }
-            
-            .news-grid,
-            .portfolio-grid,
-            .products-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-nav {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: flex-start !important;
+    }
+
+    .mega-dropdown-menu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding: 20px 0;
+        display: none;
+    }
+
+    .mega-dropdown:hover .mega-dropdown-menu {
+        display: block;
+    }
+
+    .btn-get-started {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+        
+        .top-bar-left{
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            gap: 10px;
+        }
+        .navbar-custom {
+            top:95px;
+
+        }
+        .navbar-collapse {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-            }
-            
-            .overview-content h2,
-            .services h2,
-            .news h2,
-            .portfolio h2,
-            .products h2,
-            .testimonials h2,
-            .newsletter-content h2 {
-                font-size: 2rem;
-            }
+        .navbar-nav {
+            flex-direction: column !important;
+            gap: 5px !important;
+            align-items: flex-start !important;
         }
+
+        .mega-dropdown-menu {
+            position: static;
+            width: 50%;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            padding: 20px 0;
+            display: none;
+        }
+        .mega-dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .mega-dropdown-section h6 {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .mega-dropdown-item {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+
+        .mega-dropdown:hover .mega-dropdown-menu {
+            display: block;
+        }
+
+        .btn-get-started {
+            margin-top: 1rem;
+            width: 50%;
+            text-align: center;
+        }
+    }
+    @media (max-width: 668px) {
+    .mega-dropdown-grid {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: 20px;
+    }
+
+    .mega-dropdown-section h6 {
+        font-size: 12px;
+    }
+
+    .mega-dropdown-item {
+        font-size: 13px;
+    }
+}
+
 
         @yield('additional-styles')
     </style>
@@ -826,11 +445,11 @@
             <div class="top-bar-left">
                 <div class="top-bar-item">
                     <i class="far fa-clock"></i>
-                    <span>Mon - Fri 08:00 - 18:00 / Sunday 8:00 - 14:00</span>
+                    <span>Mon - Fri 03:00 - 11:00 </span>
                 </div>
                 <div class="top-bar-item">
                     <i class="fas fa-phone"></i>
-                    <span>+90 (555) 123 45 67</span>
+                    <span>+251911027667</span>
                 </div>
                 <div class="top-bar-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -841,7 +460,7 @@
                 <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
             </div>
         </div>
     </div>
@@ -863,13 +482,14 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#about">About Us</a>
+                            <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About Us</a>
                         </li>
+
                         <li class="nav-item mega-dropdown">
-                            <a class="nav-link" href="#services">Services</a>
+                            <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>    
                             <div class="mega-dropdown-menu">
                                 <div class="mega-dropdown-content">
                                     <div class="mega-dropdown-grid">
@@ -938,7 +558,7 @@
                             </div>
                         </li>
                         <li class="nav-item mega-dropdown">
-                            <a class="nav-link" href="#products">Products</a>
+                            <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('portfolio') }}">Products</a>
                             <div class="mega-dropdown-menu">
                                 <div class="mega-dropdown-content">
                                     <div class="mega-dropdown-grid">
@@ -1007,10 +627,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#projects">Projects</a>
+                            <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact Us</a>
+                            <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
                         </li>
                     </ul>
                     
@@ -1027,54 +647,66 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="logo mb-3">
-                        sky link
-                        <small style="display: block; font-size: 12px; font-weight: normal;">TECHNOLOGIES</small>
-                    </div>
-                    <p>Desires to obtain pain of itself because pain, but occasionally circumstances.</p>
-                    <div class="social-footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="logo mb-3">
+                    <a href="/" class="d-flex align-items-center text-decoration-none">
+                        <img src="{{ asset('assets/images/skylink-48a05ef2.svg') }}" alt="Skylink Logo" class="logo-img me-2">
+                    </a>
                 </div>
-                <div class="col-lg-3">
-                    <h5>Page Link</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog Page</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Services</h5>
-                    <ul>
-                        <li><a href="#">Cyber Security</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">AI Software</a></li>
-                        <li><a href="#">Content Writing</a></li>
-                        <li><a href="#">UI Design</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Contact</h5>
-                    <p>89 Brooklyn Street, 600 New York, USA</p>
-                    <p><i class="fas fa-globe"></i> www.yourwebsite.com</p>
-                    <p><i class="fas fa-envelope"></i> example@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 555-555-0184</p>
+                <p>
+                    Skylink Technologies specializes in delivering reliable software, cybersecurity, and digital transformation services to businesses across sectors.
+                </p>
+                <div class="social-footer">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2023 Skylink | Powered By</p>
+
+            <!-- Column 2 -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ route('about') }}">About Us</a></li>
+                    <li><a href="{{ route('services') }}">Services</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="#">Cyber Security</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">AI Software</a></li>
+                    <li><a href="#">Content Writing</a></li>
+                    <li><a href="#">UI Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <h5>Contact</h5>
+                <p>Addis Ababa Bole, Tropical Mall</p>
+                <p><i class="fas fa-globe"></i> www.skylincict.com</p>
+                <p><i class="fas fa-envelope"></i> info@skylinkict.com</p>
+                <p><i class="fas fa-phone"></i> +251911027667</p>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom text-center pt-3">
+            <p>Copyright © 2023 Skylink | Powered By Skylink Technologies</p>
+        </div>
+    </div>
+</footer>
+
 
     <!-- JavaScript -->
     <script>
@@ -1144,6 +776,8 @@
             @yield('additional-scripts')
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     
     @stack('scripts')
 </body>
