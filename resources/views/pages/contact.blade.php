@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Sky Link Technologies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+@extends('layouts.master')
+
+@section('title', 'Sky Link - IT Services in Ethiopia')
+@section('description', 'Leading IT services company in Ethiopia, helping businesses succeed with innovative technology solutions.')
+
+@section('additional-styles')
+
+@push('styles')
+
     <style>
         :root {
             --primary-blue: #4285f4;
@@ -17,81 +18,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        /* Top Bar */
-        .top-bar {
-            background-color: #f8f9fa;
-            padding: 8px 0;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .top-bar .contact-info {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .top-bar .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .top-bar .social-icons a {
-            color: #666;
-            font-size: 16px;
-            text-decoration: none;
-        }
-
-        /* Header */
-        .header {
-            background: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-blue);
-        }
-
-        .logo::before {
-            content: '';
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, var(--primary-blue), #1976d2);
-            margin-right: 10px;
-            border-radius: 8px;
-        }
-
-        .navbar-nav .nav-link {
-            color: #333 !important;
-            font-weight: 500;
-            margin: 0 15px;
-            position: relative;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-blue) !important;
-        }
-
-        .btn-get-started {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            border: none;
-        }
-
-        .btn-get-started:hover {
-            background-color: #1976d2;
-            color: white;
         }
 
         /* Contact Hero Section */
@@ -229,110 +155,8 @@
             position: relative;
         }
 
-        /* Footer */
-        .footer {
-            background-color: #f8f9fa;
-            padding: 60px 0 30px;
-        }
-
-        .footer h5 {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer ul li a {
-            color: #666;
-            text-decoration: none;
-        }
-
-        .footer ul li a:hover {
-            color: var(--primary-blue);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-            margin-top: 40px;
-            text-align: center;
-            color: #666;
-        }
-
-        .social-footer {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-footer a {
-            color: #666;
-            font-size: 18px;
-        }
     </style>
-</head>
-<body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="contact-info">
-                        <span><i class="fas fa-phone"></i> Mon - Fri (8:00) - 18:00 / Sunday 8:00 - 14:00</span>
-                        <span><i class="fas fa-phone"></i> +62 (305) 23 48 67</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Addis Ababa, Bole Tropical Mall No. 217</span>
-                    </div>
-                </div>
-                <div class="col-md-4 text-end">
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <div class="logo">
-                    sky link
-                    <small style="display: block; font-size: 12px; font-weight: normal;">TECHNOLOGIES</small>
-                </div>
-                
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Products</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Contact Us</a></li>
-                    </ul>
-                    <button class="btn-get-started">Get Started</button>
-                </div>
-            </nav>
-        </div>
-    </header>
+@section('content')
 
     <!-- Contact Hero -->
     <section class="contact-hero">
@@ -482,6 +306,10 @@
         </div>
     </footer>
 
+@endsection
+
+@push('scripts')
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Form submission handling
@@ -545,5 +373,5 @@
             });
         });
     </script>
-</body>
-</html>
+    
+@endpush
