@@ -12,125 +12,115 @@
 
 
 /* HERO SECTION IMAGE + TEXT ONLY */
-.hero.light-hero {
-    position: relative;
-    min-height: 70vh; /* you can adjust this if needed */
+/* Hero Section */
+.hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: #111; /* black text */
-    background: transparent !important; /* no background color */
+    position: relative;
+    min-height: 100vh;
+    margin-top: 80px;
     overflow: hidden;
-    padding: 4rem 0 2rem;
+    text-align: center;
+    color: #111;
+    background: transparent;
 }
 
 .hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     z-index: 1;
-    opacity: 1; /* fully visible image */
+}
+
+.hero-floating-icons {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.floating-icon {
+    background: #0284c7;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+}
+
+.floating-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #334155;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.floating-icon:hover::after {
+    opacity: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     max-width: 900px;
-    margin: auto;
-    padding: 1rem 2rem;
-    background: none; /* no background card */
+    padding: 2rem;
 }
 
 .hero-content h1,
 .hero-content p {
-    color: #111; /* pure black */
-}
-
-/* Optional: Remove any residual background on merged overview */
-
-
-
-.company-overview-simple {
-    background-color:  #ffffff; /* light blue */
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    max-width: 900px;
-    margin: 2rem auto 0;
-    z-index: 2;
-    position: relative;
-}
-
-.company-overview-simple h2 {
-    color: #0f172a; /* dark blue/gray for contrast */
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.company-overview-simple p {
-    color: #1e293b; /* slate color */
-    font-size: 1rem;
-    line-height: 1.6;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.hero-stat {
-    text-align: center;
-}
-
-.hero-stat h3 {
-    font-size: 1.75rem;
-    color: #0284c7; /* vibrant blue */
-    font-weight: bold;
-}
-
-.hero-stat p {
-    color: #334155;
-    font-size: 1rem;
-}
-
-/* Stats no cards, just numbers/text */
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.hero-stat {
-    text-align: center;
-}
-
-.hero-stat h3 {
-    font-size: 2rem;
-    font-weight: bold;
     color: #111;
 }
 
+.company-overview-simple {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hero-stat h3 {
+    font-size: 2.5rem;
+    color: #0284c7;
+    font-weight: bold;
+}
+
 .hero-stat p {
     font-size: 1rem;
-    color: #333;
+    color: #334155;
 }
 
 
+/* Partners */
 .partners {
     padding: 4rem 0;
     background: #fdf6e3;
@@ -156,10 +146,8 @@
 }
 
 .partner-logo {
-    height: 100px; /* Increase logo size */
-    width: auto;
+    height: 100px;
     object-fit: contain;
-    filter: grayscale(0%);
     transition: transform 0.3s ease;
 }
 
@@ -167,50 +155,22 @@
     transform: scale(1.1);
 }
 
-/* Animation keyframes */
 @keyframes scrollLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .partner-logo {
-        height: 70px;
-    }
-
-    .partners-track {
-        gap: 2rem;
-    }
-}
-
-
-
-
-
-
-
-
+/* Services */
 .services {
     padding: 4rem 0;
-    background-color: #ffffff; /* Light background */
+    background-color: #ffffff;
     text-align: center;
 }
 
 .services h2 {
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    color: #1e3a8aff;
-}
-
-.services-carousel-wrapper {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
+    color: #1e3a8a;
 }
 
 .services-carousel-track {
@@ -220,16 +180,14 @@
 }
 
 .service-card {
-    
-    min-width: 50px; /* You can try 120px if needed */
-    max-width: 360px; /* Limit the max width */
+    min-width: 250px;
+    max-width: 360px;
     height: 300px;
     padding: 0.75rem;
     background-color: #5ebdcb;
     color: #1f2937;
     border-radius: 0.75rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-    flex-shrink: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -237,16 +195,14 @@
     transition: transform 0.3s ease;
 }
 
-
-
-
 .service-card:hover {
     transform: translateY(-6px);
 }
+
 .service-icon {
     font-size: 1.6rem;
     margin-bottom: 0.5rem;
-    color: #2563eb; /* Blue icon for visual consistency */
+    color: #2563eb;
 }
 
 .service-card h3 {
@@ -257,59 +213,43 @@
 
 .service-card p {
     font-size: 0.85rem;
-    color: #4b5563; /* subtle gray text */
+    color: #4b5563;
 }
 
-
-
-/* Infinite scroll */
-@keyframes scrollLeft {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+/* News Section */
+.news-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    overflow: hidden;
+    width: 300px;
+    margin: 1rem;
 }
 
-/* Responsive tweaks */
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px 10px 0 0;
+}
+
+.news-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+    .partner-logo {
+        height: 70px;
+    }
     .service-card {
         min-width: 220px;
         padding: 1.5rem;
     }
-
-    .service-icon {
-        font-size: 1.8rem;
-    }
-}
-
-
-
-
-
-/* Scroll animation */
-@keyframes scrollServices {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .service-card {
-        flex: 0 0 45%;
-    }
-}
-
-@media (max-width: 600px) {
-    .service-card {
-        flex: 0 0 80%;
-    }
-
     .services-carousel-track {
         animation-duration: 25s;
     }
@@ -318,17 +258,14 @@
 
 
 
-
-
-
 </style>
+
+
 @endpush
 
-
-
-
-
 @section('content')
+
+
 <section class="hero light-hero" id="home">
     <!-- Background Image -->
     <div class="hero-bg" style="background-image: url('{{ asset('assets/images/hero-bg.jpg') }}');"></div>
@@ -348,26 +285,26 @@
 
     <!-- Hero Content -->
     <div class="container hero-content">
-        <h1>{{ $heroTitle ?? 'Helping businesses succeed with the best IT services in Ethiopia' }}</h1>
-        <p>{{ $heroDescription ?? 'Discover IT solutions that drive growth and innovation for your business. We provide comprehensive technology services tailored to your needs.' }}</p>
+        <h1 data-aos="fade-up">{{ $heroTitle ?? 'Helping businesses succeed with the best IT services in Ethiopia' }}</h1>
+        <p data-aos="fade-up" data-aos-delay="150">{{ $heroDescription ?? 'Discover IT solutions that drive growth and innovation for your business.' }}</p>
 
-        <!-- Company Overview (merged into hero) -->
-        <div class="company-overview-simple">
+        <!-- Company Overview -->
+        <div class="company-overview-simple" data-aos="zoom-in">
             <h2>Company Overview</h2>
-            <p>{{ $companyDescription ?? 'Sky Link is a leading IT services company in Ethiopia, dedicated to providing innovative technology solutions that help businesses thrive in the digital age. With years of experience and a team of skilled professionals, we deliver comprehensive IT services and solutions.' }}</p>
+            <p>{{ $companyDescription ?? 'Sky Link is a leading IT services company in Ethiopia, dedicated to delivering solutions that help businesses thrive in the digital age.' }}</p>
 
             <div class="hero-stats">
                 @php
                     $defaultStats = [
-                        ['number' => '15+', 'label' => 'Years Experience'],
-                        ['number' => '84k', 'label' => 'Happy Clients'],
-                        ['number' => '600+', 'label' => 'Projects Completed']
+                        ['number' => 15, 'label' => 'Years Experience'],
+                        ['number' => 84000, 'label' => 'Happy Clients'],
+                        ['number' => 600, 'label' => 'Projects Completed']
                     ];
                 @endphp
 
                 @foreach($stats ?? $defaultStats as $stat)
                     <div class="hero-stat">
-                        <h3>{{ $stat['number'] }}</h3>
+                        <h3 class="counter" data-target="{{ $stat['number'] }}">0</h3>
                         <p>{{ $stat['label'] }}</p>
                     </div>
                 @endforeach
@@ -375,7 +312,6 @@
         </div>
     </div>
 </section>
-
 
 
 
@@ -440,46 +376,55 @@
     
 
     <!-- Latest News -->
-    <section class="news">
-        <div class="container">
-            <h2>Latest News</h2>
-            <div class="news-grid">
-                @php
-                    $defaultNews = [
-                        [
-                            'title' => 'How to Start a Career in Tech',
-                            'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
-                            'date' => 'Dec 15, 2024',
-                            'image' => asset('images/news/tech-career.jpg')
-                        ],
-                        [
-                            'title' => 'How to Start a Career in Tech',
-                            'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
-                            'date' => 'Dec 12, 2024',
-                            'image' => asset('images/news/tech-trends.jpg')
-                        ],
-                        [
-                            'title' => 'How to Start a Career in Tech',
-                            'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
-                            'date' => 'Dec 10, 2024',
-                            'image' => asset('images/news/digital-transform.jpg')
-                        ]
-                    ];
-                @endphp
-                
-                @foreach($news ?? $defaultNews as $article)
+   <section class="news">
+    <div class="container">
+        <h2>Latest News</h2>
+        <div class="news-grid">
+            @php
+                $defaultNews = [
+                    [
+                        'title' => 'How to Start a Career in Tech',
+                        'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
+                        'date' => 'Dec 15, 2024',
+                       'image' => 'assets/images/news1.jpg'  ],
+
+                    [
+                        'title' => 'How to Start a Career in Tech',
+                        'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
+                        'date' => 'Dec 12, 2024',
+                       'image' => 'assets/images/news2.jpg' ],
+                    [
+                        'title' => 'How to Start a Career in Tech',
+                        'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry...',
+                        'date' => 'Dec 10, 2024',
+                       'image' => 'assets/images/news3.jpg'
+                   ]
+                ];
+            @endphp
+
+            @foreach($news ?? $defaultNews as $article)
                 <article class="news-card">
-                    <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}">
+                    <img src="{{ asset($article['image']) }}" alt="{{ $article['title'] }}" style="width: 100%; height: auto;">
                     <div class="news-content">
                         <span class="news-date">{{ $article['date'] }}</span>
                         <h3>{{ $article['title'] }}</h3>
                         <p>{{ $article['excerpt'] }}</p>
                     </div>
                 </article>
-                @endforeach
-            </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 
     <!-- Featured Portfolio -->
     <section class="portfolio" id="portfolio">
@@ -488,12 +433,12 @@
             <div class="portfolio-grid">
                 @php
                     $portfolioImages = [
-                        asset('images/portfolio/ecommerce-platform.jpg'),
-                        asset('images/portfolio/mobile-app.jpg'),
-                        asset('images/portfolio/cloud-solution.jpg'),
-                        asset('images/portfolio/healthcare-system.jpg'),
-                        asset('images/portfolio/analytics-dashboard.jpg'),
-                        asset('images/portfolio/iot-solution.jpg')
+                        asset('assets/images/portfolioafar.webp' ),
+                        asset('assets/images/portfoliobilalul.webp' ),
+                        asset('assets/images/portfolioelida.webp' ),
+                        asset('assets/images/portfoliokirb.webp' ),
+                        asset('assets/images/portfolio5.jpg' ),
+                        asset('assets/images/portfolio6.jpg' )
                     ];
                 @endphp
                 
@@ -517,17 +462,17 @@
                     $defaultProducts = [
                         [
                             'name' => 'iPhone 14 Pro Max 256GB',
-                            'image' => asset('images/products/iphone-14-pro-max.png'),
+                            'image' => asset('assets/images/products/software.png'),
                             'rating' => 5
                         ],
                         [
                             'name' => 'Apple AirPods',
-                            'image' => asset('images/products/airpods.png'),
+                            'image' => asset('assets/images/products/cecurity.jpg'),
                             'rating' => 5
                         ],
                         [
                             'name' => 'iPhone 14 Pro 128GB',
-                            'image' => asset('images/products/iphone-14-pro.png'),
+                            'image' => asset('assets/images/products/erp.jpg'),
                             'rating' => 5
                         ]
                     ];
@@ -559,24 +504,24 @@
             <div class="testimonials-grid">
                 @php
                     $defaultTestimonials = [
-                        [
-                            'name' => 'Abebe Kebede',
-                            'position' => 'CEO, Tech Solutions',
-                            'avatar' => asset('images/testimonials/client-1.jpg'),
-                            'content' => 'Sky Link provided exceptional IT services that transformed our business operations. Their team is professional and delivers quality results.'
-                        ],
-                        [
-                            'name' => 'Meron Tadesse',
-                            'position' => 'CTO, Digital Agency',
-                            'avatar' => asset('images/testimonials/client-2.jpg'),
-                            'content' => 'Outstanding service and support. Sky Link helped us implement modern solutions that improved our efficiency significantly.'
-                        ],
-                        [
-                            'name' => 'Daniel Haile',
-                            'position' => 'Manager, StartUp Inc',
-                            'avatar' => asset('images/testimonials/client-3.jpg'),
-                            'content' => 'Reliable, innovative, and customer-focused. Sky Link is our go-to partner for all IT-related needs and solutions.'
-                        ]
+                         [
+                    'name' => 'Abebe Kebede',
+                    'position' => 'CEO, Tech Solutions Ethiopia',
+                    'avatar' => asset('assets/images/clients/client1.jpg'),
+                    'content' => 'Sky Link provided exceptional IT services that transformed our business operations. Their team is professional and delivers quality results on time.'
+                ],
+                [
+                    'name' => 'Meron Tadesse',
+                    'position' => 'CTO, Digital Innovations',
+                    'avatar' => asset('assets/images/clients/client2.jpg'),
+                    'content' => 'Outstanding service and support. Sky Link helped us implement modern solutions that improved our efficiency and productivity significantly.'
+                ],
+                [
+                    'name' => 'Daniel Haile',
+                    'position' => 'Manager, StartUp Ethiopia',
+                    'avatar' => asset('assets/images/clients/client3.jpg'),
+                    'content' => 'Reliable, innovative, and customer-focused. Sky Link is our go-to partner for all IT-related needs and digital transformation solutions.'
+                ]
                     ];
                 @endphp
                 
@@ -616,78 +561,44 @@
 
 
 
+
+
+
+
 @push('scripts')
 
 
-    // Handle floating icon clicks
+<script>
+    function animateCounter(counter) {
+        const target = +counter.dataset.target;
+        const speed = 200;
+        const step = Math.ceil(target / speed);
+
+        const update = () => {
+            const value = +counter.innerText;
+            if (value < target) {
+                counter.innerText = Math.min(value + step, target);
+                requestAnimationFrame(update);
+            } else {
+                counter.innerText = target.toLocaleString();
+            }
+        };
+        update();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll('.counter').forEach(animateCounter);
+    });
+
     function handleIconClick(type) {
-        switch(type) {
-            case 'phone':
-                window.location.href = 'tel:+251911123456';
-                break;
-            case 'email':
-                window.location.href = 'mailto:info@skylink.et';
-                break;
-            case 'chat':
-                alert('Chat support coming soon! Please call or email us for immediate assistance.');
-                break;
+        if (type === 'phone') {
+            window.location.href = 'tel:+251911234567';
+        } else if (type === 'email') {
+            window.location.href = 'mailto:info@skylink.com';
+        } else if (type === 'chat') {
+            alert('Chat support coming soon!');
         }
     }
+</script>
 
-    // Add animation delay for staggered entrance
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.floating-icon').forEach((icon, index) => {
-            icon.style.animationDelay = `${index * 0.1}s`;
-        });
-    });
-
-    // Carousel functionality
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    const servicesGrid = document.querySelector('.services-grid');
-    
-    if (prevBtn && nextBtn && servicesGrid) {
-        let currentIndex = 0;
-        const cards = servicesGrid.children;
-        const totalCards = cards.length;
-        
-        function updateCarousel() {
-            const translateX = -currentIndex * (100 / totalCards);
-            servicesGrid.style.transform = `translateX(${translateX}%)`;
-        }
-        
-        prevBtn.addEventListener('click', function() {
-            currentIndex = currentIndex > 0 ? currentIndex - 1 : totalCards - 1;
-            updateCarousel();
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            currentIndex = currentIndex < totalCards - 1 ? currentIndex + 1 : 0;
-            updateCarousel();
-        });
-    }
-
-    // Portfolio hover effects
-    document.querySelectorAll('.portfolio-item').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
-
-    // Product card animations
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-
-    console.log('Sky Link homepage loaded successfully');
 @endpush

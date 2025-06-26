@@ -342,7 +342,7 @@
                             'id' => 1,
                             'title' => 'Bijlalul Habeshi Virtual Tutor',
                             'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => 'https://via.placeholder.com/280x200/1f2937/FFFFFF?text=Virtual+Tutor',
+                            'image' => asset('assets/images/portfolioafar.webp'),
                             'category' => 'web',
                             'tags' => ['education', 'virtual tutor', 'web development'],
                             'link' => '#'
@@ -351,7 +351,7 @@
                             'id' => 2,
                             'title' => 'Elida Ethiopia',
                             'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => 'https://via.placeholder.com/280x200/10b981/FFFFFF?text=Elida+Ethiopia',
+                            'image' => asset('assets/images/portfoliobilalul.webp'),
                             'category' => 'ecommerce',
                             'tags' => ['e-commerce', 'ethiopia', 'online store'],
                             'link' => '#'
@@ -360,7 +360,7 @@
                             'id' => 3,
                             'title' => 'Kirb Gebeya',
                             'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => 'https://via.placeholder.com/280x200/ef4444/FFFFFF?text=Kirb+Gebeya',
+                            'image' => asset('assets/images/portfolioelida.webp'),
                             'category' => 'ecommerce',
                             'tags' => ['marketplace', 'gebeya', 'e-commerce'],
                             'link' => '#'
@@ -369,7 +369,7 @@
                             'id' => 4,
                             'title' => 'Afar Website',
                             'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => 'https://via.placeholder.com/280x200/8b5cf6/FFFFFF?text=Afar+Website',
+                            'image' => asset('assets/images/portfoliokirb.webp'),
                             'category' => 'web',
                             'tags' => ['tourism', 'afar', 'website'],
                             'link' => '#'
@@ -378,7 +378,7 @@
                             'id' => 5,
                             'title' => 'Real State Management System',
                             'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => 'https://via.placeholder.com/280x200/06b6d4/FFFFFF?text=Real+Estate',
+                            'image' => asset('assets/images/portfolio5.jpg'),
                             'category' => 'management',
                             'tags' => ['real estate', 'management', 'system'],
                             'link' => '#'

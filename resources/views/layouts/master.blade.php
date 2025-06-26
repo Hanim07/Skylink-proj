@@ -296,6 +296,33 @@
         color: white;
     }
 
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /* Footer */
         .footer {
             background-color: #f8f9fa;
