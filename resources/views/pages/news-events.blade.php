@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News and Events - Sky Link</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+@extends('layouts.master')
+
+@section('title', 'Sky Link - IT Services in Ethiopia')
+@section('description', 'Leading IT services company in Ethiopia, helping businesses succeed with innovative technology solutions.')
+
+@section('additional-styles')
+
+@push('styles')
     <style>
         :root {
             --primary-color: #2563eb;
@@ -15,43 +15,6 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .navbar {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--primary-color) !important;
-        }
-
-        .navbar-nav .nav-link {
-            color: #333 !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .btn-get-started {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .btn-get-started:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
         }
 
         .hero-section {
@@ -235,128 +198,10 @@
             border-color: var(--primary-color);
         }
 
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 50px 0 20px;
-            margin-top: 80px;
-        }
-
-        .footer h5 {
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer ul li a:hover {
-            color: white;
-        }
-
-        .social-icons a {
-            color: #bdc3c7;
-            font-size: 1.2rem;
-            margin-right: 15px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--secondary-color);
-        }
-
-        .top-bar {
-            background: #34495e;
-            color: white;
-            padding: 8px 0;
-            font-size: 0.9rem;
-        }
-
-        .top-bar a {
-            color: white;
-            text-decoration: none;
-        }
     </style>
-</head>
-<body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <span><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</span>
-                    <span class="ms-4"><i class="fas fa-envelope me-2"></i>info@skylink.com</span>
-                    <span class="ms-4"><i class="fas fa-map-marker-alt me-2"></i>123 Business Ave, Suite 100</span>
-                </div>
-                <div class="col-md-4 text-end">
-                    <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="me-3"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+@endpush
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-link me-2"></i>sky link
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Web Design</a></li>
-                            <li><a class="dropdown-item" href="#">Web Development</a></li>
-                            <li><a class="dropdown-item" href="#">App Development</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Products
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Software Solutions</a></li>
-                            <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Us</a>
-                    </li>
-                </ul>
-                <button class="btn btn-get-started">Get Started</button>
-            </div>
-        </div>
-    </nav>
+@section('content')
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -511,57 +356,9 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="mb-4">
-                        <h4><i class="fas fa-link me-2"></i>sky link</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</p>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Page Link</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog Page</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Services</h5>
-                    <ul>
-                        <li><a href="#">Cyber Security</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">AI Software</a></li>
-                        <li><a href="#">Content Writing</a></li>
-                        <li><a href="#">UI Design</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Contact</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>123 Business Street, Suite 100 New York, USA</p>
-                    <p><i class="fas fa-envelope me-2"></i>www.yourwebsite.com</p>
-                    <p><i class="fas fa-envelope me-2"></i>example@gmail.com</p>
-                    <p><i class="fas fa-phone me-2"></i>200-456-7890</p>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="text-center">
-                <p>&copy; 2024 SkyLink | Powered by SkyLink</p>
-            </div>
-        </div>
-    </footer>
+    
+@endsection
+@push('scripts')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -634,5 +431,5 @@
             return new bootstrap.Tooltip(tooltipTriggerEl);
         });
     </script>
-</body>
-</html>
+    
+@endpush

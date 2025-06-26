@@ -529,18 +529,10 @@
         .awards-grid {
             grid-template-columns: repeat(2, 1fr);
         }
-
-        .footer-content {
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
     }
 
     @media (max-width: 768px) {
-        .navbar-nav {
-            display: none;
-        }
-
+   
         .hero-title {
             font-size: 36px;
         }
@@ -564,10 +556,6 @@
             grid-template-columns: 1fr;
         }
 
-        .footer-content {
-            grid-template-columns: 1fr;
-        }
-    }
 </style>
 @section('content')
 

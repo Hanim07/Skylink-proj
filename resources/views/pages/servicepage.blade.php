@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sky Link - Top Tech Services</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+@extends('layouts.master')
+
+@section('title', 'Sky Link - IT Services in Ethiopia')
+@section('description', 'Leading IT services company in Ethiopia, helping businesses succeed with innovative technology solutions.')
+
+@section('additional-styles')
+
+@push('styles')
 <style>
     * {
         margin: 0;
@@ -19,257 +18,6 @@
         line-height: 1.6;
         color: #333;
         overflow-x: hidden;
-    }
-
-    /* Top Bar */
-    .top-bar {
-        background: #f8f9fa;
-        padding: 8px 0;
-        font-size: 13px;
-        color: #666;
-        border-bottom: 1px solid #e9ecef;
-        transition: all 0.3s ease;
-    }
-
-    .top-bar.hidden {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    .top-bar-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .top-bar-left {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .top-bar-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #666;
-    }
-
-    .top-bar-item i {
-        color: #3B82F6;
-        font-size: 12px;
-    }
-
-    .top-bar-right {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .social-icon {
-        color: #666;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-    }
-
-    .social-icon:hover {
-        color: #3B82F6;
-    }
-
-    /* Main Navbar */
-    .navbar-custom {
-        background: white;
-        padding: 15px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-
-    .navbar-custom.scrolled {
-        padding: 10px 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .navbar-brand {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #333 !important;
-    }
-
-    .navbar-brand:hover {
-        color: #333 !important;
-    }
-
-    .logo-icon {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, #3B82F6, #1E40AF);
-        border-radius: 8px;
-        margin-right: 12px;
-        position: relative;
-        transform: rotate(-15deg);
-    }
-
-    .logo-icon::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 20px;
-        height: 20px;
-        background: white;
-        border-radius: 3px;
-        transform: translate(-50%, -50%) rotate(45deg);
-    }
-
-    .logo-text {
-        display: flex;
-        flex-direction: column;
-        line-height: 1;
-    }
-
-    .logo-main {
-        font-size: 24px;
-        font-weight: 700;
-        color: #333;
-    }
-
-    .logo-sub {
-        font-size: 10px;
-        font-weight: 400;
-        color: #666;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
-    .navbar-nav {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .nav-link {
-        color: #333 !important;
-        font-weight: 500;
-        font-size: 15px;
-        text-decoration: none;
-        position: relative;
-        padding: 8px 0;
-        transition: all 0.3s ease;
-    }
-
-    .nav-link:hover {
-        color: #3B82F6 !important;
-    }
-
-    .nav-link.active {
-        color: #333 !important;
-        font-weight: 600;
-    }
-
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: #3B82F6;
-    }
-
-    /* Apple-style Full Width Dropdown */
-    .nav-item.mega-dropdown {
-        position: static;
-    }
-
-    .mega-dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100vw;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border: none;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        padding: 40px 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        z-index: 999;
-    }
-
-    .mega-dropdown:hover .mega-dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-
-    .mega-dropdown-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .mega-dropdown-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-    }
-
-    .mega-dropdown-section h6 {
-        font-size: 14px;
-        font-weight: 600;
-        color: #666;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .mega-dropdown-item {
-        display: block;
-        padding: 12px 0;
-        color: #333;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        border-bottom: 1px solid transparent;
-    }
-
-    .mega-dropdown-item:hover {
-        color: #3B82F6;
-        transform: translateX(10px);
-        border-bottom-color: #3B82F6;
-    }
-
-    .mega-dropdown-item i {
-        margin-right: 10px;
-        width: 20px;
-        color: #3B82F6;
-    }
-
-    .btn-get-started {
-        background: linear-gradient(135deg, #3B82F6, #1E40AF);
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn-get-started:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-        color: white;
     }
 
     /* Hero Section */
@@ -882,46 +630,6 @@
         box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
     }
 
-    /* Footer */
-    .footer {
-        background:rgb(226, 223, 223);
-        color: white;
-        padding: 60px 0 30px;
-    }
-
-    .footer h5 {
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: rgb(0, 0, 0);
-    }
-
-    .footer a {
-        color: #4d5051;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: block;
-        margin-bottom: 8px;
-    }
-
-    .footer a:hover {
-        color: #3B82F6;
-        transform: translateX(5px);
-    }
-
-    .footer-social a {
-        display: inline-block;
-        margin-right: 15px;
-        font-size: 1.2rem;
-    }
-
-    .footer-bottom {
-        border-top: 1px solid #333;
-        margin-top: 40px;
-        padding-top: 20px;
-        text-align: center;
-        color: #ccc;
-    }
-
     /* Animations */
     .fade-in {
         opacity: 0;
@@ -936,9 +644,6 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-        .top-bar {
-            display: none;
-        }
         
         .hero-title {
             font-size: 32px;
@@ -949,11 +654,7 @@
         .hero-social-icons {
             display: none;
         }
-        
-        .navbar-nav {
-            display: none;
-        }
-        
+ 
         .search-container {
             max-width: 100%;
         }
@@ -961,10 +662,6 @@
         .contact-info {
             padding-right: 0;
             margin-bottom: 40px;
-        }
-
-        .mega-dropdown-menu {
-            display: none !important;
         }
 
         .testimonial-card {
@@ -994,14 +691,6 @@
             height: 400px;
         }
 
-        .navbar-nav {
-            gap: 20px;
-        }
-
-        .mega-dropdown-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
         .testimonial-card {
             min-width: 320px;
             max-width: 320px;
@@ -1012,209 +701,9 @@
         }
     }
 </style>
-</head>
-<body>
-<!-- Top Bar -->
-<div class="top-bar" id="topBar">
-    <div class="container">
-        <div class="top-bar-content">
-            <div class="top-bar-left">
-                <div class="top-bar-item">
-                    <i class="far fa-clock"></i>
-                    <span>Mon - Fri 08:00 - 18:00 / Sunday 8:00 - 14:00</span>
-                </div>
-                <div class="top-bar-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+90 (555) 123 45 67</span>
-                </div>
-                <div class="top-bar-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Addis Ababa, Bole Tropical Mall No. 217</span>
-                </div>
-            </div>
-            <div class="top-bar-right">
-                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
+@endpush
 
-<!-- Main Navbar -->
-<nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <div class="logo-icon"></div>
-            <div class="logo-text">
-                <span class="logo-main">Sky Link</span>
-                <span class="logo-sub">TECHNOLOGIES</span>
-            </div>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About Us</a>
-                </li>
-                <li class="nav-item mega-dropdown">
-                    <a class="nav-link" href="#services">Services</a>
-                    <div class="mega-dropdown-menu">
-                        <div class="mega-dropdown-content">
-                            <div class="mega-dropdown-grid">
-                                <div class="mega-dropdown-section">
-                                    <h6>Web Development</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-code"></i>Frontend Development
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-server"></i>Backend Development
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-layer-group"></i>Full Stack Development
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-shopping-cart"></i>E-commerce Solutions
-                                    </a>
-                                </div>
-                                <div class="mega-dropdown-section">
-                                    <h6>Mobile Development</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fab fa-apple"></i>iOS Development
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fab fa-android"></i>Android Development
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-mobile-alt"></i>Cross-Platform Apps
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-tablet-alt"></i>Tablet Applications
-                                    </a>
-                                </div>
-                                <div class="mega-dropdown-section">
-                                    <h6>Design Services</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-paint-brush"></i>UI/UX Design
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-palette"></i>Graphic Design
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-drafting-compass"></i>Prototyping
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-eye"></i>Brand Identity
-                                    </a>
-                                </div>
-                                <div class="mega-dropdown-section">
-                                    <h6>Digital Marketing</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-search"></i>SEO Services
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-bullhorn"></i>Social Media Marketing
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-envelope"></i>Email Marketing
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-chart-line"></i>Analytics & Reporting
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item mega-dropdown">
-                    <a class="nav-link" href="#products">Products</a>
-                    <div class="mega-dropdown-menu">
-                        <div class="mega-dropdown-content">
-                            <div class="mega-dropdown-grid">
-                                <div class="mega-dropdown-section">
-                                    <h6>Web Applications</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-globe"></i>Business Websites
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-store"></i>E-commerce Platforms
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-blog"></i>Content Management
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-users"></i>Social Platforms
-                                    </a>
-                                </div>
-                                <div class="mega-dropdown-section">
-                                    <h6>Mobile Apps</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-mobile"></i>Native iOS Apps
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fab fa-android"></i>Native Android Apps
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-sync"></i>Hybrid Applications
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-gamepad"></i>Gaming Apps
-                                    </a>
-                                </div>
-                                <div class="mega-dropdown-section">
-                                    <h6>Enterprise Solutions</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-building"></i>CRM Systems
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-chart-bar"></i>Analytics Dashboards
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-cogs"></i>Workflow Automation
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-database"></i>Data Management
-                                    </a>
-                                </div>
-                                <div class="mega-dropdown-section">
-                                    <h6>API & Integration</h6>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-plug"></i>REST APIs
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-link"></i>Third-party Integration
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-cloud"></i>Cloud Services
-                                    </a>
-                                    <a href="#" class="mega-dropdown-item">
-                                        <i class="fas fa-shield-alt"></i>Security Solutions
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
-                </li>
-            </ul>
-            
-            <a href="#" class="btn-get-started">Get Started</a>
-        </div>
-    </div>
-</nav>
+@section('content')
 
 <!-- Hero Section -->
 <section class="hero-section" id="home">
@@ -1628,64 +1117,10 @@
         </div>
     </div>
 </section>
+@endsection
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="navbar-brand mb-3">
-                    <div class="logo-icon"></div>
-                    <div class="logo-text">
-                        <span class="logo-main">Sky Link</span>
-                        <span class="logo-sub">TECHNOLOGIES</span>
-                    </div>
-                </div>
-                <p style="color: #ccc; margin-bottom: 20px;">Leading technology solutions provider specializing in web development, mobile apps, and digital transformation services.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5>Page Link</h5>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5>Services</h5>
-                <a href="#">Web Development</a>
-                <a href="#">App Development</a>
-                <a href="#">UI/UX Design</a>
-                <a href="#">Digital Marketing</a>
-                <a href="#">SEO Services</a>
-                <a href="#">Tech Consulting</a>
-            </div>
-            
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5>Contact</h5>
-                <div style="color: #ccc;">
-                    <p><i class="fas fa-map-marker-alt" style="color: #3B82F6; margin-right: 10px;"></i>123 Tech Street, Digital City, TC 12345</p>
-                    <p><i class="fas fa-phone" style="color: #3B82F6; margin-right: 10px;"></i>+1 (555) 123-4567</p>
-                    <p><i class="fas fa-envelope" style="color: #3B82F6; margin-right: 10px;"></i>info@skylink.com</p>
-                    <p><i class="fas fa-globe" style="color: #3B82F6; margin-right: 10px;"></i>www.skylink.com</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} Sky Link Technologies. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+
+@push('scripts')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -1700,18 +1135,7 @@
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const topBar = document.getElementById('topBar');
             const navbar = document.getElementById('mainNavbar');
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                topBar.classList.add('hidden');
-                navbar.classList.add('scrolled');
-            } else {
-                // Scrolling up
-                topBar.classList.remove('hidden');
-                navbar.classList.remove('scrolled');
-            }
-            
-            lastScrollTop = scrollTop;
+          
         });
 
         // Search functionality
@@ -2110,5 +1534,5 @@
         console.log('All functionality loaded successfully!');
     });
 </script>
-</body>
-</html>
+    
+@endpush

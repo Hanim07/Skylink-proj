@@ -8,8 +8,7 @@
     /* Portfolio Page Specific Styles */
     .portfolio-hero {
         background: #e5e7eb;
-        padding: 8rem 0 4rem;
-        margin-top: 80px;
+        padding: 1rem 0 4rem;
         text-align: center;
     }
 
@@ -52,7 +51,7 @@
 
     /* Portfolio Projects Section */
     .portfolio-projects {
-        padding: 5rem 0;
+        padding: 2rem 0;
         background: white;
     }
 
@@ -67,9 +66,9 @@
     .project-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        gap: 3rem;
         align-items: center;
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.6s ease;

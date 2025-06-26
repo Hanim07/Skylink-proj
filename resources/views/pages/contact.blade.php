@@ -156,6 +156,9 @@
         }
 
     </style>
+
+@endpush
+
 @section('content')
 
     <!-- Contact Hero -->
@@ -254,57 +257,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="logo mb-3">
-                        sky link
-                        <small style="display: block; font-size: 12px; font-weight: normal;">TECHNOLOGIES</small>
-                    </div>
-                    <p>Desires to obtain pain of itself because pain, but occasionally circumstances.</p>
-                    <div class="social-footer">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Page Link</h5>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog Page</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Services</h5>
-                    <ul>
-                        <li><a href="#">Cyber Security</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">AI Software</a></li>
-                        <li><a href="#">Content Writing</a></li>
-                        <li><a href="#">UI Design</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Contact</h5>
-                    <p>89 Brooklyn Street, 600 New York, USA</p>
-                    <p><i class="fas fa-globe"></i> www.yourwebsite.com</p>
-                    <p><i class="fas fa-envelope"></i> example@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> 555-555-0184</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2023 Skylink | Powered By</p>
-            </div>
-        </div>
-    </footer>
 
 @endsection
 

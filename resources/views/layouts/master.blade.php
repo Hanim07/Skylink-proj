@@ -84,11 +84,37 @@
         font-size: 20px;
         transition: all 0.3s ease;
         text-decoration: none;
+        margin-right: 4px;
     }
 
     .social-icon:hover {
         color: #3B82F6;
     }
+
+    .service-status {
+    display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+}
+
+.check-icon {
+    color: #3B82F6;
+    font-size: 15px;
+}
+
+.status-text {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.ethiopia-flag {
+    width: 20px;
+    height: 18px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
 
     /* Main Navbar */
     .navbar-custom {
@@ -441,13 +467,13 @@
     <!-- Top Bar -->
 <div class="top-bar" id="topBar">
     <div class="container">
-        <div class="top-bar-content">
-            <div class="top-bar-left">
-                <div class="top-bar-item">
+        <div class="top-bar-content d-flex justify-content-between align-items-center flex-wrap">
+            <div class="top-bar-left d-flex flex-wrap">
+                <div class="top-bar-item me-4">
                     <i class="far fa-clock"></i>
-                    <span>Mon - Fri 03:00 - 11:00 </span>
+                    <span>Mon - Fri 03:00 - 11:00</span>
                 </div>
-                <div class="top-bar-item">
+                <div class="top-bar-item me-4">
                     <i class="fas fa-phone"></i>
                     <span>+251911027667</span>
                 </div>
@@ -456,15 +482,23 @@
                     <span>Addis Ababa, Bole Tropical Mall No. 217</span>
                 </div>
             </div>
-            <div class="top-bar-right">
+            <div class="top-bar-right d-flex align-items-center gap-3 mt-2 mt-md-0">
                 <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                
+                <!-- ✅ Service Status Block -->
+                <div class="service-status d-flex align-items-center mx-5">
+                    <span class="check-icon text-success me-2"><i class="fas fa-check-circle"></i></span>
+                    <span class="status-text me-2">Service Active</span>
+                    <img src="{{ asset('assets/images/eth-flag.png') }}" alt="Ethiopia Flag" class="ethiopia-flag">
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Main Navbar -->
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
@@ -628,6 +662,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news') }}">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>

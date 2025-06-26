@@ -43,7 +43,7 @@ Route::get('/contact', function () {
 
 Route::get('/news', function () {
     return view('pages.news-events');
-})->name('news-events');
+})->name('news');
 
 Route::get('/news-detail', function () {
     return view('pages.news-detail');

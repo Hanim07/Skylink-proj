@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyLink - Premium Cloud Solutions</title>
+@extends('layouts.master')
+
+@section('title', 'Sky Link - IT Services in Ethiopia')
+@section('description', 'Leading IT services company in Ethiopia, helping businesses succeed with innovative technology solutions.')
+
+@section('additional-styles')
+
+@push('styles')
     <style>
         * {
             margin: 0;
@@ -15,74 +17,6 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-        }
-
-        /* Header Styles */
-        .header {
-            background: #1e3a8a;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .logo::before {
-            content: "☰";
-            margin-right: 0.5rem;
-            background: #3b82f6;
-            padding: 0.25rem;
-            border-radius: 4px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #fbbf24;
-        }
-
-        .login-btn {
-            background: #fbbf24;
-            color: #1e3a8a;
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .login-btn:hover {
-            background: #f59e0b;
         }
 
         /* Hero Section */
@@ -493,68 +427,6 @@
             text-decoration: none;
         }
 
-        /* Footer */
-        .footer {
-            background: #1e3a8a;
-            padding: 3rem 0 2rem;
-            color: white;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        .footer-column h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-column ul li a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 2rem;
-            text-align: center;
-            opacity: 0.8;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-container {
@@ -571,19 +443,14 @@
                 gap: 2rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .nav-menu {
                 display: none;
             }
         }
     </style>
-</head>
-<body>
-    
+@endpush
+
+@section('content')
 
     <!-- Hero Section -->
     <section class="hero">
@@ -739,6 +606,8 @@
     </section>
 
     
+@endsection
+ @push('scripts')
 
     <script>
         // FAQ Toggle Functionality
@@ -763,5 +632,5 @@
             alert('Thank you for your message! We will get back to you soon.');
         });
     </script>
-</body>
-</html>
+     
+ @endpush
