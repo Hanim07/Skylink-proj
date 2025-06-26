@@ -104,15 +104,15 @@
 }
 
 .status-text {
-    color: #2e7d32;
-    font-weight: 600;
+    color: #666;
 }
 
 .ethiopia-flag {
-    width: 20px;
-    height: 18px;
-    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
     object-fit: cover;
+    border: 1px solid #ccc;
 }
 
 
@@ -517,7 +517,7 @@
                 
                 <!-- ✅ Service Status Block -->
                 <div class="service-status d-flex align-items-center mx-5">
-                    <span class="check-icon text-success me-2"><i class="fas fa-check-circle"></i></span>
+                    <span class="check-icon me-2"><i class="fas fa-check-circle"></i></span>
                     <span class="status-text me-2">Service Active</span>
                     <img src="{{ asset('assets/images/eth-flag.png') }}" alt="Ethiopia Flag" class="ethiopia-flag">
                 </div>
