@@ -6,6 +6,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NewsDisplayController;
+use App\Http\Controllers\PortfolioDisplayController;
+use App\Http\Controllers\Admin\ContactMessageController;
+use App\Http\Controllers\SubscriberController;
 
 
 Route::get('/', function () {
@@ -58,7 +63,35 @@ Route::get('/service-detail', function () {
 
 
 // Newsletter subscription route (optional)
-Route::post('/newsletter/subscribe', function () {
+//Route::post('/newsletter/subscribe', function () {
     // Handle newsletter subscription logic here
-    return back()->with('success', 'Thank you for subscribing to our newsletter!');
-})->name('newsletter.subscribe');
+    //return back()->with('success', 'Thank you for subscribing to our newsletter!');
+// })->name('newsletter.subscribe');
+
+
+
+
+Route::post('/contact-message', [MessageController::class, 'store'])->name('message.store');
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('news', App\Http\Controllers\Admin\NewsController::class);
+});
+
+Route::get('/news', [NewsDisplayController::class, 'index'])->name('news.index');
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('portfolios', App\Http\Controllers\Admin\PortfolioController::class);
+});
+
+Route::get('/portfolio', [PortfolioDisplayController::class, 'index'])->name('portfolio.index');
+
+Route::get('/subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
+
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('subscribers', App\Http\Controllers\Admin\SubscriberController::class)->only(['index']);
+});
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('contact-messages', ContactMessageController::class)->only(['index']);
+});
