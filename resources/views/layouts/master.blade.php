@@ -531,7 +531,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
             <div class="container">
                 <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/skylink-48a05ef2.svg') }}" alt="Skylink Logo" class="logo-img me-2">
+                    <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     
                 </a>
 
@@ -717,7 +717,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="logo mb-3">
                     <a href="/" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets/images/skylink-48a05ef2.svg') }}" alt="Skylink Logo" class="logo-img me-2">
+                        <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     </a>
                 </div>
                 <p>
@@ -766,7 +766,7 @@
         </div>
 
         <div class="footer-bottom text-center pt-3">
-            <p>Copyright © 2023 Skylink | Powered By Skylink Technologies</p>
+            <p>Copyright © 2025 | Powered By Skylink Technologies</p>
         </div>
     </div>
 </footer>
