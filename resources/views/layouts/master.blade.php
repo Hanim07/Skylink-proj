@@ -654,8 +654,8 @@
     </div>
 </li>
 
-                        <li class="nav-item mega-dropdown"> 
-    <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('portfolio') }}">Products</a>
+    <li class="nav-item mega-dropdown"> 
+    <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products') }}">Products</a>
     <div class="mega-dropdown-menu">
         <div class="mega-dropdown-content">
             <div class="mega-dropdown-grid">

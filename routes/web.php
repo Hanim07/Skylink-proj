@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
+use App\Http\Controllers\ProductController;
 
 
 
@@ -43,6 +44,7 @@ Route::get('/portfolio', [PublicPortfolioController::class, 'index'])->name('por
 
 
 
+
 // Admin routes (optional: protect with auth middleware)
 Route::get('/admin/portfolio', [AdminPortfolioController::class, 'adminIndex'])->name('admin.portfolio.index');
 Route::get('/admin/portfolio/create', [AdminPortfolioController::class, 'create'])->name('admin.portfolio.create');
@@ -64,6 +66,9 @@ Route::get('/about', function () {
 Route::get('/services', function () {
     return view('pages.servicepage');
 })->name('services');
+Route::get('/products', function () {
+    return view('pages.products');
+})->name('products');
 
 Route::get('/contact', function () {
     return view('pages.contact');
@@ -74,6 +79,12 @@ Route::get('/contact', function () {
 Route::get('/news', function () {
     return view('pages.news-events');
 })->name('news');
+
+
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{category}/{slug}', [ProductController::class, 'show'])->name('products.detail');
 
 
 
