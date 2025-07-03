@@ -312,7 +312,6 @@
 
         .carousel-nav:hover {
             background: var(--dark-blue);
-            transform: translateY(-50%) scale(1.1);
         }
 
         .carousel-prev {
@@ -1401,7 +1400,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.news-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
                 card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
                 observer.observe(card);
             });
@@ -1535,7 +1533,7 @@ function renderServices() {
         </div>
       `;
       div.style.opacity = 0;
-      div.style.transform = 'translateX(' + (idx === 0 ? '-100px' : idx === 2 ? '100px' : '0') + ')';
+      div.style.transform = 'translateX(' + (idx === 0 ? '-100px' : idx === 2 ? '100px' : '10') + ')';
       setTimeout(() => {
         div.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
         div.style.transform = 'translateX(0)';
