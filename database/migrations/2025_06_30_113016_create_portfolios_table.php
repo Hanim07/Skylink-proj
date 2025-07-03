@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('image')->nullable();
             $table->text('description');
+            $table->string('category')->nullable();
+            $table->string('status')->default('completed'); // optional for filtering
             $table->timestamps();
         });
     }

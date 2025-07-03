@@ -619,8 +619,8 @@
                             </div>
                         </li>
                         <li class="nav-item mega-dropdown">
-                            <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('portfolio') }}">Products</a>
-                            <div class="mega-dropdown-menu">
+            <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('portfolio') }}">Products</a>
+                                <div class="mega-dropdown-menu">
                                 <div class="mega-dropdown-content">
                                     <div class="mega-dropdown-grid">
                                         <div class="mega-dropdown-section">
@@ -694,7 +694,7 @@
                             <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news') }}">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
+                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
                         </li>
                     </ul>
                     

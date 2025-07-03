@@ -169,6 +169,11 @@
         </div>
     </section>
 
+
+
+
+
+
     <!-- Contact Form -->
     <section class="contact-form-section py-5">
     <div class="container">
@@ -200,7 +205,7 @@
 
             <!-- Contact Form Column (Right) -->
             <div class="col-lg-7 mx-4">
-                <form id="contactForm" action="" method="POST">
+                <form id="contactForm" action=" {{ route('message.store') }} " method="POST">
                     @csrf
                     <div class="row mx-6">
                         <div class="form-group col-md-6 mb-2">
@@ -238,6 +243,15 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+
 
     <!-- Map Section -->
     <section class="map-section">
