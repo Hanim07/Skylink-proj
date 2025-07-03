@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController as PublicPortfolioController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MessageController;
@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
-Route::post('/quote/request', [ServicesController::class, 'requestQuote'])->name('quote.request');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::post('/quote/request', [ServiceController::class, 'requestQuote'])->name('quote.request');
 
 
 
