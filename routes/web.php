@@ -75,7 +75,9 @@ Route::get('/news', function () {
     return view('pages.news-events');
 })->name('news');
 
-
+Route::get('/news-detail', function () {
+    return view('pages.news-detail');
+})->name('news-detail');
 
 /*
 Route::get('/portfolio', function () {
@@ -95,9 +97,7 @@ Route::get('/news', function () {
     return view('pages.news-events');
 })->name('news');
 
-Route::get('/news-detail', function () {
-    return view('pages.news-detail');
-})->name('news-detail');
+
 
 Route::get('/service-detail', function () {
     return view('pages.servicedetail');
