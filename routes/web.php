@@ -3,7 +3,7 @@
 use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\AboutController;
 
@@ -62,3 +62,26 @@ Route::post('/newsletter/subscribe', function () {
     // Handle newsletter subscription logic here
     return back()->with('success', 'Thank you for subscribing to our newsletter!');
 })->name('newsletter.subscribe');
+
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+
+// Service Category Page
+Route::get('/services/category/{category}', [ServiceController::class, 'category'])->name('services.category');
+
+// Service Detail Page (Subcategory)
+Route::get('/services/detail/{subcategory}', [ServiceController::class, 'detail'])->name('services.detail');
+
+Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('/subscribe/{plan}', function ($plan) {
+    return view('services.subscribe', ['plan' => $plan]);
+});
+
+Route::post('/subscribe/process', function (Illuminate\Http\Request $request) {
+    // handle subscription logic (email, DB insert, payment etc.)
+    return redirect('/')->with('success', 'Subscription successful! Thank you.');
+});
+
+Route::get('/hi', function () {
+    return view('hi');
+});

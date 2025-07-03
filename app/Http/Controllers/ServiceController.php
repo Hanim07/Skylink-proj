@@ -1,11 +1,57 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ServicesController extends Controller
+class ServiceController extends Controller
 {
+    
+
+    public function category($category)
+    {
+        return view('services.servicecategory', compact('category'));
+    }
+
+    public function detail($subcategory)
+{
+    $details = [
+        'web-apps' => [
+            'title' => 'Web Application Development',
+            'desc' => 'We build modern, scalable, and secure web applications tailored to your business needs.',
+            'price' => '$1,500+',
+            'features' => ['Custom UI/UX design', 'Responsive design', 'Scalable backend', 'Admin dashboards']
+        ],
+        'mobile-apps' => [
+            'title' => 'Mobile App Development',
+            'desc' => 'Native and cross-platform mobile apps with excellent performance and modern design.',
+            'price' => '$1,800+',
+            'features' => ['iOS & Android', 'Offline support', 'Push notifications', 'App Store publishing']
+        ],
+        'vpn-solutions' => [
+            'title' => 'VPN Solutions',
+            'desc' => 'Enterprise VPN services to ensure secure and private remote access.',
+            'price' => '$700/year',
+            'features' => ['Encrypted tunnels', 'Multi-platform support', 'Unlimited bandwidth', '24/7 monitoring']
+        ],
+        // ... add more subcategories here
+    ];
+
+    $service = [
+    'title' => 'Web Application Development',
+    'desc' => 'Build secure, scalable and modern web platforms tailored for business.',
+    'price' => '$1,500+',
+    'features' => [
+        'Custom UI/UX',
+        'Mobile responsive',
+        'RESTful APIs',
+        'Admin dashboard',
+    ],
+];
+return view('services.servicedetail', compact('service'));
+
+}
+
+
     public function index()
     {
         $data = [
@@ -135,7 +181,9 @@ class ServicesController extends Controller
             ]
         ];
         
-        return view('services', $data);
+        return view('services.index', $data);
+        return view('services.index');
+
     }
 
     public function requestQuote(Request $request)
