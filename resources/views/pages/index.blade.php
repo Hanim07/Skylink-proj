@@ -1107,7 +1107,6 @@
         </div>
     </section>
 
-    <!-- Featured Portfolio -->
      <!-- Featured Portfolio -->
 <section id="portfolio" class="portfolio-section">
     <div class="container">
