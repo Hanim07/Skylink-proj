@@ -406,11 +406,7 @@
         width: 100%;
         text-align: center;
     }
-}
 
-        /* Responsive Design */
-        @media (max-width: 991.98px) {
-        
         .top-bar-left{
             flex-direction: column;
             align-items: flex-start;
@@ -450,12 +446,14 @@
         }
         .mega-dropdown-section h6 {
         font-size: 13px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .mega-dropdown-item {
         font-size: 14px;
         padding: 8px 0;
+        margin-bottom: 0%;
+        
     }
 
 
@@ -469,20 +467,54 @@
             text-align: center;
         }
     }
-    @media (max-width: 668px) {
-    .mega-dropdown-grid {
-        grid-template-columns: repeat(2, minmax(150px, 1fr));
-        gap: 20px;
+    @media (min-width: 992px) {
+    .mega-dropdown-menu {
+        max-height: 500px; 
+        max-width: 100%;   /* Limit dropdown height */
+        overflow-y: auto;
+             /* Enable vertical scrolling if content overflows */
     }
-
     .mega-dropdown-section h6 {
-        font-size: 12px;
+        font-size: 15px;
+        margin-bottom: -2%;
+        margin-top: -3%;
     }
 
     .mega-dropdown-item {
         font-size: 13px;
+        margin-bottom: 0%;
+        margin-top: 0% ;
     }
 }
+    @media (max-width: 668px) {
+    .mega-dropdown-grid {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        gap: 10px;
+    }
+
+    .mega-dropdown-section h6 {
+        font-size: 14px;
+    }
+
+    .mega-dropdown-item {
+        font-size: 12px;
+    }
+    .mega-dropdown-menu {
+        max-height: 250px;
+        overflow-y: auto;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+@media (min-width: 669px) and (max-width: 991.98px) {
+    .mega-dropdown-menu {
+        max-height: 350px;
+        overflow-y: auto;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
 
 
         @yield('additional-styles')
@@ -550,6 +582,130 @@
                         </li>
 
                         <li class="nav-item mega-dropdown">
+    <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>    
+    <div class="mega-dropdown-menu">
+        <div class="mega-dropdown-content">
+            <div class="mega-dropdown-grid">
+                
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'software-service']) }}">Software Service</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'web-apps']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> Web Applications</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'mobile-apps']) }}" class="mega-dropdown-item"><i class="fas fa-mobile-alt"></i> Mobile Applications</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'custom-dev']) }}" class="mega-dropdown-item"><i class="fas fa-cogs"></i> Custom Software</a>
+                </div>
+
+                <div class="mega-dropdown-section">
+    <h6><a href="{{ route('services.category', ['category' => 'smart-city']) }}">Smart City & Infrastructure</a></h6>
+    <a href="{{ route('services.detail', ['subcategory' => 'physical-security']) }}" class="mega-dropdown-item"><i class="fas fa-shield-alt"></i> Physical Safety & Security</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'structured-cabling']) }}" class="mega-dropdown-item"><i class="fas fa-network-wired"></i> Structured Cabling System</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'smart-mobility']) }}" class="mega-dropdown-item"><i class="fas fa-car"></i> Smart Mobility & Transportation</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'integrated-infra']) }}" class="mega-dropdown-item"><i class="fas fa-layer-group"></i> Integrated Smart Infrastructure</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'data-center']) }}" class="mega-dropdown-item"><i class="fas fa-database"></i> Data Center Infrastructure</a>
+</div>
+
+<div class="mega-dropdown-section">
+    <h6><a href="{{ route('services.category', ['category' => 'safety-security']) }}">Safety & Security</a></h6>
+    <a href="{{ route('services.detail', ['subcategory' => 'network-security']) }}" class="mega-dropdown-item"><i class="fas fa-shield-virus"></i> Network & Application Security</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'endpoint-security']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-medical"></i> Endpoint Security</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'data-protection']) }}" class="mega-dropdown-item"><i class="fas fa-lock"></i> Data Protection</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'access-management']) }}" class="mega-dropdown-item"><i class="fas fa-user-shield"></i> Access Management</a>
+</div>
+
+<div class="mega-dropdown-section">
+    <h6><a href="{{ route('services.category', ['category' => 'enterprise-network']) }}">Enterprise Network Solution</a></h6>
+    <a href="{{ route('services.detail', ['subcategory' => 'enterprise-network']) }}" class="mega-dropdown-item"><i class="fas fa-network-wired"></i> Enterprise Network Overview</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'network-wlan']) }}" class="mega-dropdown-item"><i class="fas fa-wifi"></i> Network & WLAN Solution</a>
+</div>
+
+<div class="mega-dropdown-section">
+    <h6><a href="{{ route('services.category', ['category' => 'consulting-training']) }}">Consulting & Training</a></h6>
+    <a href="{{ route('services.detail', ['subcategory' => 'smart-projects']) }}" class="mega-dropdown-item"><i class="fas fa-project-diagram"></i> Smart City Projects</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'product-dev']) }}" class="mega-dropdown-item"><i class="fas fa-cogs"></i> Product Development</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'business-strategy']) }}" class="mega-dropdown-item"><i class="fas fa-chart-line"></i> Business Strategy</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'erp-consult']) }}" class="mega-dropdown-item"><i class="fas fa-database"></i> ERP Consultancy</a>
+</div>
+
+<div class="mega-dropdown-section">
+    <h6><a href="{{ route('services.category', ['category' => 'ict-support']) }}">ICT Support</a></h6>
+    <a href="{{ route('services.detail', ['subcategory' => 'tech-assistance']) }}" class="mega-dropdown-item"><i class="fas fa-headset"></i> Technical Assistance</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'system-maintenance']) }}" class="mega-dropdown-item"><i class="fas fa-tools"></i> System Maintenance</a>
+    <a href="{{ route('services.detail', ['subcategory' => 'security-privacy']) }}" class="mega-dropdown-item"><i class="fas fa-user-lock"></i> Security & Privacy</a>
+</div>
+
+
+
+
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'gps-tracking']) }}">GPS Tracking System</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'fleet-management']) }}" class="mega-dropdown-item"><i class="fas fa-truck"></i> Fleet Management</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'asset-tracking']) }}" class="mega-dropdown-item"><i class="fas fa-map-marker-alt"></i> Asset Tracking</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'vehicle-tracking']) }}" class="mega-dropdown-item"><i class="fas fa-car"></i> Vehicle Monitoring</a>
+                </div>
+
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'datacenter-facility']) }}">Datacenter Facility & Power</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'server-rooms']) }}" class="mega-dropdown-item"><i class="fas fa-server"></i> Server Rooms</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'ups-power']) }}" class="mega-dropdown-item"><i class="fas fa-bolt"></i> UPS & Power Backup</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'cooling-system']) }}" class="mega-dropdown-item"><i class="fas fa-snowflake"></i> Cooling Systems</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</li>
+
+                        <li class="nav-item mega-dropdown"> 
+    <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('portfolio') }}">Products</a>
+    <div class="mega-dropdown-menu">
+        <div class="mega-dropdown-content">
+            <div class="mega-dropdown-grid">
+                <!-- Category 1: Industry Solutions -->
+                <div class="mega-dropdown-section">
+                    <h6>Industry Solutions</h6>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-suitcase-rolling"></i> E-Tourism</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-warehouse"></i> Fleet Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-project-diagram"></i> Project Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-building"></i> Real Estate Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-school"></i> School Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-book-open"></i> Learning Management System (LMS)</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-bus"></i> Smart E-ticketing</a>
+                </div>
+
+                <!-- Category 2: Business & Office Tools -->
+                <div class="mega-dropdown-section">
+                    <h6>Business & Office Tools</h6>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-folder-open"></i> Document Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-gavel"></i> Traffic Penalty Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-cogs"></i> ERP Full Module</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-stream"></i> Queue Management System (QMS)</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-city"></i> Building Management</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-calendar-alt"></i> Event Management</a>
+                </div>
+
+                <!-- Category 3: Web & Mobile Applications -->
+                <div class="mega-dropdown-section">
+                    <h6>Web & Mobile Applications</h6>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> SkyLink Website & System</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-mobile-alt"></i> Besira App</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-store"></i> E-Commerce</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-paint-brush"></i> Website Design</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-music"></i> Entertainment Apps</a>
+                </div>
+
+                <!-- Category 4: Services & Support -->
+                <div class="mega-dropdown-section">
+                    <h6>Digital Services</h6>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-concierge-bell"></i> E-Service</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-headset"></i> Customer Support Systems</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-tools"></i> System Maintenance</a>
+                    <a href="#" class="mega-dropdown-item"><i class="fas fa-user-shield"></i> Security & Compliance</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+
                             <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>    
                             <div class="mega-dropdown-menu">
                                 <div class="mega-dropdown-content">
@@ -773,73 +929,7 @@
 
 
     <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simple carousel functionality
-            const prevBtn = document.querySelector('.carousel-btn.prev');
-            const nextBtn = document.querySelector('.carousel-btn.next');
-            const servicesGrid = document.querySelector('.services-grid');
-            
-            if (prevBtn && nextBtn && servicesGrid) {
-                let currentIndex = 0;
-                const cards = servicesGrid.children;
-                const totalCards = cards.length;
-                
-                function updateCarousel() {
-                    const translateX = -currentIndex * (100 / totalCards);
-                    servicesGrid.style.transform = `translateX(${translateX}%)`;
-                }
-                
-                prevBtn.addEventListener('click', function() {
-                    currentIndex = currentIndex > 0 ? currentIndex - 1 : totalCards - 1;
-                    updateCarousel();
-                });
-                
-                nextBtn.addEventListener('click', function() {
-                    currentIndex = currentIndex < totalCards - 1 ? currentIndex + 1 : 0;
-                    updateCarousel();
-                });
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Active navigation link highlighting
-            window.addEventListener('scroll', function() {
-                const sections = document.querySelectorAll('section[id]');
-                const navLinks = document.querySelectorAll('.nav-link');
-                
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-
-            @yield('additional-scripts')
-        });
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     

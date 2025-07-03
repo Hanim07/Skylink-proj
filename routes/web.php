@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController as PublicPortfolioController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MessageController;
@@ -141,4 +141,26 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('contact-messages', ContactMessageController::class)->only(['index']);
+});
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+
+// Service Category Page
+Route::get('/services/category/{category}', [ServiceController::class, 'category'])->name('services.category');
+
+// Service Detail Page (Subcategory)
+Route::get('/services/detail/{subcategory}', [ServiceController::class, 'detail'])->name('services.detail');
+
+Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('/subscribe/{plan}', function ($plan) {
+    return view('services.subscribe', ['plan' => $plan]);
+});
+
+Route::post('/subscribe/process', function (Illuminate\Http\Request $request) {
+    // handle subscription logic (email, DB insert, payment etc.)
+    return redirect('/')->with('success', 'Subscription successful! Thank you.');
+});
+
+Route::get('/hi', function () {
+    return view('hi');
 });

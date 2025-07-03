@@ -25,9 +25,11 @@
 
     /* Hero Section - Updated to match the image */
     .hero-section {
-        background: linear-gradient(rgba(59, 130, 246, 0.8), rgba(30, 64, 175, 0.8)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&h=600&fit=crop') center/cover;
+        background: linear-gradient(rgba(133, 174, 240, 0.4), rgba(42, 92, 255, 0.8)), url('{{ asset('assets/images/teammember.png') }}') center/cover;
         min-height: 40vh;
         display: flex;
+        padding-top: 100px;
+        
         align-items: center;
         justify-content: center;
         color: white;
@@ -210,7 +212,7 @@
     .video-thumbnail {
         width: 100%;
         height: 450px;
-        background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=450&fit=crop') center/cover;
+        background: url('{{ asset('assets/images/promo.jpg') }}') center/cover;
         position: relative;
     }
 
@@ -396,11 +398,19 @@
     }
 
     .growth-image {
+    width: 100%;
+    height: 300px;
+    background: url('{{ asset('assets/images/growing.png') }}') no-repeat;
+    background-size: contain; /* Ensures the entire image is visible */
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Optional: fallback if image doesn't cover fully */
+}
+    .growth-image img {
         width: 100%;
-        height: 400px;
-        background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop') center/cover;
+        height: 800px;
+        object-fit: cover;
         border-radius: 15px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
     /* Awards Section */
@@ -574,16 +584,15 @@
 </section>
 
 <!-- About Section -->
+
 <section class="about-section">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="section-tag">About Us</div>
-                <h2 class="section-title">The Best IT Solution With 10 Years of Experience</h2>
+                <h2 class="section-title">The Best IT Solution With Many Years of Experience</h2>
                 <p class="about-text">
-                    Pellentesque eget lorem lorem. Ut in lobortis mauris, vitae pulvinar ex. Morbi 
-                    congue mauris vel augue cursus blandit. Mauris a accumsan mauris, vel 
-                    consectetur lorem. Ut in lobortis mauris, vitae pulvinar ex.
+                    At Sky Link Technologies, we turn visionary concepts into cutting-edge digital solutions. With a passion for technology and a commitment to excellence, we empower businesses to thrive in the digital age.
                 </p>
                 
                 <div class="about-features-list">
@@ -594,7 +603,7 @@
                         </div>
                         <div class="feature-item-check">
                             <i class="fas fa-check"></i>
-                            <span>24/7 Support</span>
+                            <span>Dedicated Support</span>
                         </div>
                     </div>
                     <div class="feature-row">
@@ -615,13 +624,13 @@
                     </div>
                     <div class="contact-details">
                         <h6>Call to ask any question</h6>
-                        <p>+91 1234567890</p>
+                        <p>+251911027667</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="about-image-container">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" 
+                    <img src="{{ asset('assets/images/teammember.png') }}" 
                          alt="Team working together" class="about-main-image">
                 </div>
             </div>
@@ -633,8 +642,15 @@
 <section class="video-section">
     <div class="container">
         <h2 class="video-title">Let's See Our Promo Video</h2>
-        <div class="video-container">
-            <div class="video-thumbnail">
+        <div class="video-container position-relative">
+            <!-- Video element -->
+            <video id="promoVideo" width="100%" height="auto" controls style="display: none;">
+                <source src="{{ asset('assets/videos/PROMOVIDEO.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Custom Thumbnail & Play Button -->
+            <div id="videoThumbnail" class="video-thumbnail" style="cursor: pointer;">
                 <div class="play-button">
                     <i class="fas fa-play"></i>
                 </div>
@@ -643,6 +659,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Team Section -->
 <section class="team-section">
@@ -653,43 +670,54 @@
         </div>
         
         <div class="team-grid">
-            <div class="team-member">
+             <div class="team-member">
+                
                 <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=250&fit=crop&crop=face" alt="Alex Taylor">
+                    <img src="{{ asset('assets/images/mohammed oumer.png') }}" alt="Alex Taylor">
                 </div>
                 <div class="team-info">
-                    <h4 class="team-name">Alex Taylor</h4>
-                    <p class="team-role">Engineer</p>
+                    <h4 class="team-name">Mohammedkerem Ahmed</h4>
+                    <p class="team-role">CEO</p>
+                </div>
+            </div>
+            <div class="team-member">
+                
+                <div class="team-photo">
+                    <img src="{{ asset('assets/images/mohammed oumer.png') }}" alt="Alex Taylor">
+                </div>
+                <div class="team-info">
+                    <h4 class="team-name">Mohammed Oumer</h4>
+                    <p class="team-role">Head of software department</p>
                 </div>
             </div>
             
             <div class="team-member">
                 <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=250&fit=crop&crop=face" alt="Lisa Patel">
+                    <img src="{{ asset('assets/images/jemil.png') }}" alt="Lisa Patel">
                 </div>
                 <div class="team-info">
-                    <h4 class="team-name">Lisa Patel</h4>
-                    <p class="team-role">Professor</p>
+                    <h4 class="team-name">Jemil Gragn</h4>
+                    <p class="team-role">Head of software department</p>
                 </div>
             </div>
             
             <div class="team-member">
                 <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=250&fit=crop&crop=face" alt="Rachel Taylor">
+                    <img src="{{ asset('assets/images/bedru hussen.png') }}" alt="Rachel Taylor">
                 </div>
                 <div class="team-info">
-                    <h4 class="team-name">Rachel Taylor</h4>
-                    <p class="team-role">Scientist</p>
+                    <h4 class="team-name">Bedru Hussen</h4>
+                    <p class="team-role">Head of business development</p>
                 </div>
             </div>
             
             <div class="team-member">
                 <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=250&fit=crop&crop=face" alt="Alex Taylor">
+                    <img src="{{ asset('assets/images/mohammed seid.png') }}" alt="Alex Taylor">
                 </div>
                 <div class="team-info">
-                    <h4 class="team-name">Alex Taylor</h4>
-                    <p class="team-role">Engineer</p>
+                    <h4 class="team-name">Mohammed Seid</h4>
+                    <p class="team-role">Marketing manager</p>
                 </div>
             </div>
             
@@ -703,15 +731,7 @@
                 </div>
             </div>
             
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=250&fit=crop&crop=face" alt="Rachel Taylor">
-                </div>
-                <div class="team-info">
-                    <h4 class="team-name">Rachel Taylor</h4>
-                    <p class="team-role">Scientist</p>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -731,8 +751,8 @@
                         <i class="fas fa-industry"></i>
                     </div>
                     <div class="feature-content">
-                        <h4>Best in Industry</h4>
-                        <p>Best in Industry? It's been said to describe a company, product, service or process that is considered to be the finest or most outstanding in its particular industry or field.</p>
+                        <h4>Leading in Digital Innovation</h4>
+                        <p>From custom software to scalable cloud solutions, Sky Link Technologies delivers industry-leading digital services tailored to your business needs. We're not just a tech company — we set the standard in smart, secure, and future-ready solutions.</p>
                     </div>
                 </div>
                 
@@ -741,8 +761,8 @@
                         <i class="fas fa-trophy"></i>
                     </div>
                     <div class="feature-content">
-                        <h4>Award Winning</h4>
-                        <p>Fusce tempor magna mi, non egestas velit ultricies nec. Aenean convallis, risus non condimentum gravida, odio mauris ullamcorper felis, ut venenatis purus ex eu mi. Quisque imperdiet lacinia urna, a placerat sapien pretium eu.</p>
+                        <h4>Recognized for Excellence</h4>
+                        <p>Our work speaks for itself. Sky Link Technologies has been recognized for its commitment to quality, creativity, and client success — delivering award-winning digital experiences across industries.</p>
                     </div>
                 </div>
             </div>
@@ -756,7 +776,7 @@
                     </div>
                     <div class="feature-content">
                         <h4>Professional Staff</h4>
-                        <p>Professional staff typically refers to individuals who work in an organization and have specialized knowledge, skills, and expertise in their respective fields.</p>
+                        <p>Our professional team combines technical expertise with creative problem-solving. From developers and designers to consultants and project managers — we bring passion, precision, and purpose to every project.</p>
                     </div>
                 </div>
                 
@@ -765,8 +785,8 @@
                         <i class="fas fa-headset"></i>
                     </div>
                     <div class="feature-content">
-                        <h4>24/7 Support</h4>
-                        <p>24/7 support refers to a customer service or technical support service that is available 24 hours a day, 7 days a week. This means that customers can get help or assistance at any time, day or night.</p>
+                        <h4>Always Here for You </h4>
+                        <p>Whether you're launching, scaling, or solving an urgent challenge — our dedicated support team is available 24/7 to assist you. At Sky Link Technologies, your success is always our priority.</p>
                     </div>
                 </div>
             </div>
@@ -854,10 +874,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Play button functionality
-    document.querySelector('.play-button').addEventListener('click', function() {
-        alert('Video would play here - integrate with your preferred video player');
-    });
+    
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -872,5 +889,21 @@
             }
         });
     });
+
+
+    // Video thumbnail click to show video
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const thumbnail = document.getElementById("videoThumbnail");
+        const video = document.getElementById("promoVideo");
+
+        thumbnail.addEventListener("click", function () {
+            thumbnail.style.display = "none";
+            video.style.display = "block";
+            video.play();
+        });
+    });
+
+
 </script>
 @endpush
