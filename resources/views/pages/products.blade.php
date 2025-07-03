@@ -54,28 +54,32 @@
   <div class="tab-content" id="pills-tabContent">
     {{-- All Products Tab Pane --}}
     <div class="tab-pane fade show active" id="content-all" role="tabpanel" aria-labelledby="tab-all">
-      <div class="row" id="products-all">
-        @foreach ($products as $cat => $items)
-          @foreach ($items as $p)
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card">
-              <div class="card h-100 shadow-sm border-0 hover-shadow" data-name="{{ strtolower($p['name']) }}">
-                <img src="{{ asset('assets/' . $p['image']) }}" class="card-img-top" alt="{{ $p['name'] }}">
-                <div class="card-body d-flex flex-column">
-                  <h5 class="card-title text-primary fw-semibold">{{ $p['name'] }}</h5>
-                  <p class="card-text small">{{ Str::limit($p['description'], 90) }}</p>
-                  <div class="mt-auto">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="fw-bold text-success">ETB {{ number_format($p['price']) }}</span>
-                      <a href="{{ route('products.detail', [$cat, $p['slug']]) }}" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details">Details</a>
-                    </div>
-                    <button class="btn btn-sm btn-gradient-primary w-100 mt-2">Subscribe</button>
-                  </div>
+      <div id="products-all">
+  @foreach ($products as $cat => $items)
+    <h4 class="mt-5 mb-3 text-primary border-bottom pb-1">{{ ucwords(str_replace('-', ' ', $cat)) }}</h4>
+    <div class="row">
+      @foreach ($items as $p)
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card">
+          <div class="card h-100 shadow-sm border-0 hover-shadow" data-name="{{ strtolower($p['name']) }}">
+            <img src="{{ asset('assets/' . $p['image']) }}" class="card-img-top" alt="{{ $p['name'] }}">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary fw-semibold">{{ $p['name'] }}</h5>
+              <p class="card-text small">{{ Str::limit($p['description'], 90) }}</p>
+              <div class="mt-auto">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="fw-bold text-success">ETB {{ number_format($p['price']) }}</span>
+                  <a href="{{ route('products.detail', [$cat, $p['slug']]) }}" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details">Details</a>
                 </div>
+                <button class="btn btn-sm btn-gradient-primary w-100 mt-2">Subscribe</button>
               </div>
             </div>
-          @endforeach
-        @endforeach
-      </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
+  @endforeach
+</div>
+
     </div>
 
     {{-- Category Specific Tab Panes --}}

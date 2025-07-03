@@ -582,11 +582,12 @@
                         </li>
 
                         <li class="nav-item mega-dropdown">
-    <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>    
+    <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>
     <div class="mega-dropdown-menu">
         <div class="mega-dropdown-content">
             <div class="mega-dropdown-grid">
-                
+
+                <!-- Software Service -->
                 <div class="mega-dropdown-section">
                     <h6><a href="{{ route('services.category', ['category' => 'software-service']) }}">Software Service</a></h6>
                     <a href="{{ route('services.detail', ['subcategory' => 'web-apps']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> Web Applications</a>
@@ -594,47 +595,50 @@
                     <a href="{{ route('services.detail', ['subcategory' => 'custom-dev']) }}" class="mega-dropdown-item"><i class="fas fa-cogs"></i> Custom Software</a>
                 </div>
 
+                <!-- Smart City & Infrastructure -->
                 <div class="mega-dropdown-section">
-    <h6><a href="{{ route('services.category', ['category' => 'smart-city']) }}">Smart City & Infrastructure</a></h6>
-    <a href="{{ route('services.detail', ['subcategory' => 'physical-security']) }}" class="mega-dropdown-item"><i class="fas fa-shield-alt"></i> Physical Safety & Security</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'structured-cabling']) }}" class="mega-dropdown-item"><i class="fas fa-network-wired"></i> Structured Cabling System</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'smart-mobility']) }}" class="mega-dropdown-item"><i class="fas fa-car"></i> Smart Mobility & Transportation</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'integrated-infra']) }}" class="mega-dropdown-item"><i class="fas fa-layer-group"></i> Integrated Smart Infrastructure</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'data-center']) }}" class="mega-dropdown-item"><i class="fas fa-database"></i> Data Center Infrastructure</a>
-</div>
+                    <h6><a href="{{ route('services.category', ['category' => 'smart-city']) }}">Smart City & Infrastructure</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'physical-security']) }}" class="mega-dropdown-item"><i class="fas fa-shield-alt"></i> Physical Safety & Security</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'structured-cabling']) }}" class="mega-dropdown-item"><i class="fas fa-network-wired"></i> Structured Cabling System</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'smart-mobility']) }}" class="mega-dropdown-item"><i class="fas fa-car"></i> Smart Mobility & Transportation</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'integrated-infra']) }}" class="mega-dropdown-item"><i class="fas fa-layer-group"></i> Integrated Smart Infrastructure</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'data-center']) }}" class="mega-dropdown-item"><i class="fas fa-database"></i> Data Center Infrastructure</a>
+                </div>
 
-<div class="mega-dropdown-section">
-    <h6><a href="{{ route('services.category', ['category' => 'safety-security']) }}">Safety & Security</a></h6>
-    <a href="{{ route('services.detail', ['subcategory' => 'network-security']) }}" class="mega-dropdown-item"><i class="fas fa-shield-virus"></i> Network & Application Security</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'endpoint-security']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-medical"></i> Endpoint Security</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'data-protection']) }}" class="mega-dropdown-item"><i class="fas fa-lock"></i> Data Protection</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'access-management']) }}" class="mega-dropdown-item"><i class="fas fa-user-shield"></i> Access Management</a>
-</div>
+                <!-- Safety & Security -->
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'safety-security']) }}">Safety & Security</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'network-security']) }}" class="mega-dropdown-item"><i class="fas fa-shield-virus"></i> Network & Application Security</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'endpoint-security']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-medical"></i> Endpoint Security</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'data-protection']) }}" class="mega-dropdown-item"><i class="fas fa-lock"></i> Data Protection</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'access-management']) }}" class="mega-dropdown-item"><i class="fas fa-user-shield"></i> Access Management</a>
+                </div>
 
-<div class="mega-dropdown-section">
-    <h6><a href="{{ route('services.category', ['category' => 'enterprise-network']) }}">Enterprise Network Solution</a></h6>
-    <a href="{{ route('services.detail', ['subcategory' => 'enterprise-network']) }}" class="mega-dropdown-item"><i class="fas fa-network-wired"></i> Enterprise Network Overview</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'network-wlan']) }}" class="mega-dropdown-item"><i class="fas fa-wifi"></i> Network & WLAN Solution</a>
-</div>
+                <!-- Enterprise Network -->
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'enterprise-network']) }}">Enterprise Network Solution</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'enterprise-network']) }}" class="mega-dropdown-item"><i class="fas fa-network-wired"></i> Enterprise Network Overview</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'network-wlan']) }}" class="mega-dropdown-item"><i class="fas fa-wifi"></i> Network & WLAN Solution</a>
+                </div>
 
-<div class="mega-dropdown-section">
-    <h6><a href="{{ route('services.category', ['category' => 'consulting-training']) }}">Consulting & Training</a></h6>
-    <a href="{{ route('services.detail', ['subcategory' => 'smart-projects']) }}" class="mega-dropdown-item"><i class="fas fa-project-diagram"></i> Smart City Projects</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'product-dev']) }}" class="mega-dropdown-item"><i class="fas fa-cogs"></i> Product Development</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'business-strategy']) }}" class="mega-dropdown-item"><i class="fas fa-chart-line"></i> Business Strategy</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'erp-consult']) }}" class="mega-dropdown-item"><i class="fas fa-database"></i> ERP Consultancy</a>
-</div>
+                <!-- Consulting & Training -->
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'consulting-training']) }}">Consulting & Training</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'smart-projects']) }}" class="mega-dropdown-item"><i class="fas fa-project-diagram"></i> Smart City Projects</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'product-dev']) }}" class="mega-dropdown-item"><i class="fas fa-cogs"></i> Product Development</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'business-strategy']) }}" class="mega-dropdown-item"><i class="fas fa-chart-line"></i> Business Strategy</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'erp-consult']) }}" class="mega-dropdown-item"><i class="fas fa-database"></i> ERP Consultancy</a>
+                </div>
 
-<div class="mega-dropdown-section">
-    <h6><a href="{{ route('services.category', ['category' => 'ict-support']) }}">ICT Support</a></h6>
-    <a href="{{ route('services.detail', ['subcategory' => 'tech-assistance']) }}" class="mega-dropdown-item"><i class="fas fa-headset"></i> Technical Assistance</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'system-maintenance']) }}" class="mega-dropdown-item"><i class="fas fa-tools"></i> System Maintenance</a>
-    <a href="{{ route('services.detail', ['subcategory' => 'security-privacy']) }}" class="mega-dropdown-item"><i class="fas fa-user-lock"></i> Security & Privacy</a>
-</div>
+                <!-- ICT Support -->
+                <div class="mega-dropdown-section">
+                    <h6><a href="{{ route('services.category', ['category' => 'ict-support']) }}">ICT Support</a></h6>
+                    <a href="{{ route('services.detail', ['subcategory' => 'tech-assistance']) }}" class="mega-dropdown-item"><i class="fas fa-headset"></i> Technical Assistance</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'system-maintenance']) }}" class="mega-dropdown-item"><i class="fas fa-tools"></i> System Maintenance</a>
+                    <a href="{{ route('services.detail', ['subcategory' => 'security-privacy']) }}" class="mega-dropdown-item"><i class="fas fa-user-lock"></i> Security & Privacy</a>
+                </div>
 
-
-
-
+                <!-- GPS Tracking -->
                 <div class="mega-dropdown-section">
                     <h6><a href="{{ route('services.category', ['category' => 'gps-tracking']) }}">GPS Tracking System</a></h6>
                     <a href="{{ route('services.detail', ['subcategory' => 'fleet-management']) }}" class="mega-dropdown-item"><i class="fas fa-truck"></i> Fleet Management</a>
@@ -642,6 +646,7 @@
                     <a href="{{ route('services.detail', ['subcategory' => 'vehicle-tracking']) }}" class="mega-dropdown-item"><i class="fas fa-car"></i> Vehicle Monitoring</a>
                 </div>
 
+                <!-- Datacenter Facility -->
                 <div class="mega-dropdown-section">
                     <h6><a href="{{ route('services.category', ['category' => 'datacenter-facility']) }}">Datacenter Facility & Power</a></h6>
                     <a href="{{ route('services.detail', ['subcategory' => 'server-rooms']) }}" class="mega-dropdown-item"><i class="fas fa-server"></i> Server Rooms</a>
@@ -654,57 +659,61 @@
     </div>
 </li>
 
-    <li class="nav-item mega-dropdown"> 
+
+    <li class="nav-item mega-dropdown">  
     <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products') }}">Products</a>
     <div class="mega-dropdown-menu">
         <div class="mega-dropdown-content">
             <div class="mega-dropdown-grid">
-                <!-- Category 1: Industry Solutions -->
-                <div class="mega-dropdown-section">
-                    <h6>Industry Solutions</h6>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-suitcase-rolling"></i> E-Tourism</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-warehouse"></i> Fleet Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-project-diagram"></i> Project Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-building"></i> Real Estate Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-school"></i> School Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-book-open"></i> Learning Management System (LMS)</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-bus"></i> Smart E-ticketing</a>
-                </div>
+                <!-- Industry Solutions -->
+                <!-- Industry Solutions -->
+<div class="mega-dropdown-section">
+    <h6>Industry Solutions</h6>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'e-tourism']) }}" class="mega-dropdown-item"><i class="fas fa-suitcase-rolling"></i> E-Tourism</a>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'fleet-management']) }}" class="mega-dropdown-item"><i class="fas fa-warehouse"></i> Fleet Management</a>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'project-management']) }}" class="mega-dropdown-item"><i class="fas fa-project-diagram"></i> Project Management</a>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'real-estate-management']) }}" class="mega-dropdown-item"><i class="fas fa-building"></i> Real Estate Management</a>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'school-management']) }}" class="mega-dropdown-item"><i class="fas fa-school"></i> School Management</a>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'lms']) }}" class="mega-dropdown-item"><i class="fas fa-book-open"></i> LMS</a>
+    <a href="{{ route('products.detail', ['category' => 'industry-solutions', 'slug' => 'smart-e-ticketing']) }}" class="mega-dropdown-item"><i class="fas fa-bus"></i> Smart E-ticketing</a>
+</div>
 
-                <!-- Category 2: Business & Office Tools -->
-                <div class="mega-dropdown-section">
-                    <h6>Business & Office Tools</h6>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-folder-open"></i> Document Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-gavel"></i> Traffic Penalty Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-cogs"></i> ERP Full Module</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-stream"></i> Queue Management System (QMS)</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-city"></i> Building Management</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-calendar-alt"></i> Event Management</a>
-                </div>
+<!-- Business & Office Tools -->
+<div class="mega-dropdown-section">
+    <h6>Business & Office Tools</h6>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'document-management']) }}" class="mega-dropdown-item"><i class="fas fa-folder-open"></i> Document Management</a>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'traffic-penalty']) }}" class="mega-dropdown-item"><i class="fas fa-gavel"></i> Traffic Penalty Management</a>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'erp']) }}" class="mega-dropdown-item"><i class="fas fa-cogs"></i> ERP Full Module</a>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'appointment-booking']) }}" class="mega-dropdown-item"><i class="fas fa-calendar-check"></i> Appointment Booking</a>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'qms']) }}" class="mega-dropdown-item"><i class="fas fa-stream"></i> QMS</a>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'building-management']) }}" class="mega-dropdown-item"><i class="fas fa-city"></i> Building Management</a>
+    <a href="{{ route('products.detail', ['category' => 'business-tools', 'slug' => 'event-management']) }}" class="mega-dropdown-item"><i class="fas fa-calendar-alt"></i> Event Management</a>
+</div>
 
-                <!-- Category 3: Web & Mobile Applications -->
-                <div class="mega-dropdown-section">
-                    <h6>Web & Mobile Applications</h6>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> SkyLink Website & System</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-mobile-alt"></i> Besira App</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-store"></i> E-Commerce</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-paint-brush"></i> Website Design</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-music"></i> Entertainment Apps</a>
-                </div>
+<!-- Web & Mobile Applications -->
+<div class="mega-dropdown-section">
+    <h6>Web & Mobile Applications</h6>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'skylink-system']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> SkyLink Website & System</a>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'besira-app']) }}" class="mega-dropdown-item"><i class="fas fa-mobile-alt"></i> Besira App</a>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'e-commerce']) }}" class="mega-dropdown-item"><i class="fas fa-store"></i> E-Commerce</a>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'website-design']) }}" class="mega-dropdown-item"><i class="fas fa-paint-brush"></i> Website Design</a>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'entertainment-apps']) }}" class="mega-dropdown-item"><i class="fas fa-music"></i> Entertainment Apps</a>
+</div>
 
-                <!-- Category 4: Services & Support -->
-                <div class="mega-dropdown-section">
-                    <h6>Digital Services</h6>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-concierge-bell"></i> E-Service</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-headset"></i> Customer Support Systems</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-tools"></i> System Maintenance</a>
-                    <a href="#" class="mega-dropdown-item"><i class="fas fa-user-shield"></i> Security & Compliance</a>
-                </div>
+<!-- Digital Services -->
+<div class="mega-dropdown-section">
+    <h6>Digital Services</h6>
+    <a href="{{ route('products.detail', ['category' => 'digital-services', 'slug' => 'e-service']) }}" class="mega-dropdown-item"><i class="fas fa-concierge-bell"></i> E-Service</a>
+    <a href="{{ route('products.detail', ['category' => 'digital-services', 'slug' => 'customer-support']) }}" class="mega-dropdown-item"><i class="fas fa-headset"></i> Customer Support Systems</a>
+    <a href="{{ route('products.detail', ['category' => 'digital-services', 'slug' => 'system-maintenance']) }}" class="mega-dropdown-item"><i class="fas fa-tools"></i> System Maintenance</a>
+    <a href="{{ route('products.detail', ['category' => 'digital-services', 'slug' => 'security-compliance']) }}" class="mega-dropdown-item"><i class="fas fa-user-shield"></i> Security & Compliance</a>
+</div>
+
             </div>
         </div>
     </div>
 </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
