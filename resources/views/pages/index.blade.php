@@ -148,13 +148,12 @@
         /* Trusted Partners */
         .partners-section {
             padding: 40px 0;
-            background: #f8f9fa;
+            background: #ffffff;
         }
 
         .partner-logo {
-            height: 40px;
-            object-fit: contain;
-            filter: grayscale(100%);
+            height: 90px;
+            object-fit: cover;
             transition: filter 0.3s;
         }
 
@@ -295,7 +294,6 @@
         .carousel-nav {
             position: absolute;
             top: 50%;
-            transform: translateY(-70%);
             background: var(--teal);
             color: white;
             border: none;
@@ -585,6 +583,15 @@
             transition: transform 0.3s;
         }
 
+        .product-card img {
+            width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+        }
+
         .product-card:hover {
             transform: translateY(-5px);
         }
@@ -605,6 +612,24 @@
     margin: 0 20px;
     flex-shrink: 0;
 }
+.btn-view-more {
+        background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-view-more:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(58, 123, 213, 0.4);
+    }
 
 @keyframes slideProducts {
     0% { transform: translateX(0); }
@@ -962,19 +987,19 @@
         <h5 class="text-center mb-4">TRUSTED PARTNERS</h5>
         <div class="partners-slider">
             <div class="partners-track">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Oracle_Corporation_logo.svg" alt="Oracle" class="partner-logo">
+                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('assets/images/iman.webp') }}" alt="Google" class="partner-logo">
+                <img src="{{ asset('assets/images/mirkuz.jpg') }}" alt="Zoom" class="partner-logo">
+                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="Amazon" class="partner-logo">
+                <img src="{{ asset('assets/images/befan.jpg') }}" alt="Facebook" class="partner-logo">
+                <img src="{{ asset('assets/images/newleaf.webp') }}" alt="Oracle" class="partner-logo">
                 <!-- Duplicate for seamless loop -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Oracle_Corporation_logo.svg" alt="Oracle" class="partner-logo">
+                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('assets/images/iman.webp') }}" alt="Google" class="partner-logo">
+                <img src="{{ asset('assets/images/mirkuz.jpg') }}" alt="Zoom" class="partner-logo">
+                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="Amazon" class="partner-logo">
+                <img src="{{ asset('assets/images/befan.jpg') }}" alt="Facebook" class="partner-logo">
+                <img src="{{ asset('assets/images/newleaf.webp') }}" alt="Oracle" class="partner-logo">
             </div>
         </div>
     </div>
@@ -1045,8 +1070,8 @@
                             'id' => 1,
                             'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'category' => 'Web Design',
-                            'author' => 'Daniel Lee',
-                            'date' => '01 Jan 2045',
+                            'author' => 'Admin',
+                            'date' => '01 Jan 2024',
                             'title' => 'How to build a website',
                             'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
                         ],
@@ -1054,8 +1079,8 @@
                             'id' => 2,
                             'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'category' => 'Web Design',
-                            'author' => 'Daniel Lee',
-                            'date' => '01 Jan 2045',
+                            'author' => 'Admin',
+                            'date' => '01 Jan 2024',
                             'title' => 'How to build a website',
                             'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
                         ],
@@ -1063,8 +1088,8 @@
                             'id' => 3,
                             'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'category' => 'Web Design',
-                            'author' => 'Daniel Lee',
-                            'date' => '01 Jan 2045',
+                            'author' => 'Admin',
+                            'date' => '01 Jan 2024',
                             'title' => 'How to build a website',
                             'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
                         ]
@@ -1141,8 +1166,6 @@
         </div>
     </div>
 </section>
-
-<!-- Featured Products -->
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">
@@ -1173,6 +1196,12 @@
                 </div>
                 @endforeach
             </div>
+        </div>
+        <div class="text-center mt-5">
+            <button class="btn btn-view-more">
+                View More Products
+                <i class="fas fa-arrow-right ml-2"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -1467,7 +1496,6 @@ const observer = new IntersectionObserver(function(entries) {
 
 
 // JavaScript for infinite carousel with smooth transitions and swipe support (autoplay removed, bounce removed)
-
 const services = [
   {
     icon: 'fas fa-laptop-code',
@@ -1477,75 +1505,57 @@ const services = [
   {
     icon: 'fas fa-mobile-alt',
     title: 'Mobile Apps',
-    desc: 'Our flagship mobile application development service provides comprehensive end-to-end solutions for iOS and Android platforms.'
-  },
-  {
-    icon: 'fas fa-cloud',
-    title: 'Cloud Solutions',
-    desc: 'Comprehensive cloud services including migration, management, and optimization to help your business scale efficiently.'
+    desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
   },
   {
     icon: 'fas fa-shield-alt',
-    title: 'Cybersecurity',
-    desc: 'Protect your business with comprehensive cybersecurity solutions.'
+    title: 'Physical Safety and Security',
+    desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Enterprise Network Solution',
+    desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
   },
   {
     icon: 'fas fa-database',
-    title: 'Data Analytics',
-    desc: 'Transform your data into actionable insights with advanced analytics.'
+    title: 'ERP Consultancy',
+    desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
   },
   {
     icon: 'fas fa-cogs',
-    title: 'IT Consulting',
-    desc: 'Strategic IT consulting services to optimize your technology infrastructure.'
+    title: 'ICT Support',
+    desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'Smart City Projects',
+    desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
   }
 ];
 
-let currentIndex = 0;
+let currentIndex = 1;
+
 const container = document.querySelector('.services-container');
+const cards = container.querySelectorAll('.service-card');
 const prevBtn = document.querySelector('.carousel-prev');
 const nextBtn = document.querySelector('.carousel-next');
+
+function updateCard(card, service, position) {
+  card.className = 'service-card ' + position;
+  card.querySelector('.service-image i').className = service.icon;
+  card.querySelector('h4').textContent = service.title;
+  card.querySelector('p').textContent = service.desc;
+}
 
 function renderServices() {
   const prev = services[(currentIndex - 1 + services.length) % services.length];
   const current = services[currentIndex % services.length];
   const next = services[(currentIndex + 1) % services.length];
 
-  const existingCards = container.querySelectorAll('.service-card');
-  existingCards.forEach(el => {
-    el.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
-    el.style.opacity = 0;
-  });
-
-  setTimeout(() => {
-    existingCards.forEach(el => el.remove());
-
-    const cards = [prev, current, next].map((svc, idx) => {
-      const div = document.createElement('div');
-      div.className = 'service-card ' + (idx === 1 ? 'center' : 'side');
-      div.innerHTML = `
-        <div class="service-image">
-          <i class="${svc.icon}"></i>
-        </div>
-        <div class="service-content">
-          <h4>${svc.title}</h4>
-          <p>${svc.desc}</p>
-        </div>
-      `;
-      div.style.opacity = 0;
-      div.style.transform = 'translateX(' + (idx === 0 ? '-100px' : idx === 2 ? '100px' : '10') + ')';
-      setTimeout(() => {
-        div.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
-        div.style.transform = 'translateX(0)';
-        div.style.opacity = 5;
-      }, 10);
-      return div;
-    });
-
-    container.insertBefore(cards[2], nextBtn);
-    container.insertBefore(cards[1], cards[2]);
-    container.insertBefore(cards[0], cards[1]);
-  }, 300);
+  updateCard(cards[0], prev, 'side');
+  updateCard(cards[1], current, 'center');
+  updateCard(cards[2], next, 'side');
 }
 
 prevBtn.addEventListener('click', () => {
@@ -1575,7 +1585,7 @@ container.addEventListener('touchend', (e) => {
   }
 });
 
-// Initial load
+// Initial render
 document.addEventListener('DOMContentLoaded', renderServices);
 
     </script>
