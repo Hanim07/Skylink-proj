@@ -336,60 +336,30 @@
 
             <!-- Projects Container -->
             <div class="projects-container" id="projectsContainer">
-                @php
-                    $projects = [
-                        [
-                            'id' => 1,
-                            'title' => 'Bijlalul Habeshi Virtual Tutor',
-                            'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => asset('assets/images/portfolioafar.webp'),
-                            'category' => 'web',
-                            'tags' => ['education', 'virtual tutor', 'web development'],
-                            'link' => '#'
-                        ],
-                        [
-                            'id' => 2,
-                            'title' => 'Elida Ethiopia',
-                            'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => asset('assets/images/portfoliobilalul.webp'),
-                            'category' => 'ecommerce',
-                            'tags' => ['e-commerce', 'ethiopia', 'online store'],
-                            'link' => '#'
-                        ],
-                        [
-                            'id' => 3,
-                            'title' => 'Kirb Gebeya',
-                            'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => asset('assets/images/portfolioelida.webp'),
-                            'category' => 'ecommerce',
-                            'tags' => ['marketplace', 'gebeya', 'e-commerce'],
-                            'link' => '#'
-                        ],
-                        [
-                            'id' => 4,
-                            'title' => 'Afar Website',
-                            'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => asset('assets/images/portfoliokirb.webp'),
-                            'category' => 'web',
-                            'tags' => ['tourism', 'afar', 'website'],
-                            'link' => '#'
-                        ],
-                        [
-                            'id' => 5,
-                            'title' => 'Real State Management System',
-                            'description' => 'Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.',
-                            'image' => asset('assets/images/portfolio5.jpg'),
-                            'category' => 'management',
-                            'tags' => ['real estate', 'management', 'system'],
-                            'link' => '#'
-                        ]
-                    ];
-                @endphp
+
+                
+                @foreach($projects as $index => $project)
+    <div class="project-item {{ $index % 2 == 1 ? 'reverse' : '' }}">
+        <div class="project-image">
+            <div class="project-circle">
+                <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+            </div>
+        </div>
+        <div class="project-content">
+            <h3 class="project-title">{{ $project->title }}</h3>
+            <p class="project-description">{{ $project->description }}</p>
+        </div>
+    </div>
+@endforeach
+
+
+
 
                 @foreach($projects as $index => $project)
                 <div class="project-item {{ $index % 2 == 1 ? 'reverse' : '' }}" 
                      data-category="{{ $project['category'] }}" 
-                     data-tags="{{ implode(',', $project['tags']) }}"
+                {{-- data-tags="{{ implode(',', $project['tags']) }}" --}}
+                
                      data-title="{{ strtolower($project['title']) }}">
                     
                     <div class="project-image">

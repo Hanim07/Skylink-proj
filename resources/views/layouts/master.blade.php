@@ -563,7 +563,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
             <div class="container">
                 <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/skylink-48a05ef2.svg') }}" alt="Skylink Logo" class="logo-img me-2">
+                    <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     
                 </a>
 
@@ -706,6 +706,143 @@
     </div>
 </li>
 
+                            <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>    
+                            <div class="mega-dropdown-menu">
+                                <div class="mega-dropdown-content">
+                                    <div class="mega-dropdown-grid">
+                                        <div class="mega-dropdown-section">
+                                            <h6>Web Development</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-code"></i>Frontend Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-server"></i>Backend Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-layer-group"></i>Full Stack Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-shopping-cart"></i>E-commerce Solutions
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Mobile Development</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fab fa-apple"></i>iOS Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fab fa-android"></i>Android Development
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-mobile-alt"></i>Cross-Platform Apps
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-tablet-alt"></i>Tablet Applications
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Design Services</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-paint-brush"></i>UI/UX Design
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-palette"></i>Graphic Design
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-drafting-compass"></i>Prototyping
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-eye"></i>Brand Identity
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Digital Marketing</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-search"></i>SEO Services
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-bullhorn"></i>Social Media Marketing
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-envelope"></i>Email Marketing
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-chart-line"></i>Analytics & Reporting
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item mega-dropdown">
+            <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('portfolio') }}">Products</a>
+                                <div class="mega-dropdown-menu">
+                                <div class="mega-dropdown-content">
+                                    <div class="mega-dropdown-grid">
+                                        <div class="mega-dropdown-section">
+                                            <h6>Web Applications</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-globe"></i>Business Websites
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-store"></i>E-commerce Platforms
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-blog"></i>Content Management
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-users"></i>Social Platforms
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Mobile Apps</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-mobile"></i>Native iOS Apps
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fab fa-android"></i>Native Android Apps
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-sync"></i>Hybrid Applications
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-gamepad"></i>Gaming Apps
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>Enterprise Solutions</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-building"></i>CRM Systems
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-chart-bar"></i>Analytics Dashboards
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-cogs"></i>Workflow Automation
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-database"></i>Data Management
+                                            </a>
+                                        </div>
+                                        <div class="mega-dropdown-section">
+                                            <h6>API & Integration</h6>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-plug"></i>REST APIs
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-link"></i>Third-party Integration
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-cloud"></i>Cloud Services
+                                            </a>
+                                            <a href="#" class="mega-dropdown-item">
+                                                <i class="fas fa-shield-alt"></i>Security Solutions
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
@@ -713,7 +850,7 @@
                             <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news') }}">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
+                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
                         </li>
                     </ul>
                     
@@ -736,7 +873,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="logo mb-3">
                     <a href="/" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets/images/skylink-48a05ef2.svg') }}" alt="Skylink Logo" class="logo-img me-2">
+                        <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     </a>
                 </div>
                 <p>
@@ -785,7 +922,7 @@
         </div>
 
         <div class="footer-bottom text-center pt-3">
-            <p>Copyright © 2023 Skylink | Powered By Skylink Technologies</p>
+            <p>Copyright © 2025 | Powered By Skylink Technologies</p>
         </div>
     </div>
 </footer>
