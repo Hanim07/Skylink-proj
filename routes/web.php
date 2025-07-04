@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminNewsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
+use App\Http\Controllers\ProductController;
 
 
 
@@ -25,8 +26,8 @@ Route::get('/', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
-Route::post('/quote/request', [ServicesController::class, 'requestQuote'])->name('quote.request');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::post('/quote/request', [ServiceController::class, 'requestQuote'])->name('quote.request');
 
 
 
@@ -42,6 +43,7 @@ Route::post('/quote/request', [ServicesController::class, 'requestQuote'])->name
 
 // Public route
 Route::get('/portfolio', [PublicPortfolioController::class, 'index'])->name('portfolio');
+
 
 
 
@@ -66,6 +68,9 @@ Route::get('/about', function () {
 Route::get('/services', function () {
     return view('pages.servicepage');
 })->name('services');
+Route::get('/products', function () {
+    return view('pages.products');
+})->name('products');
 
 Route::get('/contact', function () {
     return view('pages.contact');
@@ -91,6 +96,12 @@ Route::prefix('admin')->group(function () {
     Route::delete('/news/{id}', [AdminNewsController::class, 'destroy'])->name('admin.news.destroy');
 
 });
+
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{category}/{slug}', [ProductController::class, 'show'])->name('products.detail');
+
 
 
 /*

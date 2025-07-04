@@ -707,7 +707,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    <div class="service-bar">
+                    {{-- <div class="service-bar">
                         <div class="hero-service-tag">Our Service</div>
 
                         <div class="dropdown">
@@ -737,7 +737,7 @@
                             </div>
                             
                         </div> --}}
-                    </div>
+                    {{-- </div> --}} 
 
                     
                     <h1 class="hero-title">
