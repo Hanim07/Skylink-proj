@@ -37,7 +37,7 @@
         position: sticky;
         top: 0;
         z-index: 1030;
-        background: #ced7fa;
+        background: #f5f5f5;
         padding: 8px 0;
         font-size: 13px;
         color: #a9b9f2;

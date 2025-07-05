@@ -1450,7 +1450,159 @@
             });
         });
 
-        // Counter animation for stats
+        document.addEventListener('DOMContentLoaded', () => {
+  // Counter animation for stats
+  function animateCounters() {
+    document.querySelectorAll('.stat-number').forEach(counter => {
+      if (counter.dataset.animated === "true") return;
+      counter.dataset.animated = "true";
+
+      const target = counter.getAttribute('data-target') || '0';
+      const isK = target.toLowerCase().includes('k');
+      const isPlus = target.includes('+');
+      const numericValue = parseFloat(target.replace(/[^\d.]/g, ''));
+      const numericTarget = isK ? numericValue * 1000 : numericValue;
+
+      const duration = 2000; // animation duration in ms
+      const startTime = performance.now();
+
+      function updateCounter(now) {
+        const elapsed = now - startTime;
+        let progress = Math.min(elapsed / duration, 1);
+        let current = Math.floor(progress * numericTarget);
+
+        if (isK) {
+          counter.textContent = Math.floor(current / 1000) + 'k';
+        } else if (isPlus) {
+          counter.textContent = current + '+';
+        } else {
+          counter.textContent = current;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      }
+
+      requestAnimationFrame(updateCounter);
+    });
+  }
+
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target); // only once
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(statsSection);
+  }
+});
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+  // ========= SERVICES DATA =========
+  const services = [
+    {
+      icon: 'fas fa-laptop-code',
+      title: 'Web Development',
+      desc: 'We create modern, responsive websites and web applications using the latest technologies and best practices to ensure optimal performance and exceptional user experience for your business.'
+    },
+    {
+      icon: 'fas fa-mobile-alt',
+      title: 'Mobile Apps',
+      desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
+    },
+    {
+      icon: 'fas fa-shield-alt',
+      title: 'Physical Safety and Security',
+      desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
+    },
+    {
+      icon: 'fas fa-shield-alt',
+      title: 'Enterprise Network Solution',
+      desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
+    },
+    {
+      icon: 'fas fa-database',
+      title: 'ERP Consultancy',
+      desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
+    },
+    {
+      icon: 'fas fa-cogs',
+      title: 'ICT Support',
+      desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
+    },
+    {
+      icon: 'fas fa-database',
+      title: 'Smart City Projects',
+      desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
+    }
+  ];
+
+  let currentIndex = 1;
+
+  const container = document.querySelector('.services-container');
+  const cards = container.querySelectorAll('.service-card');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+
+  function updateCard(card, service, position) {
+    card.className = 'service-card ' + position;
+    card.querySelector('.service-image i').className = service.icon;
+    card.querySelector('h4').textContent = service.title;
+    card.querySelector('p').textContent = service.desc;
+  }
+
+  function renderServices() {
+    if (cards.length < 3) {
+      console.warn('Not enough cards in the DOM. Expected 3.');
+      return;
+    }
+
+    const prev = services[(currentIndex - 1 + services.length) % services.length];
+    const current = services[currentIndex % services.length];
+    const next = services[(currentIndex + 1) % services.length];
+
+    updateCard(cards[0], prev, 'side');
+    updateCard(cards[1], current, 'center');
+    updateCard(cards[2], next, 'side');
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + services.length) % services.length;
+    renderServices();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % services.length;
+    renderServices();
+  });
+
+  // Swipe Support
+  let startX = 0;
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = endX - startX;
+
+    if (deltaX > 50) {
+      prevBtn.click();
+    } else if (deltaX < -50) {
+      nextBtn.click();
+    }
+  });
+
+   // Counter animation for stats
         function animateCounters() {
     document.querySelectorAll('.stat-number').forEach(counter => {
         if (counter.dataset.animated) return;
@@ -1593,112 +1745,9 @@ const observer = new IntersectionObserver(function(entries) {
         });
 
 
-// JavaScript for infinite carousel with smooth transitions and swipe support (autoplay removed, bounce removed)
-const services = [
-  {
-    icon: 'fas fa-laptop-code',
-    title: 'Web Development',
-    desc: 'We create modern, responsive websites and web applications using the latest technologies and best practices to ensure optimal performance and exceptional user experience for your business.'
-  },
-  {
-    icon: 'fas fa-mobile-alt',
-    title: 'Mobile Apps',
-    desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
-  },
-  {
-    icon: 'fas fa-shield-alt',
-    title: 'Physical Safety and Security',
-    desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
-  },
-  {
-    icon: 'fas fa-shield-alt',
-    title: 'Enterprise Network Solution',
-    desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
-  },
-  {
-    icon: 'fas fa-database',
-    title: 'ERP Consultancy',
-    desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
-  },
-  {
-    icon: 'fas fa-cogs',
-    title: 'ICT Support',
-    desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
-  },
-  {
-    icon: 'fas fa-database',
-    title: 'Smart City Projects',
-    desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
-  }
-];
-
-let currentIndex = 1;
-
-const container = document.querySelector('.services-container');
-const cards = container.querySelectorAll('.service-card');
-const prevBtn = document.querySelector('.carousel-prev');
-const nextBtn = document.querySelector('.carousel-next');
-
-function updateCard(card, service, position) {
-  card.className = 'service-card ' + position;
-  card.querySelector('.service-image i').className = service.icon;
-  card.querySelector('h4').textContent = service.title;
-  card.querySelector('p').textContent = service.desc;
-}
-
-function renderServices() {
-  const prev = services[(currentIndex - 1 + services.length) % services.length];
-  const current = services[currentIndex % services.length];
-  const next = services[(currentIndex + 1) % services.length];
-
-  updateCard(cards[0], prev, 'side');
-  updateCard(cards[1], current, 'center');
-  updateCard(cards[2], next, 'side');
-}
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + services.length) % services.length;
+  // INITIAL RENDER
   renderServices();
 });
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % services.length;
-  renderServices();
-});
-
-// Swipe support
-let startX = 0;
-container.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-});
-
-container.addEventListener('touchend', (e) => {
-  const endX = e.changedTouches[0].clientX;
-  const deltaX = endX - startX;
-
-  if (deltaX > 50) {
-    prevBtn.click();
-  } else if (deltaX < -50) {
-    nextBtn.click();
-  }
-});
-
-// Initial render
-document.addEventListener('DOMContentLoaded', renderServices);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 @endpush
