@@ -521,6 +521,8 @@
     </style>
     
     @stack('styles')
+    @stack('scripts')
+
 </head>
 <body>
     <!-- Top Bar -->

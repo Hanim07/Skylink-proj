@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController as PublicPortfolioController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsDisplayController;
+use App\Http\Controllers\SubscriptionController;
+
 use App\Http\Controllers\PortfolioDisplayController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\AdminNewsController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\NewsletterController;
 
 
 Route::get('/', function () {
@@ -174,7 +176,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
 
 
-Route::get('/subscribe', [SubscriberController::class, 'store'])->name('subscriber.store');
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+
+Route::get('/send-newsletter', [NewsletterController::class, 'sendNewsletter']);
+
+
 
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
@@ -192,6 +198,7 @@ Route::post('/subscribe/process', function (Illuminate\Http\Request $request) {
 
 
 
+Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 
 
 
@@ -201,13 +208,14 @@ Route::post('/subscribe/process', function (Illuminate\Http\Request $request) {
 
 
 
-Route::get('/services', [ServicesController::class, 'index'])->name('services');
+
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
 
 // Service Category Page
-Route::get('/services/category/{category}', [ServicesController::class, 'category'])->name('services.category');
+Route::get('/services/category/{category}', [ServiceController::class, 'category'])->name('services.category');
 
 // Service Detail Page (Subcategory)
-Route::get('/services/detail/{subcategory}', [ServicesController::class, 'detail'])->name('services.detail');
+Route::get('/services/detail/{subcategory}', [ServiceController::class, 'detail'])->name('services.detail');
 
 
 

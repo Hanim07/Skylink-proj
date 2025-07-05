@@ -7,7 +7,8 @@
     <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @include('admin.news.form')
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+
+<button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.form.submit();">Create</button>  
+  </form>
 </div>
 @endsection

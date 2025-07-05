@@ -248,21 +248,10 @@
 
 
 
-                    @foreach($news as $item)
-    <div class="col-md-6 blog-post" data-category="{{ strtolower(str_replace(' ', '-', $item->category->name)) }}">
-        <div class="blog-card">
-            <img src="{{ asset('storage/news/' . $item->image) }}" alt="{{ $item->title }}">
-            <div class="blog-card-body">
-                <span class="category-tag">{{ $item->category->name }}</span>
-                <h3 class="blog-title">{{ $item->title }}</h3>
-                <p class="blog-excerpt">{{ Str::limit(strip_tags($item->body), 100) }}</p>
-                <a href="{{ route('news.show', $item->slug) }}" class="read-more">
-                    Read More <i class="fas fa-arrow-right ms-1"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-@endforeach
+
+
+
+
 
                     </div>
 
@@ -359,7 +348,7 @@
             filter.addEventListener('click', function() {
                 // Remove active class from all filters
                 document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
-                // Add active class to clicked filter
+                                    // Add active class to clicked filter
                 this.classList.add('active');
                 
                 const category = this.dataset.category;

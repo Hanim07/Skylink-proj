@@ -1,19 +1,25 @@
 <?php
 
+// app/Http/Controllers/NewsletterController.php
+
 namespace App\Http\Controllers;
-namespace App\Http\Controllers;
 
-
-
-use Illuminate\Http\Request;
+use App\Models\Subscriber;
+use App\Mail\NewsLetterMail;
+use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
 {
-    public function subscribe(Request $request)
+    public function sendNewsletter()
     {
-        // Here you can handle the actual logic, e.g. saving to database or mailing list
+        $subscribers = Subscriber::all();
 
-        // Example: flash message and redirect
-        return redirect()->back()->with('success', 'Thanks for subscribing!');
+        $content = "Here's the latest news..."; // You can make this dynamic
+
+        foreach ($subscribers as $subscriber) {
+            Mail::to($subscriber->email)->send(new NewsLetterMail($content));
+        }
+
+        return 'Newsletter sent!';
     }
 }
