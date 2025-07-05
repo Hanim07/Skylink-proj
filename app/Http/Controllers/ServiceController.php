@@ -7,49 +7,403 @@ class ServiceController extends Controller
 {
     
 
-    public function category($category)
-    {
-        return view('services.servicecategory', compact('category'));
-    }
+    private array $services = [
+    'software-service' => [
+        'category' => 'Software Service',
+        'items' => [
+            [
+                'slug' => 'web-apps',
+                'title' => 'Web Applications',
+                'desc' => 'Custom web-based platforms for your business.',
+                'image' => 'web-app.jpg',
+                'price' => '$199/mo',
+                'features' => [
+                    'Responsive Design',
+                    'Custom Functionality',
+                    'Backend Integration'
+                ]
+            ],
+            [
+                'slug' => 'mobile-apps',
+                'title' => 'Mobile Applications',
+                'desc' => 'iOS & Android applications tailored to your needs.',
+                'image' => 'mobile-app.jpg',
+                'price' => '$299/mo',
+                'features' => [
+                    'Cross-platform Support',
+                    'Push Notifications',
+                    'App Store Submission'
+                ]
+            ],
+            [
+                'slug' => 'custom-software',
+                'title' => 'Custom Software',
+                'desc' => 'Bespoke software solutions for enterprises.',
+                'image' => 'custom-software.jpg',
+                'price' => 'Custom Quote',
+                'features' => [
+                    'Tailored Requirements',
+                    'Dedicated Support',
+                    'Scalable Architecture'
+                ]
+            ]
+        ]
+    ],
+
+    'smart-city' => [
+        'category' => 'Smart City & Infrastructure',
+        'items' => [
+            [
+                'slug' => 'physical-safety',
+                'title' => 'Physical Safety & Security',
+                'desc' => 'Smart solutions for urban safety monitoring.',
+                'image' => 'physical-safety.jpg',
+                'price' => 'Starting at $499',
+                'features' => [
+                    'Integrated CCTV',
+                    'Emergency Alert System',
+                    'AI Incident Detection'
+                ]
+            ],
+            [
+                'slug' => 'structured-cabling',
+                'title' => 'Structured Cabling System',
+                'desc' => 'Efficient data & power cabling infrastructure.',
+                'image' => 'cabling.jpg',
+                'price' => 'Project Based',
+                'features' => [
+                    'High-Speed Cabling',
+                    'Future-Proof Layout',
+                    'Certified Installations'
+                ]
+            ],
+            [
+                'slug' => 'smart-mobility',
+                'title' => 'Smart Mobility & Transportation',
+                'desc' => 'Modern traffic and mobility solutions.',
+                'image' => 'smart-mobility.jpg',
+                'price' => 'Project Based',
+                'features' => [
+                    'IoT Sensors',
+                    'Traffic Automation',
+                    'Fleet Integration'
+                ]
+            ],
+            [
+                'slug' => 'smart-infrastructure',
+                'title' => 'Integrated Smart Infrastructure',
+                'desc' => 'Holistic infrastructure planning & implementation.',
+                'image' => 'smart-infra.jpg',
+                'price' => 'Custom Quote',
+                'features' => [
+                    'Unified Systems',
+                    'Sustainable Design',
+                    'Scalable Platforms'
+                ]
+            ],
+            [
+                'slug' => 'datacenter-infra',
+                'title' => 'Data Center Infrastructure',
+                'desc' => 'Core components for modern data operations.',
+                'image' => 'dc-infra.jpg',
+                'price' => 'Quote on Request',
+                'features' => [
+                    'Network Racks',
+                    'Power Cabling',
+                    'Server Enclosures'
+                ]
+            ]
+        ]
+    ],
+
+    'safety-security' => [
+        'category' => 'Safety & Security',
+        'items' => [
+            [
+                'slug' => 'network-security',
+                'title' => 'Network & Application Security',
+                'desc' => 'Protect your systems from cyber threats.',
+                'image' => 'network-security.jpg',
+                'price' => '$129/mo',
+                'features' => [
+                    'Firewall Setup',
+                    'Malware Protection',
+                    'Regular Audits'
+                ]
+            ],
+            [
+                'slug' => 'endpoint-security',
+                'title' => 'Endpoint Security',
+                'desc' => 'Secure your devices and endpoints.',
+                'image' => 'endpoint.jpg',
+                'price' => '$99/device',
+                'features' => [
+                    'Antivirus Protection',
+                    'Access Controls',
+                    'Device Monitoring'
+                ]
+            ],
+            [
+                'slug' => 'data-protection',
+                'title' => 'Data Protection',
+                'desc' => 'Keep sensitive data encrypted and secure.',
+                'image' => 'data-protection.jpg',
+                'price' => 'Based on Data Size',
+                'features' => [
+                    'Data Encryption',
+                    'Backup & Recovery',
+                    'DLP Policies'
+                ]
+            ],
+            [
+                'slug' => 'access-management',
+                'title' => 'Access Management',
+                'desc' => 'Manage identity and system access securely.',
+                'image' => 'access.jpg',
+                'price' => '$149/mo',
+                'features' => [
+                    'SSO Integration',
+                    'Role-Based Access',
+                    'MFA Solutions'
+                ]
+            ]
+        ]
+    ],
+
+    'enterprise-network' => [
+        'category' => 'Enterprise Network Solution',
+        'items' => [
+            [
+                'slug' => 'network-overview',
+                'title' => 'Enterprise Network Overview',
+                'desc' => 'Blueprint and assessment of enterprise networks.',
+                'image' => 'network-overview.jpg',
+                'price' => '$399/project',
+                'features' => [
+                    'Architecture Design',
+                    'Infrastructure Analysis'
+                ]
+            ],
+            [
+                'slug' => 'wlan-solution',
+                'title' => 'Network & WLAN Solution',
+                'desc' => 'Secure and high-speed wireless connectivity.',
+                'image' => 'wlan.jpg',
+                'price' => 'Custom Quote',
+                'features' => [
+                    'Access Point Setup',
+                    'Bandwidth Optimization',
+                    'Coverage Planning'
+                ]
+            ]
+        ]
+    ],
+
+    'consulting-training' => [
+        'category' => 'Consulting & Training',
+        'items' => [
+            [
+                'slug' => 'smart-city-consulting',
+                'title' => 'Smart City Projects',
+                'desc' => 'Expert guidance for smart city initiatives.',
+                'image' => 'smart-city-consulting.jpg',
+                'price' => 'Per Engagement',
+                'features' => [
+                    'Feasibility Study',
+                    'Project Management',
+                    'Vendor Coordination'
+                ]
+            ],
+            [
+                'slug' => 'product-development',
+                'title' => 'Product Development',
+                'desc' => 'Bringing your tech product ideas to life.',
+                'image' => 'product-dev.jpg',
+                'price' => 'Custom Quote',
+                'features' => [
+                    'MVP Creation',
+                    'Agile Development',
+                    'UI/UX Design'
+                ]
+            ],
+            [
+                'slug' => 'business-strategy',
+                'title' => 'Business Strategy',
+                'desc' => 'Technology-driven business innovation plans.',
+                'image' => 'biz-strategy.jpg',
+                'price' => '$250/hr',
+                'features' => [
+                    'Digital Transformation',
+                    'Market Analysis',
+                    'IT Alignment'
+                ]
+            ],
+            [
+                'slug' => 'erp-consultancy',
+                'title' => 'ERP Consultancy',
+                'desc' => 'Guidance on ERP software selection & integration.',
+                'image' => 'erp-consulting.jpg',
+                'price' => '$199/hr',
+                'features' => [
+                    'ERP Customization',
+                    'Data Migration',
+                    'Workflow Optimization'
+                ]
+            ]
+        ]
+    ],
+
+    'ict-support' => [
+        'category' => 'ICT Support',
+        'items' => [
+            [
+                'slug' => 'tech-assistance',
+                'title' => 'Technical Assistance',
+                'desc' => 'Hands-on help for your IT operations.',
+                'image' => 'technical-assist.jpg',
+                'price' => '$49/hr',
+                'features' => [
+                    'Remote Support',
+                    'On-site Visits',
+                    'Issue Resolution'
+                ]
+            ],
+            [
+                'slug' => 'system-maintenance',
+                'title' => 'System Maintenance',
+                'desc' => 'Ongoing IT systems and software upkeep.',
+                'image' => 'system-maintenance.jpg',
+                'price' => '$99/mo',
+                'features' => [
+                    'System Monitoring',
+                    'Performance Optimization'
+                ]
+            ],
+            [
+                'slug' => 'security-privacy',
+                'title' => 'Security & Privacy',
+                'desc' => 'Ensuring your systems remain private and secure.',
+                'image' => 'privacy.jpg',
+                'price' => '$149/mo',
+                'features' => [
+                    'Vulnerability Patching',
+                    'Audit Reports',
+                    'Compliance Management'
+                ]
+            ]
+        ]
+    ],
+
+    'gps-tracking' => [
+        'category' => 'GPS Tracking System',
+        'items' => [
+            [
+                'slug' => 'fleet-management',
+                'title' => 'Fleet Management',
+                'desc' => 'Real-time fleet tracking and reporting.',
+                'image' => 'fleet.jpg',
+                'price' => '$199/device',
+                'features' => [
+                    'Live GPS Tracking',
+                    'Driver Analytics',
+                    'Fuel Efficiency Reports'
+                ]
+            ],
+            [
+                'slug' => 'asset-tracking',
+                'title' => 'Asset Tracking',
+                'desc' => 'Monitor the location of assets in real time.',
+                'image' => 'asset-tracking.jpg',
+                'price' => 'Starting at $99',
+                'features' => [
+                    'Location History',
+                    'Theft Recovery',
+                    'Usage Logs'
+                ]
+            ],
+            [
+                'slug' => 'vehicle-tracking',
+                'title' => 'Vehicle Monitoring',
+                'desc' => 'Keep tabs on vehicle movement and health.',
+                'image' => 'vehicle-monitoring.jpg',
+                'price' => 'Per Device License',
+                'features' => [
+                    'Speed Alerts',
+                    'Engine Diagnostics',
+                    'Route Optimization'
+                ]
+            ]
+        ]
+    ],
+
+    'datacenter-facility' => [
+        'category' => 'Datacenter Facility & Power',
+        'items' => [
+            [
+                'slug' => 'server-rooms',
+                'title' => 'Server Rooms',
+                'desc' => 'Design and setup of reliable server rooms.',
+                'image' => 'server-room.jpg',
+                'price' => 'Based on Requirements',
+                'features' => [
+                    'Rack Installation',
+                    'Cable Management',
+                    'Access Control'
+                ]
+            ],
+            [
+                'slug' => 'ups-power',
+                'title' => 'UPS & Power Backup',
+                'desc' => 'Reliable power systems for uninterrupted uptime.',
+                'image' => 'ups.jpg',
+                'price' => 'Based on Setup',
+                'features' => [
+                    'Redundant UPS Systems',
+                    'Battery Monitoring',
+                    'Power Analytics'
+                ]
+            ],
+            [
+                'slug' => 'cooling-system',
+                'title' => 'Cooling Systems',
+                'desc' => 'Precision cooling for critical IT infrastructure.',
+                'image' => 'cooling.jpg',
+                'price' => 'Quote on Request',
+                'features' => [
+                    'Climate Control',
+                    'Energy Efficiency',
+                    'Redundant Cooling Units'
+                ]
+            ]
+        ]
+    ]
+];
+
+    public function category(string $categorySlug)
+{
+    $data = $this->services[$categorySlug] ?? null;
+    if (!$data) abort(404);
+
+    return view('services.servicecategory', [
+        'category' => $data['category'], // Display name
+        'items' => $data['items']        // Array of subcategories
+    ]);
+}
+
 
     public function detail($subcategory)
-{
-    $details = [
-        'web-apps' => [
-            'title' => 'Web Application Development',
-            'desc' => 'We build modern, scalable, and secure web applications tailored to your business needs.',
-            'price' => '$1,500+',
-            'features' => ['Custom UI/UX design', 'Responsive design', 'Scalable backend', 'Admin dashboards']
-        ],
-        'mobile-apps' => [
-            'title' => 'Mobile App Development',
-            'desc' => 'Native and cross-platform mobile apps with excellent performance and modern design.',
-            'price' => '$1,800+',
-            'features' => ['iOS & Android', 'Offline support', 'Push notifications', 'App Store publishing']
-        ],
-        'vpn-solutions' => [
-            'title' => 'VPN Solutions',
-            'desc' => 'Enterprise VPN services to ensure secure and private remote access.',
-            'price' => '$700/year',
-            'features' => ['Encrypted tunnels', 'Multi-platform support', 'Unlimited bandwidth', '24/7 monitoring']
-        ],
-        // ... add more subcategories here
-    ];
-
-    $service = [
-    'title' => 'Web Application Development',
-    'desc' => 'Build secure, scalable and modern web platforms tailored for business.',
-    'price' => '$1,500+',
-    'features' => [
-        'Custom UI/UX',
-        'Mobile responsive',
-        'RESTful APIs',
-        'Admin dashboard',
-    ],
-];
-return view('services.servicedetail', compact('service'));
-
-}
+    {
+        foreach ($this->services as $cat) {
+            foreach ($cat['items'] as $item) {
+                if ($item['slug'] === $subcategory) {
+                    return view('services.servicedetail', [
+                        'service' => $item
+                    ]);
+                }
+            }
+        }
+        abort(404);
+    }
 
 
     public function index()

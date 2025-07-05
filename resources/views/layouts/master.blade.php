@@ -693,8 +693,6 @@
 <!-- Web & Mobile Applications -->
 <div class="mega-dropdown-section">
     <h6>Web & Mobile Applications</h6>
-    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'skylink-system']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> SkyLink Website & System</a>
-    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'besira-app']) }}" class="mega-dropdown-item"><i class="fas fa-mobile-alt"></i> Besira App</a>
     <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'e-commerce']) }}" class="mega-dropdown-item"><i class="fas fa-store"></i> E-Commerce</a>
     <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'website-design']) }}" class="mega-dropdown-item"><i class="fas fa-paint-brush"></i> Website Design</a>
     <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'entertainment-apps']) }}" class="mega-dropdown-item"><i class="fas fa-music"></i> Entertainment Apps</a>
