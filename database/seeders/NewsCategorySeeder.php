@@ -14,20 +14,21 @@ class NewsCategorySeeder extends Seeder
      */
     public function run(): void
     {
+       
         $categories = [
-        'Software Service',
-        'Smart City and Infrastructure',
-        'Safety and Security',
-        'Enterprise Network Solution',
-        'Consulting and Training',
-        'ICT Support',
-        'GPS Tracking System',
-        'Data Center Facility and Power',
-    ];
+            'Software Service',
+            'Web & Mobile App',
+            'Smart City and Infrastructure',
+            'Safety and Security',
+            'Enterprise Network Solution',
+            'Consulting and Training',
+            'ICT Support',
+            'GPS Tracking System',
+            'Datacenter Facility and Power',
+        ];
 
-foreach ($categories as $name) {
-        NewsCategory::create(['name' => $name]);
-    }
-
+        foreach ($categories as $name) {
+            NewsCategory::firstOrCreate(['name' => $name]);
+        }
     }
 }

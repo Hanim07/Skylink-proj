@@ -12,13 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('news_category_id')->constrained()->onDelete('cascade');
-            $table->string('title');
-            $table->string('image')->nullable(); // path to image
-            $table->text('description');
-            $table->timestamps();
-        });
+        $table->id();
+        $table->string('title');
+        $table->string('slug')->unique();
+        $table->unsignedBigInteger('news_category_id');
+        $table->string('excerpt')->nullable();
+        $table->text('content')->nullable();
+        $table->string('image')->nullable();
+        $table->timestamps();
+
+$table->foreign('news_category_id')->references('id')->on('news_categories')->onDelete('cascade');
+    });
     }
 
     /**

@@ -4,13 +4,15 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\PortfolioController as PublicPortfolioController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsDisplayController;
 use App\Http\Controllers\PortfolioDisplayController;
 use App\Http\Controllers\Admin\ContactMessageController;
+use App\Http\Controllers\Admin\AdminNewsController;
+
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
@@ -76,10 +78,24 @@ Route::get('/contact', function () {
 
 
 
-Route::get('/news', function () {
-    return view('pages.news-events');
-})->name('news');
+Route::get('/news', [NewsDisplayController::class, 'index'])->name('news.index');
 
+Route::get('/news/{slug}', [NewsDisplayController::class, 'show'])->name('news.show');
+
+
+
+
+//Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('admin')->group(function () {
+
+    Route::get('/news', [AdminNewsController::class, 'index'])->name('admin.news.index');
+    Route::get('/news/create', [AdminNewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/news', [AdminNewsController::class, 'store'])->name('admin.news.store');
+    Route::get('/news/{id}/edit', [AdminNewsController::class, 'edit'])->name('admin.news.edit');
+    Route::put('/news/{id}', [AdminNewsController::class, 'update'])->name('admin.news.update');
+    Route::delete('/news/{id}', [AdminNewsController::class, 'destroy'])->name('admin.news.destroy');
+
+});
 
 
 
@@ -95,6 +111,14 @@ Route::get('/portfolio', function () {
 
 
 
+Route::get('/news', function () {
+    return view('pages.news-events');
+})->name('news');
+
+Route::get('/news-detail', function () {
+    return view('pages.news-detail');
+})->name('news-detail');
+
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('portfolios', App\Http\Controllers\Admin\PortfolioController::class);
 });
@@ -106,9 +130,7 @@ Route::get('/news', function () {
     return view('pages.news-events');
 })->name('news');
 
-Route::get('/news-detail', function () {
-    return view('pages.news-detail');
-})->name('news-detail');
+
 
 Route::get('/service-detail', function () {
     return view('pages.servicedetail');
@@ -134,9 +156,18 @@ Route::post('/contact-message', [MessageController::class, 'store'])->name('mess
 Route::post('/contact', [ContactController::class, 'submit'])->name('message.store');
 
 
+
+
+
+
+Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
+
+
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('news', App\Http\Controllers\Admin\NewsController::class);
+    Route::resource('contact-messages', ContactMessageController::class)->only(['index']);
+
 });
+
 
 // Route::get('/news', [NewsDisplayController::class, 'index'])->name('news.index');
 
@@ -150,19 +181,6 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('subscribers', App\Http\Controllers\Admin\SubscriberController::class)->only(['index']);
 });
 
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('contact-messages', ContactMessageController::class)->only(['index']);
-});
-Route::get('/services', [ServiceController::class, 'index'])->name('services');
-
-// Service Category Page
-Route::get('/services/category/{category}', [ServiceController::class, 'category'])->name('services.category');
-
-// Service Detail Page (Subcategory)
-Route::get('/services/detail/{subcategory}', [ServiceController::class, 'detail'])->name('services.detail');
-
-Route::post('/contact-submit', [ContactController::class, 'submit'])->name('contact.submit');
-
 Route::get('/subscribe/{plan}', function ($plan) {
     return view('services.subscribe', ['plan' => $plan]);
 });
@@ -171,6 +189,30 @@ Route::post('/subscribe/process', function (Illuminate\Http\Request $request) {
     // handle subscription logic (email, DB insert, payment etc.)
     return redirect('/')->with('success', 'Subscription successful! Thank you.');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
+
+// Service Category Page
+Route::get('/services/category/{category}', [ServicesController::class, 'category'])->name('services.category');
+
+// Service Detail Page (Subcategory)
+Route::get('/services/detail/{subcategory}', [ServicesController::class, 'detail'])->name('services.detail');
+
+
+
+
+
 
 Route::get('/hi', function () {
     return view('hi');

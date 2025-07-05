@@ -692,7 +692,7 @@
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news') }}">News</a>
+                            <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news.index') }}">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
