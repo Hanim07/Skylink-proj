@@ -218,60 +218,41 @@
                 <!-- Blog Posts -->
                 <div class="col-lg-8 col-md-7">
                     <div class="row" id="blogContainer">
-                        @php
-                            $blogPosts = [
-                                [
-                                    'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop',
-                                    'category' => 'Web Design',
-                                    'title' => 'How to build a website',
-                                    'excerpt' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                                ],
-                                [
-                                    'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop',
-                                    'category' => 'Web Design',
-                                    'title' => 'How to build a website',
-                                    'excerpt' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                                ],
-                                [
-                                    'image' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=250&fit=crop',
-                                    'category' => 'Web Design',
-                                    'title' => 'How to build a website',
-                                    'excerpt' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                                ],
-                                [
-                                    'image' => 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop',
-                                    'category' => 'Web Design',
-                                    'title' => 'How to build a website',
-                                    'excerpt' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                                ],
-                                [
-                                    'image' => 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=250&fit=crop',
-                                    'category' => 'Web Design',
-                                    'title' => 'How to build a website',
-                                    'excerpt' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                                ],
-                                [
-                                    'image' => 'https://images.unsplash.com/photo-1553028826-f4804a6dba3b?w=400&h=250&fit=crop',
-                                    'category' => 'Web Design',
-                                    'title' => 'How to build a website',
-                                    'excerpt' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                                ]
-                            ];
-                        @endphp
 
-                        @foreach($blogPosts as $post)
-                        <div class="col-md-6 blog-post" data-category="{{ strtolower(str_replace(' ', '-', $post['category'])) }}">
-                            <div class="blog-card">
-                                <img src="{{ $post['image'] }}" alt="{{ $post['title'] }}">
-                                <div class="blog-card-body">
-                                    <span class="category-tag">{{ $post['category'] }}</span>
-                                    <h3 class="blog-title">{{ $post['title'] }}</h3>
-                                    <p class="blog-excerpt">{{ $post['excerpt'] }}</p>
-                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
+
+
+
+
+
+                 @foreach($news as $post)
+<div class="col-md-6 blog-post" data-category="{{ strtolower(str_replace(' ', '-', $post->category->name)) }}">
+    <div class="blog-card">
+        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
+        <div class="blog-card-body">
+            <span class="category-tag">{{ $post->category->name }}</span>
+            <h3 class="blog-title">{{ $post->title }}</h3>
+            <p class="blog-excerpt">{{ $post->excerpt }}</p>
+<a href="{{ route('news.show', $post->slug) }}" class="read-more">
+    Read More <i class="fas fa-arrow-right ms-1"></i>
+</a>
+        </div>
+    </div>
+</div>
+@endforeach
+
+
+<div class="mt-4">
+    {{ $news->links() }}
+</div>
+
+
+
+
+
+
+
+
+
                     </div>
 
                     <!-- Pagination -->
@@ -367,7 +348,7 @@
             filter.addEventListener('click', function() {
                 // Remove active class from all filters
                 document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
-                // Add active class to clicked filter
+                                    // Add active class to clicked filter
                 this.classList.add('active');
                 
                 const category = this.dataset.category;

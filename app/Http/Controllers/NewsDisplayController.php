@@ -9,20 +9,14 @@ class NewsDisplayController extends Controller
 {
    
 
-   public function index(Request $request)
-{
-    $query = News::with('category')->latest();
+public function index() {
+    $news = News::with('category')->latest()->paginate(6); // paginated
+    return view('pages.news-events', compact('news'));
+}
 
-    if ($request->has('category')) {
-        $query->whereHas('category', function ($q) use ($request) {
-            $q->where('name', $request->category);
-        });
-    }
-
-    $news = $query->paginate(6);
-    $categories = NewsCategory::all();
-
-    return view('news.index', compact('news', 'categories'));
+public function show($slug) {
+    $newsItem = News::where('slug', $slug)->with('category')->firstOrFail();
+    return view('pages.news-detail', compact('newsItem'));
 }
 
 

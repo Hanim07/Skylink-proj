@@ -1,12 +1,7 @@
-<x-mail::message>
-# Introduction
-
-The body of your message.
-
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
-
-Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+{{-- resources/views/emails/user-message.blade.php --}}
+<h2>New Message from Contact Form</h2>
+<p><strong>Name:</strong> {{ $message->name }}</p>
+<p><strong>Email:</strong> {{ $message->email }}</p>
+<p><strong>Phone:</strong> {{ $message->phone }}</p>
+<p><strong>Message:</strong></p>
+<p>{{ $message->message }}</p>

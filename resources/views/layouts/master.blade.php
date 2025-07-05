@@ -295,34 +295,7 @@
         box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         color: white;
     }
-
-
-
-
-
-
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
         /* Footer */
         .footer {
             background-color: #f8f9fa;
@@ -521,6 +494,8 @@
     </style>
     
     @stack('styles')
+    @stack('scripts')
+
 </head>
 <body>
     <!-- Top Bar -->
@@ -563,7 +538,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
             <div class="container">
                 <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                    <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     
                 </a>
 
@@ -717,7 +692,7 @@
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news') }}">News</a>
+                            <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }}" href="{{ route('news.index') }}">News</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact Us</a>
@@ -743,7 +718,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="logo mb-3">
                     <a href="/" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                        <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     </a>
                 </div>
                 <p>

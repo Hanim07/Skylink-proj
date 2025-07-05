@@ -60,6 +60,7 @@
         .floating-social a:hover {
             transform: scale(1.1);
         }
+        
 
         /* Hero Section */
         .hero {
@@ -148,13 +149,12 @@
         /* Trusted Partners */
         .partners-section {
             padding: 40px 0;
-            background: #f8f9fa;
+            background: #ffffff;
         }
 
         .partner-logo {
-            height: 40px;
-            object-fit: contain;
-            filter: grayscale(100%);
+            height: 90px;
+            object-fit: cover;
             transition: filter 0.3s;
         }
 
@@ -247,7 +247,7 @@
             position: relative;
         }
         
-.service-card.center {
+        .service-card.center {
             background: var(--teal);
             color: white;
             transform: scale(1.14);
@@ -295,7 +295,6 @@
         .carousel-nav {
             position: absolute;
             top: 50%;
-            transform: translateY(-70%);
             background: var(--teal);
             color: white;
             border: none;
@@ -575,6 +574,37 @@
  .products-section {
             padding: 80px 0;
         }
+         .product-header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.product-label {
+  color: #4a90e2;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.product-label::after {
+  content: "";
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #4a90e2;
+}
+
+.product-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
 
         .product-card {
             background: white;
@@ -597,7 +627,7 @@
 
 .products-track {
     display: flex;
-    animation: slideProducts 30s linear infinite;
+    animation: slideProducts 10s linear infinite;
 }
 
 .products-track .product-card {
@@ -605,6 +635,27 @@
     margin: 0 20px;
     flex-shrink: 0;
 }
+
+
+.btn-view-more {
+        background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+                text-decoration: none;
+        box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-view-more:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(58, 123, 213, 0.4);
+    }
 
 @keyframes slideProducts {
     0% { transform: translateX(0); }
@@ -615,7 +666,6 @@
     .testimonials-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 80px 0;
-            margin-bottom: 15px;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -808,7 +858,7 @@
         .newsletter {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
             color: white;
-            padding: 5rem 0;
+            padding: 3rem 0;
             text-align: center;
         }
 
@@ -906,6 +956,8 @@
         <a href="#" class="chat"><i class="fa fa-comment"></i></a>
     </div>
 
+
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -922,6 +974,8 @@
         </div>
     </section>
 
+
+
 <!-- Company Overview -->
 <section class="stats-section">
     <div class="container">
@@ -934,7 +988,7 @@
                 <div class="row text-center">
                     <div class="col-4">
                         <div class="stat-item">
-                            <div class="stat-number" data-target="15k">0</div>
+                            <div class="stat-number" data-target="4+">0</div>
                             <small>Years Experience</small>
                         </div>
                     </div>
@@ -962,19 +1016,19 @@
         <h5 class="text-center mb-4">TRUSTED PARTNERS</h5>
         <div class="partners-slider">
             <div class="partners-track">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Oracle_Corporation_logo.svg" alt="Oracle" class="partner-logo">
+                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('assets/images/iman.webp') }}" alt="Google" class="partner-logo">
+                <img src="{{ asset('assets/images/mirkuz.jpg') }}" alt="Zoom" class="partner-logo">
+                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="Amazon" class="partner-logo">
+                <img src="{{ asset('assets/images/befan.jpg') }}" alt="Facebook" class="partner-logo">
+                <img src="{{ asset('assets/images/newleaf.webp') }}" alt="Oracle" class="partner-logo">
                 <!-- Duplicate for seamless loop -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Oracle_Corporation_logo.svg" alt="Oracle" class="partner-logo">
+                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('assets/images/iman.webp') }}" alt="Google" class="partner-logo">
+                <img src="{{ asset('assets/images/mirkuz.jpg') }}" alt="Zoom" class="partner-logo">
+                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="Amazon" class="partner-logo">
+                <img src="{{ asset('assets/images/befan.jpg') }}" alt="Facebook" class="partner-logo">
+                <img src="{{ asset('assets/images/newleaf.webp') }}" alt="Oracle" class="partner-logo">
             </div>
         </div>
     </div>
@@ -1045,8 +1099,8 @@
                             'id' => 1,
                             'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'category' => 'Web Design',
-                            'author' => 'Daniel Lee',
-                            'date' => '01 Jan 2045',
+                            'author' => 'Admin',
+                            'date' => '01 Jan 2024',
                             'title' => 'How to build a website',
                             'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
                         ],
@@ -1054,8 +1108,8 @@
                             'id' => 2,
                             'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'category' => 'Web Design',
-                            'author' => 'Daniel Lee',
-                            'date' => '01 Jan 2045',
+                            'author' => 'Admin',
+                            'date' => '01 Jan 2024',
                             'title' => 'How to build a website',
                             'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
                         ],
@@ -1063,8 +1117,8 @@
                             'id' => 3,
                             'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'category' => 'Web Design',
-                            'author' => 'Daniel Lee',
-                            'date' => '01 Jan 2045',
+                            'author' => 'Admin',
+                            'date' => '01 Jan 2024',
                             'title' => 'How to build a website',
                             'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
                         ]
@@ -1094,7 +1148,7 @@
                             <h3 class="card-title">{{ $item['title'] }}</h3>
                             <p class="card-description">{{ $item['description'] }}</p>
                             
-                            <a href="#" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
+                            <a href="{{ route('news') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
                                 Read More
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -1139,24 +1193,30 @@
             </div>
             @endforeach
         </div>
+        <div class="text-center mt-5">
+            <a href="{{ route('portfolio') }}" class=" btn-view-more">
+                More Projects
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
     </div>
 </section>
-
-<!-- Featured Products -->
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">
-        <h2 class="section-title">Our Featured Products</h2>
+        <div class="product-header">
+                <div class="product-label">PRODUCTS</div>
+                <h2 class="product-title">Featured Products</h2>
+        </div>
         <div class="products-slider">
             <div class="products-track">
                 @php
                     $products = [
-                        ['name' => 'iPhone 14 Pro Max', 'description' => 'Latest iPhone with advanced features', 'image' => 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 5],
-                        ['name' => 'AirPods Pro', 'description' => 'Wireless earbuds with noise cancellation', 'image' => 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 4],
-                        ['name' => 'iPhone 14 Pro', 'description' => 'Professional grade smartphone', 'image' => 'https://images.unsplash.com/photo-1585060544812-6b45742d762f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 5],
-                        ['name' => 'MacBook Pro', 'description' => 'High-performance laptop for professionals', 'image' => 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 5],
-                        ['name' => 'iPad Air', 'description' => 'Versatile tablet for work and creativity', 'image' => 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 4],
-                        ['name' => 'Apple Watch', 'description' => 'Smart watch with health monitoring', 'image' => 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 4]
+                        ['name' => 'Cctv Camera', 'description' => 'Latest iPhone with advanced features', 'image' => asset('assets/images/cctv.jfif'), 'rating' => 5],
+                        ['name' => 'Attendance Tracker', 'description' => 'Wireless earbuds with noise cancellation', 'image' => asset('assets/images/attendance.jfif'), 'rating' => 4],
+                        ['name' => 'Security Camera', 'description' => 'Professional grade smartphone', 'image' => asset('assets/images/cctv3.jfif'), 'rating' => 5],
+                        ['name' => 'Ecommerce Application', 'description' => 'High-performance laptop for professionals', 'image' => asset('assets/images/ecommerce.jfif'), 'rating' => 5],
+                        ['name' => 'Cctv Camera', 'description' => 'Smart watch with health monitoring', 'image' => asset('assets/images/cctv4.jfif'), 'rating' => 4]
                     ];
                 @endphp
                 
@@ -1165,14 +1225,17 @@
                     <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="img-fluid mb-3" style="height: 200px; object-fit: contain;">
                     <h5>{{ $product['name'] }}</h5>
                     <p class="text-muted">{{ $product['description'] }}</p>
-                    <div class="text-warning mb-2">
-                        @for($i = 1; $i <= 5; $i++)
-                            <i class="fas fa-star{{ $i <= $product['rating'] ? '' : ' far' }}"></i>
-                        @endfor
-                    </div>
+                    
                 </div>
                 @endforeach
             </div>
+            
+        </div>
+        <div class="text-center mt-5">
+            <a href="{{ route('products') }}" class=" btn-view-more">
+                View More Products
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
         </div>
     </div>
 </section>
@@ -1203,7 +1266,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Michael Anderson</h5>
+                                <h5>Ibrahim Mohammed</h5>
                                 <p class="profession">PROFESSION</p>
                             </div>
                         </div>
@@ -1218,7 +1281,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Emily Davis</h5>
+                                <h5>Aisha Malik</h5>
                                 <p class="profession">BUSINESS WOMEN</p>
                             </div>
                         </div>
@@ -1233,7 +1296,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>James Wilson</h5>
+                                <h5>Taye Abrar</h5>
                                 <p class="profession">APPLICATION DEVELOPMENT</p>
                             </div>
                         </div>
@@ -1249,7 +1312,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Michael Anderson</h5>
+                                <h5>Zain Karim</h5>
                                 <p class="profession">PROFESSION</p>
                             </div>
                         </div>
@@ -1264,7 +1327,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Emily Davis</h5>
+                                <h5>Kalkidan Gezu</h5>
                                 <p class="profession">BUSINESS WOMEN</p>
                             </div>
                         </div>
@@ -1279,7 +1342,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>James Wilson</h5>
+                                <h5>Taye Abrar</h5>
                                 <p class="profession">APPLICATION DEVELOPMENT</p>
                             </div>
                         </div>
@@ -1296,17 +1359,40 @@
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
+
+ @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
             <h2>Subscribe for our latest update</h2>
             <p>Stay informed about our latest services, technology trends, and industry insights delivered directly to your inbox</p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
+           <form class="newsletter-form" method="POST" action="{{ route('subscribe') }}">
+    @csrf
+    <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
+    <button type="submit" class="newsletter-btn">Subscribe</button>
+</form>
         </div>
     </section>
+
+
+    
+   
+
+
 @endsection
 
 @push('scripts')
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script >
         // Smooth scrolling for navigation links
@@ -1467,7 +1553,6 @@ const observer = new IntersectionObserver(function(entries) {
 
 
 // JavaScript for infinite carousel with smooth transitions and swipe support (autoplay removed, bounce removed)
-
 const services = [
   {
     icon: 'fas fa-laptop-code',
@@ -1477,75 +1562,57 @@ const services = [
   {
     icon: 'fas fa-mobile-alt',
     title: 'Mobile Apps',
-    desc: 'Our flagship mobile application development service provides comprehensive end-to-end solutions for iOS and Android platforms.'
-  },
-  {
-    icon: 'fas fa-cloud',
-    title: 'Cloud Solutions',
-    desc: 'Comprehensive cloud services including migration, management, and optimization to help your business scale efficiently.'
+    desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
   },
   {
     icon: 'fas fa-shield-alt',
-    title: 'Cybersecurity',
-    desc: 'Protect your business with comprehensive cybersecurity solutions.'
+    title: 'Physical Safety and Security',
+    desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Enterprise Network Solution',
+    desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
   },
   {
     icon: 'fas fa-database',
-    title: 'Data Analytics',
-    desc: 'Transform your data into actionable insights with advanced analytics.'
+    title: 'ERP Consultancy',
+    desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
   },
   {
     icon: 'fas fa-cogs',
-    title: 'IT Consulting',
-    desc: 'Strategic IT consulting services to optimize your technology infrastructure.'
+    title: 'ICT Support',
+    desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'Smart City Projects',
+    desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
   }
 ];
 
-let currentIndex = 0;
+let currentIndex = 1;
+
 const container = document.querySelector('.services-container');
+const cards = container.querySelectorAll('.service-card');
 const prevBtn = document.querySelector('.carousel-prev');
 const nextBtn = document.querySelector('.carousel-next');
+
+function updateCard(card, service, position) {
+  card.className = 'service-card ' + position;
+  card.querySelector('.service-image i').className = service.icon;
+  card.querySelector('h4').textContent = service.title;
+  card.querySelector('p').textContent = service.desc;
+}
 
 function renderServices() {
   const prev = services[(currentIndex - 1 + services.length) % services.length];
   const current = services[currentIndex % services.length];
   const next = services[(currentIndex + 1) % services.length];
 
-  const existingCards = container.querySelectorAll('.service-card');
-  existingCards.forEach(el => {
-    el.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
-    el.style.opacity = 0;
-  });
-
-  setTimeout(() => {
-    existingCards.forEach(el => el.remove());
-
-    const cards = [prev, current, next].map((svc, idx) => {
-      const div = document.createElement('div');
-      div.className = 'service-card ' + (idx === 1 ? 'center' : 'side');
-      div.innerHTML = `
-        <div class="service-image">
-          <i class="${svc.icon}"></i>
-        </div>
-        <div class="service-content">
-          <h4>${svc.title}</h4>
-          <p>${svc.desc}</p>
-        </div>
-      `;
-      div.style.opacity = 0;
-      div.style.transform = 'translateX(' + (idx === 0 ? '-100px' : idx === 2 ? '100px' : '10') + ')';
-      setTimeout(() => {
-        div.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
-        div.style.transform = 'translateX(0)';
-        div.style.opacity = 5;
-      }, 10);
-      return div;
-    });
-
-    container.insertBefore(cards[2], nextBtn);
-    container.insertBefore(cards[1], cards[2]);
-    container.insertBefore(cards[0], cards[1]);
-  }, 300);
+  updateCard(cards[0], prev, 'side');
+  updateCard(cards[1], current, 'center');
+  updateCard(cards[2], next, 'side');
 }
 
 prevBtn.addEventListener('click', () => {
@@ -1575,9 +1642,34 @@ container.addEventListener('touchend', (e) => {
   }
 });
 
-// Initial load
+// Initial render
 document.addEventListener('DOMContentLoaded', renderServices);
 
-    </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 @endpush
+
+
+
+
+
+
+
+
+
+
+
+   

@@ -184,26 +184,25 @@
 
     <!-- Content Section -->
     <section class="content-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                         alt="Apple MacBook" class="content-image">
-                </div>
-                <div class="col-lg-6">
-                    <div class="content-text">
-                        <p>Crowds watched solemnly as the body of Rep. John Lewis crossed the Edmund Pettus Bridge one final time, 55 years after the civil rights icon marched for peace and was met with brutality in Selma, Alabama.</p>
-                        <p>Body bearers from the U.S. armed forces placed the late Georgia congressman and civil rights icon onto a horse-drawn caisson Sunday at the Brown Chapel African Methodist Episcopal Church. From there, the public were allowed to line up to honor Lewis for about a half-mile to the foot of the bridge.</p>
-                        <p>Rep. Terri Sewell, D-AL, thanked Lewis' family during a ceremony at the chapel for sharing the congressman with the public for so many years.</p>
-                        
-                        <p>"Our nation is better off because of John Robert Lewis," she remarked. "My life is better, Selma is better, this nation and this world is better because of John Robert Lewis."</p>
-                       
-                        <p>"Our nation is better off because of John Robert Lewis," she remarked. "My life is better, Selma is better, this nation and this world is better because of John Robert Lewis."</p>
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="{{ asset('storage/' . $newsItem->image) }}" alt="{{ $newsItem->title }}" class="content-image">
+            </div>
+            <div class="col-lg-6">
+                <div class="content-text">
+                    <h1>{{ $newsItem->title }}</h1>
+                    <p class="text-muted"><strong>Category:</strong> {{ $newsItem->category->name }}</p>
+                    <p>{!! nl2br(e($newsItem->content)) !!}</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
 
     <!-- Navigation Section -->
     <section class="navigation-section">
