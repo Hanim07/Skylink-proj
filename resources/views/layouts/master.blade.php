@@ -295,34 +295,7 @@
         box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         color: white;
     }
-
-
-
-
-
-
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
         /* Footer */
         .footer {
             background-color: #f8f9fa;
@@ -563,7 +536,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
             <div class="container">
                 <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                    <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     
                 </a>
 
@@ -745,7 +718,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="logo mb-3">
                     <a href="/" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                        <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     </a>
                 </div>
                 <p>

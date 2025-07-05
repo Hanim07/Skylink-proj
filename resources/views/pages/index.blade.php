@@ -246,7 +246,7 @@
             position: relative;
         }
         
-.service-card.center {
+        .service-card.center {
             background: var(--teal);
             color: white;
             transform: scale(1.14);
@@ -573,6 +573,37 @@
  .products-section {
             padding: 80px 0;
         }
+         .product-header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.product-label {
+  color: #4a90e2;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.product-label::after {
+  content: "";
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #4a90e2;
+}
+
+.product-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
 
         .product-card {
             background: white;
@@ -581,15 +612,6 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
-        }
-
-        .product-card img {
-            width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease;
         }
 
         .product-card:hover {
@@ -604,7 +626,7 @@
 
 .products-track {
     display: flex;
-    animation: slideProducts 30s linear infinite;
+    animation: slideProducts 10s linear infinite;
 }
 
 .products-track .product-card {
@@ -612,6 +634,8 @@
     margin: 0 20px;
     flex-shrink: 0;
 }
+
+
 .btn-view-more {
         background: linear-gradient(135deg, #3a7bd5, #00d2ff);
         color: white;
@@ -621,6 +645,7 @@
         border-radius: 50px;
         cursor: pointer;
         transition: all 0.3s ease;
+                text-decoration: none;
         box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
         position: relative;
         overflow: hidden;
@@ -640,7 +665,6 @@
     .testimonials-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 80px 0;
-            margin-bottom: 15px;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -833,7 +857,7 @@
         .newsletter {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
             color: white;
-            padding: 5rem 0;
+            padding: 3rem 0;
             text-align: center;
         }
 
@@ -959,7 +983,7 @@
                 <div class="row text-center">
                     <div class="col-4">
                         <div class="stat-item">
-                            <div class="stat-number" data-target="15k">0</div>
+                            <div class="stat-number" data-target="4+">0</div>
                             <small>Years Experience</small>
                         </div>
                     </div>
@@ -1119,7 +1143,7 @@
                             <h3 class="card-title">{{ $item['title'] }}</h3>
                             <p class="card-description">{{ $item['description'] }}</p>
                             
-                            <a href="#" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
+                            <a href="{{ route('news') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
                                 Read More
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -1164,22 +1188,30 @@
             </div>
             @endforeach
         </div>
+        <div class="text-center mt-5">
+            <a href="{{ route('portfolio') }}" class=" btn-view-more">
+                More Projects
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
     </div>
 </section>
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">
-        <h2 class="section-title">Our Featured Products</h2>
+        <div class="product-header">
+                <div class="product-label">PRODUCTS</div>
+                <h2 class="product-title">Featured Products</h2>
+        </div>
         <div class="products-slider">
             <div class="products-track">
                 @php
                     $products = [
-                        ['name' => 'iPhone 14 Pro Max', 'description' => 'Latest iPhone with advanced features', 'image' => 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 5],
-                        ['name' => 'AirPods Pro', 'description' => 'Wireless earbuds with noise cancellation', 'image' => 'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 4],
-                        ['name' => 'iPhone 14 Pro', 'description' => 'Professional grade smartphone', 'image' => 'https://images.unsplash.com/photo-1585060544812-6b45742d762f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 5],
-                        ['name' => 'MacBook Pro', 'description' => 'High-performance laptop for professionals', 'image' => 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 5],
-                        ['name' => 'iPad Air', 'description' => 'Versatile tablet for work and creativity', 'image' => 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 4],
-                        ['name' => 'Apple Watch', 'description' => 'Smart watch with health monitoring', 'image' => 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80', 'rating' => 4]
+                        ['name' => 'Cctv Camera', 'description' => 'Latest iPhone with advanced features', 'image' => asset('assets/images/cctv.jfif'), 'rating' => 5],
+                        ['name' => 'Attendance Tracker', 'description' => 'Wireless earbuds with noise cancellation', 'image' => asset('assets/images/attendance.jfif'), 'rating' => 4],
+                        ['name' => 'Security Camera', 'description' => 'Professional grade smartphone', 'image' => asset('assets/images/cctv3.jfif'), 'rating' => 5],
+                        ['name' => 'Ecommerce Application', 'description' => 'High-performance laptop for professionals', 'image' => asset('assets/images/ecommerce.jfif'), 'rating' => 5],
+                        ['name' => 'Cctv Camera', 'description' => 'Smart watch with health monitoring', 'image' => asset('assets/images/cctv4.jfif'), 'rating' => 4]
                     ];
                 @endphp
                 
@@ -1188,20 +1220,17 @@
                     <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="img-fluid mb-3" style="height: 200px; object-fit: contain;">
                     <h5>{{ $product['name'] }}</h5>
                     <p class="text-muted">{{ $product['description'] }}</p>
-                    <div class="text-warning mb-2">
-                        @for($i = 1; $i <= 5; $i++)
-                            <i class="fas fa-star{{ $i <= $product['rating'] ? '' : ' far' }}"></i>
-                        @endfor
-                    </div>
+                    
                 </div>
                 @endforeach
             </div>
+            
         </div>
         <div class="text-center mt-5">
-            <button class="btn btn-view-more">
+            <a href="{{ route('products') }}" class=" btn-view-more">
                 View More Products
                 <i class="fas fa-arrow-right ml-2"></i>
-            </button>
+            </a>
         </div>
     </div>
 </section>
@@ -1232,7 +1261,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Michael Anderson</h5>
+                                <h5>Ibrahim Mohammed</h5>
                                 <p class="profession">PROFESSION</p>
                             </div>
                         </div>
@@ -1247,7 +1276,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Emily Davis</h5>
+                                <h5>Aisha Malik</h5>
                                 <p class="profession">BUSINESS WOMEN</p>
                             </div>
                         </div>
@@ -1262,7 +1291,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>James Wilson</h5>
+                                <h5>Taye Abrar</h5>
                                 <p class="profession">APPLICATION DEVELOPMENT</p>
                             </div>
                         </div>
@@ -1278,7 +1307,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Michael Anderson</h5>
+                                <h5>Zain Karim</h5>
                                 <p class="profession">PROFESSION</p>
                             </div>
                         </div>
@@ -1293,7 +1322,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>Emily Davis</h5>
+                                <h5>Kalkidan Gezu</h5>
                                 <p class="profession">BUSINESS WOMEN</p>
                             </div>
                         </div>
@@ -1308,7 +1337,7 @@
                                 <i class="fas fa-user-tie"></i>
                             </div>
                             <div class="client-info">
-                                <h5>James Wilson</h5>
+                                <h5>Taye Abrar</h5>
                                 <p class="profession">APPLICATION DEVELOPMENT</p>
                             </div>
                         </div>
