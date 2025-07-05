@@ -42,25 +42,48 @@
         }
 
         .floating-social a {
-            width: 42px;
-            height: 42px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: rgb(92, 112, 244);
+            position: relative;
+            overflow: visible;
             text-decoration: none;
             transition: transform 0.3s;
-            font-size: 1rem;
+            font-size: 2rem;
         }
 
-        .floating-social .mobile { background: #3b5998; }
-        .floating-social .telegram { background: #1da1f2; }
-        .floating-social .chat { background: #0077b5; }
+        .floating-social .mobile { background: #ffffff; }
+        .floating-social .telegram { background: #ffffff; }
+        .floating-social .chat { background: #ffffff; }
         .floating-social a:hover {
             transform: scale(1.1);
         }
         
+
+        .social-label {
+    position: absolute;
+    right: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, right 0.3s;
+}
+
+.floating-social a:hover .social-label {
+    opacity: 1;
+    right: 130%;
+}
 
         /* Hero Section */
         .hero {
@@ -479,6 +502,14 @@
             .card-image {
                 height: 160px;
             }
+
+            .carousel-prev {
+            left: 1px;
+        }
+
+        .carousel-next {
+            right: 1px;
+        }
         }
         /* Featured Portfolio */
         .portfolio-section {
@@ -531,8 +562,8 @@
         }
 
         .portfolio-item img {
-            width: 100%;
-            height: 250px;
+            width: 90%;
+            height: 200px;
             object-fit: cover;
             transition: transform 0.3s;
         }
@@ -951,10 +982,20 @@
 @section('content')
     <!-- Floating Social Icons -->
     <div class="floating-social">
-        <a href="#" class="mobile"><i class="fa fa-mobile-alt"></i></a>
-        <a href="#" class="telegram"><i class="fab fa-telegram"></i></a>
-        <a href="#" class="chat"><i class="fa fa-comment"></i></a>
-    </div>
+  <a href="tel:+251911027667" class="mobile">
+    <i class="fas fa-phone"></i>
+    <span class="social-label">Quick Contact</span>
+  </a>
+  <a href="https://t.me/Skylinktechnologies" target="_blank" class="telegram">
+    <i class="fab fa-telegram-plane"></i>
+    <span class="social-label">Telegram Chat</span>
+  </a>
+  <a href="#" class="chat">
+    <i class="fas fa-comments"></i>
+    <span class="social-label">Live Chat</span>
+  </a>
+</div>
+
 
 
 
@@ -1170,12 +1211,12 @@
         <div class="row">
             @php
                 $portfolioItems = [
-                    ['image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
-                    ['image' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Mobile Banking App', 'description' => 'Secure and user-friendly mobile banking solution'],
-                    ['image' => 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Business Dashboard', 'description' => 'Comprehensive analytics and reporting dashboard'],
-                    ['image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
-                    ['image' => 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Learning Management', 'description' => 'Online education and training platform'],
-                    ['image' => 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Real Estate Portal', 'description' => 'Property listing and management system']
+                    ['image' => asset('assets/images/kiribgebeya.webp'), 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
+                    ['image' => asset('assets/images/hayat.jpg'), 'title' => 'Mobile Banking App', 'description' => 'Secure and user-friendly mobile banking solution'],
+                    ['image' => asset('assets/images/mirkuz.jpg'), 'title' => 'Business Dashboard', 'description' => 'Comprehensive analytics and reporting dashboard'],
+                    ['image' => asset('assets/images/befan.jpg'), 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
+                    ['image' => asset('assets/images/bilalul.jpg'), 'title' => 'Learning Management', 'description' => 'Online education and training platform'],
+                    ['image' => asset('assets/images/elida.webp'), 'title' => 'Real Estate Portal', 'description' => 'Property listing and management system']
                 ];
             @endphp
             
