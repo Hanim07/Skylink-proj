@@ -100,6 +100,7 @@ Route::prefix('admin')->group(function () {
 });
 
 
+Route::get('/productt', [ProductController::class, 'newindex'])->name('productt');
 
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{category}/{slug}', [ProductController::class, 'show'])->name('products.detail');

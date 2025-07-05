@@ -1148,7 +1148,7 @@
                             <h3 class="card-title">{{ $item['title'] }}</h3>
                             <p class="card-description">{{ $item['description'] }}</p>
                             
-                            <a href="{{ route('news') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
+                            <a href="{{ route('news.index') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
                                 Read More
                                 <i class="fas fa-arrow-right"></i>
                             </a>
