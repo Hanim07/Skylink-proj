@@ -687,7 +687,9 @@
     </div>
 </li>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('productt') ? 'active' : '' }}" href="{{ route('productt') }}">Productt</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
