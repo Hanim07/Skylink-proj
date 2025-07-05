@@ -355,29 +355,6 @@
 
 
 
-                @foreach($projects as $index => $project)
-                <div class="project-item {{ $index % 2 == 1 ? 'reverse' : '' }}" 
-                     data-category="{{ $project['category'] }}" 
-                {{-- data-tags="{{ implode(',', $project['tags']) }}" --}}
-                
-                     data-title="{{ strtolower($project['title']) }}">
-                    
-                    <div class="project-image">
-                        <div class="project-circle">
-                            <img src="{{ $project['image'] }}" alt="{{ $project['title'] }}" loading="lazy">
-                        </div>
-                    </div>
-                    
-                    <div class="project-content">
-                        <h3 class="project-title">{{ $project['title'] }}</h3>
-                        <p class="project-description">{{ $project['description'] }}</p>
-                        <a href="{{ $project['link'] }}" class="view-project-btn" data-project-id="{{ $project['id'] }}">
-                            View Project
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                @endforeach
             </div>
         </div>
     </section>

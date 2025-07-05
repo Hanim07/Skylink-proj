@@ -12,51 +12,16 @@ use Illuminate\Queue\SerializesModels;
 
 
 
+
 class UserMessage extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
 
-    /**
-     * Create a new message instance.
-     */
-   public function __construct(public Message $message) {}
+    public function __construct(public Message $message) {}
 
     public function build()
-
-
-  {
-    return $this->subject('New Message from Website')
-                ->markdown('emails.user-message');
-  }
-
-
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'User Message',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            markdown: 'emails.user-message',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this->subject('New Message from Website')
+                    ->markdown('emails.user-message'); // Path to your Blade markdown template
     }
 }

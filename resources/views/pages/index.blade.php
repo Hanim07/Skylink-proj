@@ -62,6 +62,7 @@
         .floating-social a:hover {
             transform: scale(1.1);
         }
+        
 
         .social-label {
     position: absolute;
@@ -996,6 +997,8 @@
 </div>
 
 
+
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -1011,6 +1014,8 @@
             </div>
         </div>
     </section>
+
+
 
 <!-- Company Overview -->
 <section class="stats-section">
@@ -1395,17 +1400,40 @@
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
+
+ @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
             <h2>Subscribe for our latest update</h2>
             <p>Stay informed about our latest services, technology trends, and industry insights delivered directly to your inbox</p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
+           <form class="newsletter-form" method="POST" action="{{ route('subscribe') }}">
+    @csrf
+    <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address" required>
+    <button type="submit" class="newsletter-btn">Subscribe</button>
+</form>
         </div>
     </section>
+
+
+    
+   
+
+
 @endsection
 
 @push('scripts')
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script >
         // Smooth scrolling for navigation links
@@ -1658,6 +1686,31 @@ container.addEventListener('touchend', (e) => {
 // Initial render
 document.addEventListener('DOMContentLoaded', renderServices);
 
-    </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
 @endpush
+
+
+
+
+
+
+
+
+
+
+
+   

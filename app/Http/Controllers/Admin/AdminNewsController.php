@@ -32,7 +32,10 @@ public function create() {
 
 public function store(Request $request) {
 
-Log::info('Message here');
+Log::info('Store method called for news creation.');
+
+    Log::info('Request data:', $request->all());
+
     $data = $request->validate([
         'title' => 'required',
         'news_category_id' => 'required',
@@ -41,6 +44,7 @@ Log::info('Message here');
         'image' => 'nullable|image',
     ]);
 
+    
     if ($request->hasFile('image')) {
         $data['image'] = $request->file('image')->store('news', 'public');
     }

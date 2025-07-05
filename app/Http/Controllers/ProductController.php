@@ -30,8 +30,6 @@ class ProductController extends Controller
                 ['slug'=>'event-management','name'=>'Event Management','image'=>'products/event-management.jpg','description'=>'Plan, organize, and analyze events with real‑time tools and automation.','price'=>1200],
             ],
             'web-mobile-apps' => [
-                ['slug'=>'skylink-system','name'=>'SkyLink Website & System','image'=>'products/skylink.jpg','description'=>'Complete business website with back‑office automation.','price'=>1800],
-                ['slug'=>'besira-app','name'=>'Besira App','image'=>'products/besira.jpg','description'=>'Mobile application to connect communities through location‑based features.','price'=>1000],
                 ['slug'=>'e-commerce','name'=>'E‑Commerce','image'=>'products/ecommerce.jpg','description'=>'Customizable online shop solution with product listing, checkout, and delivery tracking.','price'=>1700],
                 ['slug'=>'website-design','name'=>'Website Design','image'=>'products/website-design.jpg','description'=>'Professional and responsive websites tailored to your brand.','price'=>700],
                 ['slug'=>'entertainment-apps','name'=>'Entertainment Apps','image'=>'products/entertainment.jpg','description'=>'Interactive mobile apps focused on media, gaming, and user engagement.','price'=>900],
