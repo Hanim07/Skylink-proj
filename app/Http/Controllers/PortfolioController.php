@@ -75,4 +75,12 @@ $projects = Portfolio::latest()->get();
 
     ]);
     }
+
+
+
+    public function apiLatest()
+{
+    $projects = Portfolio::latest()->take(5)->get(); // get latest 5
+    return response()->json($projects);
+}
 }

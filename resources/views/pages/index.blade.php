@@ -1084,123 +1084,81 @@
         </div>
     </section>
 
-    <!-- Latest News -->
-    <section class="news-section">
-        <div class="container">
-            <div class="news-header">
-                <div class="news-tab">NEWS</div>
-                <h2 class="news-title">Latest News</h2>
-            </div>
-            
-            <div class="row">
-                @php
-                    $newsItems = [
-                        [
-                            'id' => 1,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 2,
-                            'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 3,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ]
-                    ];
-                @endphp
-                
-                @foreach($newsItems as $item)
-                <div class="col-lg-4 col-md-6">
-                    <article class="news-card" onclick="readMore({{ $item['id'] }})">
+
+
+
+
+
+    <section class="news-section" id="news">
+    <div class="container">
+        <div class="news-header text-center">
+            <div class="news-tab">Latest News</div>
+            <h2 class="news-title">Our Recent Announcements</h2>
+        </div>
+
+        <div class="row">
+            @foreach($latestNews as $news)
+                <div class="col-md-4">
+                    <div class="news-card">
                         <div class="card-image">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
-                            <div class="category-badge">{{ $item['category'] }}</div>
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}">
+                            <span class="category-badge">{{ $news->category->name ?? 'News' }}</span>
                         </div>
-                        
                         <div class="card-content">
                             <div class="card-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-user"></i>
-                                    <span>{{ $item['author'] }}</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>{{ $item['date'] }}</span>
-                                </div>
+                                <div class="meta-item"><i class="bi bi-calendar"></i> {{ $news->created_at->format('M d, Y') }}</div>
+                                {{-- Add more meta items if needed --}}
                             </div>
-                            
-                            <h3 class="card-title">{{ $item['title'] }}</h3>
-                            <p class="card-description">{{ $item['description'] }}</p>
-                            
-                            <a href="{{ route('news') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
-                                Read More
-                                <i class="fas fa-arrow-right"></i>
+                            <h5 class="card-title">{{ $news->title }}</h5>
+                            <p class="card-description">{{ Str::limit($news->excerpt, 100) }}</p>
+                            <a href="{{ route('news.show', $news->slug) }}" class="read-more">
+                                Read More <i class="bi bi-arrow-right"></i>
                             </a>
-                        </div>
-                    </article>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-     <!-- Featured Portfolio -->
-<section id="portfolio" class="portfolio-section">
-    <div class="container">
-        <div class="portfolio-header">
-                <div class="portfolio-label">PROJECTS</div>
-                <h2 class="portfolio-title">Featured Portfolio</h2>
-        </div>
-        <div class="row">
-            @php
-                $portfolioItems = [
-                    ['image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
-                    ['image' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Mobile Banking App', 'description' => 'Secure and user-friendly mobile banking solution'],
-                    ['image' => 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Business Dashboard', 'description' => 'Comprehensive analytics and reporting dashboard'],
-                    ['image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
-                    ['image' => 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Learning Management', 'description' => 'Online education and training platform'],
-                    ['image' => 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', 'title' => 'Real Estate Portal', 'description' => 'Property listing and management system']
-                ];
-            @endphp
-            
-            @foreach($portfolioItems as $item)
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="portfolio-item">
-                    <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h5>{{ $item['title'] }}</h5>
-                            <p>{{ $item['description'] }}</p>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
-        </div>
-        <div class="text-center mt-5">
-            <a href="{{ route('portfolio') }}" class=" btn-view-more">
-                More Projects
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+<section class="portfolio-section" id="portfolio">
+    <div class="container">
+        <div class="portfolio-header">
+            <div class="portfolio-label">Featured Projects</div>
+            <h2 class="portfolio-title">Our Latest Work</h2>
+        </div>
+
+        <div class="row">
+            @foreach($latestPortfolios as $portfolio)
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>{{ $portfolio->title }}</h5>
+                                <p>{{ Str::limit($portfolio->description, 80) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">
@@ -1386,10 +1344,13 @@
 
 
     
-   
+
 
 
 @endsection
+
+
+
 
 @push('scripts')
 
@@ -1654,6 +1615,42 @@ document.addEventListener('DOMContentLoaded', renderServices);
 
 
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/news/latest')
+        .then(res => res.json())
+        .then(news => {
+            const newsDiv = document.getElementById('news-section');
+            newsDiv.innerHTML = '';
+            news.forEach(item => {
+                newsDiv.innerHTML += `
+                    <div class="news-item">
+                        <h3>${item.title}</h3>
+                        <p>Category: ${item.category.name}</p>
+                        <p>${item.excerpt}</p>
+                    </div>
+                `;
+            });
+        });
+
+    fetch('/api/portfolios/latest')
+        .then(res => res.json())
+        .then(projects => {
+            const portfolioDiv = document.getElementById('portfolio-section');
+            portfolioDiv.innerHTML = '';
+            projects.forEach(project => {
+                portfolioDiv.innerHTML += `
+                    <div class="portfolio-item">
+                        <h3>${project.title}</h3>
+                        <img src="{{ asset('storage') }}/${project.image}" alt="${project.title}">
+                        <p>${project.description}</p>
+                    </div>
+                `;
+            });
+        });
+});
 
 
 

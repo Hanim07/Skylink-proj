@@ -673,7 +673,7 @@
              <div class="team-member">
                 
                 <div class="team-photo">
-                    <img src="{{ asset('assets/images/mohammed oumer.png') }}" alt="Alex Taylor">
+                    <img src="{{ asset('assets/images/Mohammedkerem.jpg') }}" alt="Alex Taylor">
                 </div>
                 <div class="team-info">
                     <h4 class="team-name">Mohammedkerem Ahmed</h4>
