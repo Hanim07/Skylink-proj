@@ -10,7 +10,8 @@
     <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
         
     <!-- Custom Styles -->
     <style>
@@ -21,7 +22,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
         }
@@ -37,8 +38,8 @@
         position: sticky;
         top: 0;
         z-index: 1030;
-        background: #f5f5f5;
-        padding: 8px 0;
+        background:rgb(252, 250, 250);
+        padding: 3px 0;
         font-size: 13px;
         color: #a9b9f2;
         transition: all 0.3s ease;
@@ -58,7 +59,7 @@
     .top-bar-left {
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 50px;
     }
 
     .top-bar-item {
@@ -81,7 +82,7 @@
 
     .social-icon {
         color: #666;
-        font-size: 20px;
+        font-size: 15px;
         transition: all 0.3s ease;
         text-decoration: none;
         margin-right: 4px;
@@ -94,7 +95,7 @@
     .service-status {
     display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 2px;
         color: #666;
 }
 
@@ -119,16 +120,16 @@
     /* Main Navbar */
     .navbar-custom {
         background: white;
-        padding: 15px 0;
+        padding: 3px 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         position: sticky;
-        z-index: 1020;
-        top:35px;
+        z-index: 1030;
+        top:30px;
         transition: all 0.3s ease;
     }
 
     .navbar-custom.scrolled {
-        padding: 10px 0;
+        padding: 15px 0;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -150,30 +151,10 @@
     border-radius: 10px;
 }
 
-    .logo-text {
-        display: flex;
-        flex-direction: column;
-        line-height: 1;
-    }
-
-    .logo-main {
-        font-size: 24px;
-        font-weight: 700;
-        color: #333;
-    }
-
-    .logo-sub {
-        font-size: 10px;
-        font-weight: 400;
-        color: #666;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-
     .navbar-nav {
         display: flex;
         align-items: center;
-        gap: 40px;
+        gap: 20px;
     }
 
     .nav-link {
@@ -219,7 +200,7 @@
         backdrop-filter: blur(20px);
         border: none;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        padding: 40px 0;
+        padding: 20px 0;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-20px);
@@ -251,12 +232,12 @@
         color: #666;
         text-transform: uppercase;
         letter-spacing: 1px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .mega-dropdown-item {
         display: block;
-        padding: 12px 0;
+        padding: 8px 0;
         color: #333;
         text-decoration: none;
         font-size: 16px;
@@ -275,25 +256,6 @@
         margin-right: 10px;
         width: 20px;
         color: #3B82F6;
-    }
-
-    .btn-get-started {
-        background: linear-gradient(135deg, #3B82F6, #1E40AF);
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn-get-started:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-        color: white;
     }
     
         /* Footer */
@@ -349,13 +311,13 @@
         @media (max-width: 991.98px) {
     .navbar-collapse {
         background: white;
-        padding: 1rem;
+        padding: 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .navbar-nav {
         flex-direction: column !important;
-        gap: 15px !important;
+        gap: 10px !important;
         align-items: flex-start !important;
     }
 
@@ -387,18 +349,18 @@
             gap: 10px;
         }
         .navbar-custom {
-            top:95px;
+            top:85px;
 
         }
         .navbar-collapse {
             background: white;
-            padding: 1rem;
+            padding: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .navbar-nav {
             flex-direction: column !important;
-            gap: 5px !important;
+            gap: 3px !important;
             align-items: flex-start !important;
         }
 
@@ -505,7 +467,7 @@
             <div class="top-bar-left d-flex flex-wrap">
                 <div class="top-bar-item me-4">
                     <i class="far fa-clock"></i>
-                    <span>Mon - Fri 03:00 - 11:00</span>
+                    <span>Mon - Fri 8:00AM - 17:00</span>
                 </div>
                 <div class="top-bar-item me-4">
                     <i class="fas fa-phone"></i>
@@ -517,12 +479,11 @@
                 </div>
             </div>
             <div class="top-bar-right d-flex align-items-center gap-3 mt-2 mt-md-0">
-                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61562181474117" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@skylink_technologies?_t=ZM-8vv40eFtXHh&_r=1" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/skylink_technologies?igsh=NXZwMjQyMHo1bHJm&utm_source=qr" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/Skylinktechnologies" class="social-icon" target="_blank"><i class="fab fa-telegram"></i></a>
                 
-                <!-- ✅ Service Status Block -->
                 <div class="service-status d-flex align-items-center mx-5">
                     <span class="check-icon me-2"><i class="fas fa-check-circle"></i></span>
                     <span class="status-text me-2">Service Active</span>
@@ -538,7 +499,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
             <div class="container">
                 <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                    <img src="{{ asset('assets/images/skylink-logo.svg') }}" alt="Skylink Logo" class="logo-img me-2">
                     
                 </a>
 
@@ -688,9 +649,6 @@
 </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('productt') ? 'active' : '' }}" href="{{ route('productt') }}">Productt</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
                         <li class="nav-item">
@@ -701,7 +659,6 @@
                         </li>
                     </ul>
                     
-                    <a href="#" class="btn-get-started">Get Started</a>
                 </div>
             </div>
         </nav>
@@ -720,17 +677,19 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="logo mb-3">
                     <a href="/" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                        <img src="{{ asset('assets/images/skylink-logo.svg') }}" alt="Skylink Logo" class="logo-img me-2">
                     </a>
                 </div>
                 <p>
                     Skylink Technologies specializes in delivering reliable software, cybersecurity, and digital transformation services to businesses across sectors.
                 </p>
                 <div class="social-footer">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61562181474117" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/skylink_technologies?igsh=NXZwMjQyMHo1bHJm&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/skylinkict/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@skylink_technologies?_t=ZM-8vv40eFtXHh&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/@skylink_technologie" target="_blank"><i class="fab fa-youtube"></i></a>
+
                 </div>
             </div>
 
@@ -738,11 +697,12 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <h5>Quick Links</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ route('home')}}">Home</a></li>
                     <li><a href="{{ route('about') }}">About Us</a></li>
                     <li><a href="{{ route('services') }}">Services</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="{{ route('products')}}">Products</a></li>
+                    <li><a href="{{ route('news.index')}}">News and Events</a></li>
+                    <li><a href="{{ route('contact')}}">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -750,26 +710,26 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <h5>Services</h5>
                 <ul>
-                    <li><a href="#">Cyber Security</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">AI Software</a></li>
-                    <li><a href="#">Content Writing</a></li>
-                    <li><a href="#">UI Design</a></li>
+                    <li><a href="{{ route('services.category', ['category' => 'software-service']) }}">Software Service</a></li>
+                    <li><a href="{{ route('services.category', ['category' => 'smart-city']) }}">Smart City Infrastructure</a></li>
+                    <li><a href="{{ route('services.category', ['category' => 'safety-security']) }}">Safety and Security</a></li>
+                    <li><a href="{{ route('services.category', ['category' => 'ict-support']) }}">ICT Support</a></li>
+                    <li><a href="{{ route('services.category', ['category' => 'enterprise-network']) }}">Enterprise Network Solution</a></li>
                 </ul>
             </div>
 
             <!-- Column 4 -->
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <h5>Contact</h5>
-                <p>Addis Ababa Bole, Tropical Mall</p>
+                <p><i class="fas fa-map-marker-alt"></i> Addis Ababa Bole, Tropical Mall</p>
                 <p><i class="fas fa-globe"></i> www.skylincict.com</p>
-                <p><i class="fas fa-envelope"></i> info@skylinkict.com</p>
                 <p><i class="fas fa-phone"></i> +251911027667</p>
+                <p><i class="far fa-clock"></i> Mon - Fri 8:00AM - 17:00</p>
             </div>
         </div>
 
         <div class="footer-bottom text-center pt-3">
-            <p>Copyright © 2023 Skylink | Powered By Skylink Technologies</p>
+            <p>Copyright © 2025 Skylink | Powered By Skylink Technologies</p>
         </div>
     </div>
 </footer>

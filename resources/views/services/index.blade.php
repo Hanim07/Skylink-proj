@@ -7,19 +7,6 @@
 
 @push('styles')
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        color: #333;
-        overflow-x: hidden;
-    }
-
     /* Hero Section */
     .hero-section {
         background: #f8f9fa;

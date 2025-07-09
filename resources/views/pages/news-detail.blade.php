@@ -13,11 +13,6 @@
             --dark-gray: #6c757d;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-        }
-
         .hero-section {
             padding: 20px 0;
             text-align: center;

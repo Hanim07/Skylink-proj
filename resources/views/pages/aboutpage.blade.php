@@ -8,21 +8,6 @@
 @push('styles')
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        color: #333;
-        overflow-x: hidden;
-    }
-
-   
-
     /* Hero Section - Updated to match the image */
     .hero-section {
         background: linear-gradient(rgba(133, 174, 240, 0.4), rgba(42, 92, 255, 0.8)), url('{{ asset('assets/images/teammember.png') }}') center/cover;

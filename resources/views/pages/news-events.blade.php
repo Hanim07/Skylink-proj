@@ -12,13 +12,8 @@
             --secondary-color: #64b5f6;
             --light-blue: #e3f2fd;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         .hero-section {
-            background: linear-gradient(135deg, var(--light-blue), #bbdefb);
+            background: #e5e7eb;
             padding: 80px 0;
             text-align: center;
         }
