@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController as PublicPortfolioController;
@@ -105,6 +105,10 @@ Route::get('/productt', [ProductController::class, 'newindex'])->name('productt'
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{category}/{slug}', [ProductController::class, 'show'])->name('products.detail');
 
+
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/{subcategory}', [ServiceController::class, 'detail'])->name('services.detail');
+Route::get('/category/{categorySlug}', [ServiceController::class, 'category'])->name('services.category');
 
 
 /*
@@ -223,6 +227,17 @@ Route::get('/services/detail/{subcategory}', [ServiceController::class, 'detail'
 
 
 
-Route::get('/hi', function () {
+// For example, if the route is /hi and you want to allow GET:
+// Route::get('/hi', function() {
+//     return view('hi');
+// });
+
+// Your POST route remains the same
+Route::post('/api/chat', [ChatController::class, 'processMessage']);
+
+Route::get('/hii', function () {
     return view('hi');
+});
+Route::get('/chat', function () {
+    return view('hi'); // your Blade view above
 });

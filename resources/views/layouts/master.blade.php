@@ -295,7 +295,34 @@
         box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         color: white;
     }
-    
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /* Footer */
         .footer {
             background-color: #f8f9fa;
@@ -494,8 +521,6 @@
     </style>
     
     @stack('styles')
-    @stack('scripts')
-
 </head>
 <body>
     <!-- Top Bar -->
@@ -538,7 +563,7 @@
         <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
             <div class="container">
                 <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                    <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     
                 </a>
 
@@ -668,6 +693,8 @@
 <!-- Web & Mobile Applications -->
 <div class="mega-dropdown-section">
     <h6>Web & Mobile Applications</h6>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'skylink-system']) }}" class="mega-dropdown-item"><i class="fas fa-laptop-code"></i> SkyLink Website & System</a>
+    <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'besira-app']) }}" class="mega-dropdown-item"><i class="fas fa-mobile-alt"></i> Besira App</a>
     <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'e-commerce']) }}" class="mega-dropdown-item"><i class="fas fa-store"></i> E-Commerce</a>
     <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'website-design']) }}" class="mega-dropdown-item"><i class="fas fa-paint-brush"></i> Website Design</a>
     <a href="{{ route('products.detail', ['category' => 'web-mobile-apps', 'slug' => 'entertainment-apps']) }}" class="mega-dropdown-item"><i class="fas fa-music"></i> Entertainment Apps</a>
@@ -687,9 +714,7 @@
     </div>
 </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('productt') ? 'active' : '' }}" href="{{ route('productt') }}">Productt</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('portfolio') ? 'active' : '' }}" href="{{ route('portfolio') }}">Projects</a>
                         </li>
@@ -720,7 +745,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="logo mb-3">
                     <a href="/" class="d-flex align-items-center text-decoration-none">
-                        <img src="{{ asset('assets/images/Logo.png') }}" alt="Skylink Logo" class="logo-img me-2">
+                        <img src="{{ asset('assets/images/logo-01.png') }}" alt="Skylink Logo" class="logo-img me-2">
                     </a>
                 </div>
                 <p>

@@ -936,6 +936,132 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
+        
+  /* Popup Window */
+  .chat-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .chat-panel {
+    padding: 15px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .chat-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .chat-body p {
+    margin-bottom: 10px;
+  }
+
+  .chat-btn-action {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background: #eee;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .chat-btn-action.primary {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .chat-note {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+  }
+
+  .chat-header-flex {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+
+  .back-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .agent-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .agent-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .agent-status {
+    font-size: 12px;
+    color: green;
+  }
+
+  .chat-message.agent {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .chat-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .chat-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  .file-upload {
+    cursor: pointer;
+  }
+
+  .rate-chat {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: gold;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
 
        
 
@@ -986,7 +1112,7 @@
     <i class="fas fa-phone"></i>
     <span class="social-label">Quick Contact</span>
   </a>
-  <a href="https://t.me/Skylinktechnologies" target="_blank" class="telegram">
+  <a href="https://t.me/Mohammedkerem" target="_blank" class="telegram">
     <i class="fab fa-telegram-plane"></i>
     <span class="social-label">Telegram Chat</span>
   </a>
@@ -995,7 +1121,44 @@
     <span class="social-label">Live Chat</span>
   </a>
 </div>
+<!-- Chat Popup -->
+<div class="chat-popup" id="chatPopup">
+  <!-- First Panel -->
+  <div class="chat-panel" id="helpPanel">
+    <div class="chat-header">Hi there 👋</div>
+    <div class="chat-body">
+      <p>Need help? Search our help center for answers or start a conversation:</p>
+      <button class="chat-btn-action">Help Center</button>
+      <button class="chat-btn-action">Search for Answers</button>
+      <button class="chat-btn-action primary" id="startChat">New Conversation</button>
+      <p class="chat-note">We typically reply in a few minutes</p>
+    </div>
+  </div>
 
+  <!-- Chat Interface Panel -->
+  <div class="chat-panel hidden" id="chatInterface">
+    <div class="chat-header chat-header-flex">
+      <button class="back-btn" id="backBtn">←</button>
+      <div class="agent-info">
+        <img src="https://i.pravatar.cc/40" alt="Agent" class="agent-img">
+        <div>
+          <strong>Customer Support</strong>
+          <div class="agent-status">Online</div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-body">
+      <p class="chat-message agent">
+        Welcome to our site, if you need help simply reply to this message. We are online and ready to help.
+      </p>
+    </div>
+    <div class="chat-footer">
+      <input type="text" class="chat-input" placeholder="Type here and press enter...">
+      <input type="file" class="file-upload" title="Upload File">
+      <button class="rate-chat">★</button>
+    </div>
+  </div>
+</div>
 
 
 
@@ -1688,6 +1851,33 @@ document.addEventListener('DOMContentLoaded', renderServices);
 
 
 
+//chat pop up
+<!-- JavaScript -->
+    document.addEventListener("DOMContentLoaded", function () {
+        const chatToggle = document.getElementById('chatToggle');
+        const chatBox = document.getElementById('chatBox');
+        const chatForm = document.getElementById('chatForm');
+
+        chatToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            chatBox.style.display = (chatBox.style.display === 'none' || chatBox.style.display === '') ? 'block' : 'none';
+        });
+
+        chatForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('chatName').value;
+            const email = document.getElementById('chatEmail').value;
+            const phone = document.getElementById('chatPhone').value;
+            const message = document.getElementById('chatMessage').value;
+
+            alert(`Thank you, ${name}! Our support team will get back to you at ${email}.`);
+
+            // Reset the form (optionally send to server via AJAX)
+            chatForm.reset();
+            chatBox.style.display = 'none';
+        });
+    });
 
 
 
