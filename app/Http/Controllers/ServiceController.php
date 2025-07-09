@@ -2,58 +2,79 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ServiceCategory;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
     
 
-    public function category($category)
-    {
-        return view('services.servicecategory', compact('category'));
+   
+
+public function category(string $categorySlug)
+{
+    // Find category with services
+    $category = ServiceCategory::where('slug', $categorySlug)->with('services')->first();
+
+    if (!$category) {
+        abort(404, 'Category not found.');
     }
+
+    // Transform services for display (you can use accessors in the model for cleaner code if preferred)
+    $items = Service::where('category_id', $category->id)->where('category_id', $category->id)->paginate(9);
+
+$items->getCollection()->transform(function ($service) {
+    // Extract numeric value from price string (e.g. "$199/mo" -> 199)
+    preg_match('/[\d\.]+/', $service->price, $matches);
+    $numericPrice = isset($matches[0]) ? (float)$matches[0] : 0;
+
+    $service->price_formatted = '$' . number_format($numericPrice, 2);
+
+    return $service;
+});
+
+
+
+
+    return view('services.servicecategory', [
+        'category' => $category->name,
+        'items' => $items
+    ]);
+}
+// Eloquent accessor for formatted price
+public function getPriceFormattedAttribute()
+{
+    preg_match('/[\d\.]+/', $this->price, $matches);
+    $numericPrice = isset($matches[0]) ? (float)$matches[0] : 0;
+
+    return '$' . number_format($numericPrice, 2);
+}
+
+
 
     public function detail($subcategory)
 {
-    $details = [
-        'web-apps' => [
-            'title' => 'Web Application Development',
-            'desc' => 'We build modern, scalable, and secure web applications tailored to your business needs.',
-            'price' => '$1,500+',
-            'features' => ['Custom UI/UX design', 'Responsive design', 'Scalable backend', 'Admin dashboards']
-        ],
-        'mobile-apps' => [
-            'title' => 'Mobile App Development',
-            'desc' => 'Native and cross-platform mobile apps with excellent performance and modern design.',
-            'price' => '$1,800+',
-            'features' => ['iOS & Android', 'Offline support', 'Push notifications', 'App Store publishing']
-        ],
-        'vpn-solutions' => [
-            'title' => 'VPN Solutions',
-            'desc' => 'Enterprise VPN services to ensure secure and private remote access.',
-            'price' => '$700/year',
-            'features' => ['Encrypted tunnels', 'Multi-platform support', 'Unlimited bandwidth', '24/7 monitoring']
-        ],
-        // ... add more subcategories here
-    ];
+    $service = Service::where('slug', $subcategory)->firstOrFail();
 
-    $service = [
-    'title' => 'Web Application Development',
-    'desc' => 'Build secure, scalable and modern web platforms tailored for business.',
-    'price' => '$1,500+',
-    'features' => [
-        'Custom UI/UX',
-        'Mobile responsive',
-        'RESTful APIs',
-        'Admin dashboard',
-    ],
-];
-return view('services.servicedetail', compact('service'));
-
+    return view('services.servicedetail', [
+        'service' => $service
+    ]);
 }
+
 
 
     public function index()
     {
+ $serviceCategories = ServiceCategory::withCount('services')->get();
+    $portfolioItems = Service::with('category')->get()->map(function ($service) {
+        return [
+            'title' => $service->title,
+            'description' => $service->desc,
+            'image' => asset('assets/images/services/' . $service->image),
+            'category' => $service->category?->slug ?? 'uncategorized',
+            'link' => route('services.detail', ['subcategory' => $service->slug])
+        ];
+    });
         $data = [
             'pageTitle' => 'Our Services',
             'heroTitle' => 'Our Services',
@@ -71,15 +92,7 @@ return view('services.servicedetail', compact('service'));
                 ]
             ],
             
-            'serviceCategories' => [
-                'All Categories',
-                'HTML Design',
-                'WP Themes',
-                'CMS Themes',
-                'eCommerce',
-                'Blogging',
-                'UI Templates'
-            ],
+
             
             'portfolioItems' => [
                 [

@@ -1,12 +1,9 @@
 @extends('layouts.master')
-
 @section('title', $service['title'] . ' | Sky Link')
 @section('description', $service['desc'])
 
 @section('content')
-
-<style>
-  .top-header {
+<style>.top-header {
     margin-bottom: 0 !important;
   }
 
@@ -95,10 +92,8 @@
 
   .btn-primary:hover {
     background-color: #16368c;
-  }
-</style>
+  }</style>
 
-<!-- Hero Section -->
 <section class="hero text-center py-5">
   <div class="container">
     <h1 class="display-3 fw-bold mb-3">{{ $service['title'] }}</h1>
@@ -107,83 +102,43 @@
   </div>
 </section>
 
-<!-- Pricing Section -->
 <section class="py-6">
   <div class="container">
     <h2 class="text-center mb-5 text-primary">Our Flexible Plans</h2>
     <div class="row g-4 justify-content-center">
+      @php
+        $plans = [
+          ['name'=>'Starter','price'=>$service['price'],'slug'=>'starter','features'=> $service['features'] ?? [], 'highlight'=>false],
+          // Add alt-tier plans if needed
+        ];
+      @endphp
 
-      @foreach ([
-        [
-          'name'=>'Starter',
-          'price'=>'$99/mo',
-          'slug'=>'starter',
-          'features'=>[
-            ['icon'=>'bi-globe', 'text'=>'Basic Web Tools'],
-            ['icon'=>'bi-people', 'text'=>'Single User Access'],
-            ['icon'=>'bi-shield-check', 'text'=>'Community Support'],
-            ['icon'=>'bi-speedometer2', 'text'=>'Uptime Guarantee'],
-            ['icon'=>'bi-layers', 'text'=>'Shared Hosting'],
-            ['icon'=>'bi-card-checklist', 'text'=>'Email Reports'],
-          ],
-          'highlight'=>false
-        ],
-        [
-          'name'=>'Professional',
-          'price'=>'$199/mo',
-          'slug'=>'professional',
-          'features'=>[
-            ['icon'=>'bi-tools', 'text'=>'Premium Tools'],
-            ['icon'=>'bi-people-fill', 'text'=>'Multi-user Access'],
-            ['icon'=>'bi-chat-dots', 'text'=>'Priority Support'],
-            ['icon'=>'bi-hdd-network', 'text'=>'Private Hosting'],
-            ['icon'=>'bi-cloud-check', 'text'=>'Daily Backups'],
-            ['icon'=>'bi-graph-up-arrow', 'text'=>'SEO Optimization'],
-          ],
-          'highlight'=>true
-        ],
-        [
-          'name'=>'Enterprise',
-          'price'=>'$399/mo',
-          'slug'=>'enterprise',
-          'features'=>[
-            ['icon'=>'bi-building', 'text'=>'Enterprise Solutions'],
-            ['icon'=>'bi-shield-lock', 'text'=>'Advanced Security'],
-            ['icon'=>'bi-headset', 'text'=>'Dedicated Account Manager'],
-            ['icon'=>'bi-kanban-fill', 'text'=>'Custom Workflows'],
-            ['icon'=>'bi-diagram-3', 'text'=>'API Integration'],
-            ['icon'=>'bi-stars', 'text'=>'Unlimited Resources'],
-          ],
-          'highlight'=>false
-        ]
-      ] as $plan)
-      <div class="col-md-6 col-lg-4">
-        <div class="card pricing-card position-relative text-center h-100 border-0 shadow-sm rounded-4">
-          @if($plan['highlight'])
-            <div class="position-absolute top-0 end-0 bg-primary text-white px-3 py-1 rounded-bottom-start">Popular</div>
-          @endif
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div>
-              <h3 class="fw-bold mb-2 text-primary">{{ $plan['name'] }}</h3>
-              <h2 class="mb-4">{{ $plan['price'] }}</h2>
-              <a href="{{ url('/subscribe/'.$plan['slug']) }}" class="btn btn-outline-primary mb-4 w-100">Subscribe Now</a>
-              <ul class="list-unstyled text-start mb-4">
-                @foreach($plan['features'] as $feat)
-                <li class="mb-2">
-                  <i class="bi {{ $feat['icon'] }} text-primary me-2"></i>{{ $feat['text'] }}
-                </li>
-                @endforeach
-              </ul>
+      @foreach($plans as $plan)
+        <div class="col-md-6 col-lg-4">
+          <div class="card pricing-card position-relative text-center h-100 border-0 shadow-sm rounded-4">
+            @if($plan['highlight'])
+              <div class="position-absolute top-0 end-0 bg-primary text-white px-3 py-1 rounded-bottom-start">Popular</div>
+            @endif
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h3 class="fw-bold mb-2 text-primary">{{ $plan['name'] }}</h3>
+                <h2 class="mb-4">{{ $plan['price'] }}</h2>
+                <a href="{{ url('/subscribe/'.$plan['slug']) }}" class="btn btn-outline-primary mb-4 w-100">Subscribe Now</a>
+                <ul class="list-unstyled text-start mb-4">
+                  @foreach($plan['features'] as $feat)
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>{{ $feat }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            <a href="#contact" class="btn btn-primary w-100">Discuss Plan</a>
             </div>
-            <a href="{{ url('/subscribe/'.$plan['slug']) }}" class="btn btn-primary w-100">Discuss Plan</a>
           </div>
         </div>
-      </div>
       @endforeach
-
     </div>
   </div>
 </section>
+
 
 <!-- FAQ Section -->
 <section class="py-6 bg-light">
