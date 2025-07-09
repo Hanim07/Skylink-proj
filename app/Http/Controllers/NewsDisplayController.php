@@ -21,4 +21,10 @@ public function show($slug) {
 
 
 
+public function apiLatest()
+{
+    $news = News::with('category')->latest()->take(5)->get();
+    return response()->json($news);
+}
+
 }

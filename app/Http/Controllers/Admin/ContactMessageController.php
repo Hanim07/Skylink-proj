@@ -16,10 +16,16 @@ class ContactMessageController extends Controller
     {
 
      {
-        $messages = ContactMessage::latest()->paginate(20);
-        return view('admin.contact-messages.index', compact('messages'));
+
+    $messages = ContactMessage::latest()->paginate(20);
+    return view('admin.contact-message.index', compact('messages'));
+
     }
+
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.

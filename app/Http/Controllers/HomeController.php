@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\News;
+use App\Models\Portfolio;
+
+
 class HomeController extends Controller
 {
     public function index()
+
     {
+        $latestNews = News::latest()->take(3)->get(); // or 4 if you want
+        $latestPortfolios = Portfolio::latest()->take(6)->get();
+
+
+
+
         $data = [
             'heroTitle' => 'Helping businesses succeed with the best IT services in Ethiopia',
             'heroDescription' => 'Discover IT solutions that drive growth and innovation for your business. We provide comprehensive technology services tailored to your needs.',
@@ -40,36 +51,15 @@ class HomeController extends Controller
                 ]
             ],
             
-            'news' => [
-                [
-                    'title' => 'How to Start a Career in Tech',
-                    'excerpt' => 'Essential tips and guidance for starting your journey in the technology industry and building a successful career.',
-                    'date' => 'Dec 15, 2024',
-                    'image' => asset('assets/images/news1.jpg')
-                ],
-                [
-                    'title' => 'Latest Technology Trends 2024',
-                    'excerpt' => 'Discover the most important technology trends that will shape the future of business and innovation.',
-                    'date' => 'Dec 12, 2024',
-                    'image' => asset('assets/images/news2.jpg')
-                ],
-                [
-                    'title' => 'Digital Transformation Guide',
-                    'excerpt' => 'A comprehensive guide to digital transformation for businesses looking to modernize their operations.',
-                    'date' => 'Dec 10, 2024',
-                    'image' => asset('assets/images/news3.jpg')
-                ]
-            ],
+
+
+
             
-            'portfolio' => [
-                 asset('assets/images/portfolioafar.webp' ),
-                        asset('assets/images/portfoliobilalul.webp' ),
-                        asset('assets/images/portfolioelida.webp' ),
-                        asset('assets/images/portfoliokirb.webp' ),
-                        asset('assets/images/portfolio5.jpg' ),
-                        asset('assets/images/portfolio6.jpg' )
-            ],
+
             
+           
+
+
             'products' => [
                 [
                             'name' => 'iPhone 14 Pro Max 256GB',
@@ -111,6 +101,8 @@ class HomeController extends Controller
             ]
         ];
         
-        return view('pages.index', $data);
-    }
+return view('pages.index', array_merge($data, [
+        'latestNews' => $latestNews,
+        'latestPortfolios' => $latestPortfolios,
+    ]));    }
 }
