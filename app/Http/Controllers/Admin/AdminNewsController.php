@@ -83,11 +83,13 @@ public function update(Request $request, News $news) {
 
 
 
-public function destroy(News $news) {
+public function destroy($id) { // <-- Accept the raw ID from the route
+    $news = News::findOrFail($id); // <-- Manually find the news item
     $news->delete();
     return redirect()->route('admin.news.index')->with('success', 'News deleted.');
 }
-
-
-
 }
+
+
+
+

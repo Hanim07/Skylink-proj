@@ -42,48 +42,25 @@
         }
 
         .floating-social a {
-            width: 60px;
-            height: 60px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgb(92, 112, 244);
-            position: relative;
-            overflow: visible;
+            color: white;
             text-decoration: none;
             transition: transform 0.3s;
-            font-size: 2rem;
+            font-size: 1rem;
         }
 
-        .floating-social .mobile { background: #ffffff; }
-        .floating-social .telegram { background: #ffffff; }
-        .floating-social .chat { background: #ffffff; }
+        .floating-social .mobile { background: #3b5998; }
+        .floating-social .telegram { background: #1da1f2; }
+        .floating-social .chat { background: #0077b5; }
         .floating-social a:hover {
             transform: scale(1.1);
         }
         
-
-        .social-label {
-    position: absolute;
-    right: 110%;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #333;
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 18px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s, right 0.3s;
-}
-
-.floating-social a:hover .social-label {
-    opacity: 1;
-    right: 130%;
-}
 
         /* Hero Section */
         .hero {
@@ -502,14 +479,6 @@
             .card-image {
                 height: 160px;
             }
-
-            .carousel-prev {
-            left: 1px;
-        }
-
-        .carousel-next {
-            right: 1px;
-        }
         }
         /* Featured Portfolio */
         .portfolio-section {
@@ -562,8 +531,8 @@
         }
 
         .portfolio-item img {
-            width: 90%;
-            height: 200px;
+            width: 100%;
+            height: 250px;
             object-fit: cover;
             transition: transform 0.3s;
         }
@@ -936,132 +905,6 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
-        
-  /* Popup Window */
-  .chat-popup {
-    position: fixed;
-    bottom: 90px;
-    right: 30px;
-    width: 300px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    display: none;
-    flex-direction: column;
-    z-index: 1001;
-    overflow: hidden;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-
-  .chat-panel {
-    padding: 15px;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .chat-header {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  .chat-body p {
-    margin-bottom: 10px;
-  }
-
-  .chat-btn-action {
-    display: block;
-    width: 100%;
-    margin: 5px 0;
-    padding: 10px;
-    background: #eee;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  .chat-btn-action.primary {
-    background-color: #007bff;
-    color: white;
-  }
-
-  .chat-note {
-    font-size: 12px;
-    color: gray;
-    margin-top: 10px;
-  }
-
-  .chat-header-flex {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-  }
-
-  .back-btn {
-    background: none;
-    border: none;
-    font-size: 18px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-
-  .agent-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .agent-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-
-  .agent-status {
-    font-size: 12px;
-    color: green;
-  }
-
-  .chat-message.agent {
-    background: #f1f1f1;
-    padding: 10px;
-    border-radius: 6px;
-  }
-
-  .chat-footer {
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .chat-input {
-    flex: 1;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-
-  .file-upload {
-    cursor: pointer;
-  }
-
-  .rate-chat {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: gold;
-  }
-
-  @keyframes fadeIn {
-    from {opacity: 0; transform: scale(0.95);}
-    to {opacity: 1; transform: scale(1);}
-  }
 
        
 
@@ -1108,57 +951,10 @@
 @section('content')
     <!-- Floating Social Icons -->
     <div class="floating-social">
-  <a href="tel:+251911027667" class="mobile">
-    <i class="fas fa-phone"></i>
-    <span class="social-label">Quick Contact</span>
-  </a>
-  <a href="https://t.me/Mohammedkerem" target="_blank" class="telegram">
-    <i class="fab fa-telegram-plane"></i>
-    <span class="social-label">Telegram Chat</span>
-  </a>
-  <a href="#" class="chat">
-    <i class="fas fa-comments"></i>
-    <span class="social-label">Live Chat</span>
-  </a>
-</div>
-<!-- Chat Popup -->
-<div class="chat-popup" id="chatPopup">
-  <!-- First Panel -->
-  <div class="chat-panel" id="helpPanel">
-    <div class="chat-header">Hi there 👋</div>
-    <div class="chat-body">
-      <p>Need help? Search our help center for answers or start a conversation:</p>
-      <button class="chat-btn-action">Help Center</button>
-      <button class="chat-btn-action">Search for Answers</button>
-      <button class="chat-btn-action primary" id="startChat">New Conversation</button>
-      <p class="chat-note">We typically reply in a few minutes</p>
+        <a href="#" class="mobile"><i class="fa fa-mobile-alt"></i></a>
+        <a href="#" class="telegram"><i class="fab fa-telegram"></i></a>
+        <a href="#" class="chat"><i class="fa fa-comment"></i></a>
     </div>
-  </div>
-
-  <!-- Chat Interface Panel -->
-  <div class="chat-panel hidden" id="chatInterface">
-    <div class="chat-header chat-header-flex">
-      <button class="back-btn" id="backBtn">←</button>
-      <div class="agent-info">
-        <img src="https://i.pravatar.cc/40" alt="Agent" class="agent-img">
-        <div>
-          <strong>Customer Support</strong>
-          <div class="agent-status">Online</div>
-        </div>
-      </div>
-    </div>
-    <div class="chat-body">
-      <p class="chat-message agent">
-        Welcome to our site, if you need help simply reply to this message. We are online and ready to help.
-      </p>
-    </div>
-    <div class="chat-footer">
-      <input type="text" class="chat-input" placeholder="Type here and press enter...">
-      <input type="file" class="file-upload" title="Upload File">
-      <button class="rate-chat">★</button>
-    </div>
-  </div>
-</div>
 
 
 
@@ -1288,123 +1084,81 @@
         </div>
     </section>
 
-    <!-- Latest News -->
-    <section class="news-section">
-        <div class="container">
-            <div class="news-header">
-                <div class="news-tab">NEWS</div>
-                <h2 class="news-title">Latest News</h2>
-            </div>
-            
-            <div class="row">
-                @php
-                    $newsItems = [
-                        [
-                            'id' => 1,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 2,
-                            'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 3,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ]
-                    ];
-                @endphp
-                
-                @foreach($newsItems as $item)
-                <div class="col-lg-4 col-md-6">
-                    <article class="news-card" onclick="readMore({{ $item['id'] }})">
+
+
+
+
+
+    <section class="news-section" id="news">
+    <div class="container">
+        <div class="news-header text-center">
+            <div class="news-tab">Latest News</div>
+            <h2 class="news-title">Our Recent Announcements</h2>
+        </div>
+
+        <div class="row">
+            @foreach($latestNews as $news)
+                <div class="col-md-4">
+                    <div class="news-card">
                         <div class="card-image">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
-                            <div class="category-badge">{{ $item['category'] }}</div>
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}">
+                            <span class="category-badge">{{ $news->category->name ?? 'News' }}</span>
                         </div>
-                        
                         <div class="card-content">
                             <div class="card-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-user"></i>
-                                    <span>{{ $item['author'] }}</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>{{ $item['date'] }}</span>
-                                </div>
+                                <div class="meta-item"><i class="bi bi-calendar"></i> {{ $news->created_at->format('M d, Y') }}</div>
+                                {{-- Add more meta items if needed --}}
                             </div>
-                            
-                            <h3 class="card-title">{{ $item['title'] }}</h3>
-                            <p class="card-description">{{ $item['description'] }}</p>
-                            
-                            <a href="{{ route('news.index') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
-                                Read More
-                                <i class="fas fa-arrow-right"></i>
+                            <h5 class="card-title">{{ $news->title }}</h5>
+                            <p class="card-description">{{ Str::limit($news->excerpt, 100) }}</p>
+                            <a href="{{ route('news.show', $news->slug) }}" class="read-more">
+                                Read More <i class="bi bi-arrow-right"></i>
                             </a>
-                        </div>
-                    </article>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-     <!-- Featured Portfolio -->
-<section id="portfolio" class="portfolio-section">
-    <div class="container">
-        <div class="portfolio-header">
-                <div class="portfolio-label">PROJECTS</div>
-                <h2 class="portfolio-title">Featured Portfolio</h2>
-        </div>
-        <div class="row">
-            @php
-                $portfolioItems = [
-                    ['image' => asset('assets/images/kiribgebeya.webp'), 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
-                    ['image' => asset('assets/images/hayat.jpg'), 'title' => 'Mobile Banking App', 'description' => 'Secure and user-friendly mobile banking solution'],
-                    ['image' => asset('assets/images/mirkuz.jpg'), 'title' => 'Business Dashboard', 'description' => 'Comprehensive analytics and reporting dashboard'],
-                    ['image' => asset('assets/images/befan.jpg'), 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
-                    ['image' => asset('assets/images/bilalul.jpg'), 'title' => 'Learning Management', 'description' => 'Online education and training platform'],
-                    ['image' => asset('assets/images/elida.webp'), 'title' => 'Real Estate Portal', 'description' => 'Property listing and management system']
-                ];
-            @endphp
-            
-            @foreach($portfolioItems as $item)
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="portfolio-item">
-                    <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h5>{{ $item['title'] }}</h5>
-                            <p>{{ $item['description'] }}</p>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
-        </div>
-        <div class="text-center mt-5">
-            <a href="{{ route('portfolio') }}" class=" btn-view-more">
-                More Projects
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+<section class="portfolio-section" id="portfolio">
+    <div class="container">
+        <div class="portfolio-header">
+            <div class="portfolio-label">Featured Projects</div>
+            <h2 class="portfolio-title">Our Latest Work</h2>
+        </div>
+
+        <div class="row">
+            @foreach($latestPortfolios as $portfolio)
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>{{ $portfolio->title }}</h5>
+                                <p>{{ Str::limit($portfolio->description, 80) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">
@@ -1590,10 +1344,13 @@
 
 
     
-   
+
 
 
 @endsection
+
+
+
 
 @push('scripts')
 
@@ -1613,159 +1370,7 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-  // Counter animation for stats
-  function animateCounters() {
-    document.querySelectorAll('.stat-number').forEach(counter => {
-      if (counter.dataset.animated === "true") return;
-      counter.dataset.animated = "true";
-
-      const target = counter.getAttribute('data-target') || '0';
-      const isK = target.toLowerCase().includes('k');
-      const isPlus = target.includes('+');
-      const numericValue = parseFloat(target.replace(/[^\d.]/g, ''));
-      const numericTarget = isK ? numericValue * 1000 : numericValue;
-
-      const duration = 2000; // animation duration in ms
-      const startTime = performance.now();
-
-      function updateCounter(now) {
-        const elapsed = now - startTime;
-        let progress = Math.min(elapsed / duration, 1);
-        let current = Math.floor(progress * numericTarget);
-
-        if (isK) {
-          counter.textContent = Math.floor(current / 1000) + 'k';
-        } else if (isPlus) {
-          counter.textContent = current + '+';
-        } else {
-          counter.textContent = current;
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = target;
-        }
-      }
-
-      requestAnimationFrame(updateCounter);
-    });
-  }
-
-  const statsSection = document.querySelector('.stats-section');
-  if (statsSection) {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          observer.unobserve(entry.target); // only once
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(statsSection);
-  }
-});
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-  // ========= SERVICES DATA =========
-  const services = [
-    {
-      icon: 'fas fa-laptop-code',
-      title: 'Web Development',
-      desc: 'We create modern, responsive websites and web applications using the latest technologies and best practices to ensure optimal performance and exceptional user experience for your business.'
-    },
-    {
-      icon: 'fas fa-mobile-alt',
-      title: 'Mobile Apps',
-      desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
-    },
-    {
-      icon: 'fas fa-shield-alt',
-      title: 'Physical Safety and Security',
-      desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
-    },
-    {
-      icon: 'fas fa-shield-alt',
-      title: 'Enterprise Network Solution',
-      desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
-    },
-    {
-      icon: 'fas fa-database',
-      title: 'ERP Consultancy',
-      desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
-    },
-    {
-      icon: 'fas fa-cogs',
-      title: 'ICT Support',
-      desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
-    },
-    {
-      icon: 'fas fa-database',
-      title: 'Smart City Projects',
-      desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
-    }
-  ];
-
-  let currentIndex = 1;
-
-  const container = document.querySelector('.services-container');
-  const cards = container.querySelectorAll('.service-card');
-  const prevBtn = document.querySelector('.carousel-prev');
-  const nextBtn = document.querySelector('.carousel-next');
-
-  function updateCard(card, service, position) {
-    card.className = 'service-card ' + position;
-    card.querySelector('.service-image i').className = service.icon;
-    card.querySelector('h4').textContent = service.title;
-    card.querySelector('p').textContent = service.desc;
-  }
-
-  function renderServices() {
-    if (cards.length < 3) {
-      console.warn('Not enough cards in the DOM. Expected 3.');
-      return;
-    }
-
-    const prev = services[(currentIndex - 1 + services.length) % services.length];
-    const current = services[currentIndex % services.length];
-    const next = services[(currentIndex + 1) % services.length];
-
-    updateCard(cards[0], prev, 'side');
-    updateCard(cards[1], current, 'center');
-    updateCard(cards[2], next, 'side');
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + services.length) % services.length;
-    renderServices();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % services.length;
-    renderServices();
-  });
-
-  // Swipe Support
-  let startX = 0;
-  container.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  container.addEventListener('touchend', (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const deltaX = endX - startX;
-
-    if (deltaX > 50) {
-      prevBtn.click();
-    } else if (deltaX < -50) {
-      nextBtn.click();
-    }
-  });
-
-   // Counter animation for stats
+        // Counter animation for stats
         function animateCounters() {
     document.querySelectorAll('.stat-number').forEach(counter => {
         if (counter.dataset.animated) return;
@@ -1908,9 +1513,148 @@ const observer = new IntersectionObserver(function(entries) {
         });
 
 
-  // INITIAL RENDER
+// JavaScript for infinite carousel with smooth transitions and swipe support (autoplay removed, bounce removed)
+const services = [
+  {
+    icon: 'fas fa-laptop-code',
+    title: 'Web Development',
+    desc: 'We create modern, responsive websites and web applications using the latest technologies and best practices to ensure optimal performance and exceptional user experience for your business.'
+  },
+  {
+    icon: 'fas fa-mobile-alt',
+    title: 'Mobile Apps',
+    desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Physical Safety and Security',
+    desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Enterprise Network Solution',
+    desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'ERP Consultancy',
+    desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
+  },
+  {
+    icon: 'fas fa-cogs',
+    title: 'ICT Support',
+    desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'Smart City Projects',
+    desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
+  }
+];
+
+let currentIndex = 1;
+
+const container = document.querySelector('.services-container');
+const cards = container.querySelectorAll('.service-card');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+
+function updateCard(card, service, position) {
+  card.className = 'service-card ' + position;
+  card.querySelector('.service-image i').className = service.icon;
+  card.querySelector('h4').textContent = service.title;
+  card.querySelector('p').textContent = service.desc;
+}
+
+function renderServices() {
+  const prev = services[(currentIndex - 1 + services.length) % services.length];
+  const current = services[currentIndex % services.length];
+  const next = services[(currentIndex + 1) % services.length];
+
+  updateCard(cards[0], prev, 'side');
+  updateCard(cards[1], current, 'center');
+  updateCard(cards[2], next, 'side');
+}
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + services.length) % services.length;
   renderServices();
 });
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % services.length;
+  renderServices();
+});
+
+// Swipe support
+let startX = 0;
+container.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+container.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const deltaX = endX - startX;
+
+  if (deltaX > 50) {
+    prevBtn.click();
+  } else if (deltaX < -50) {
+    nextBtn.click();
+  }
+});
+
+// Initial render
+document.addEventListener('DOMContentLoaded', renderServices);
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/news/latest')
+        .then(res => res.json())
+        .then(news => {
+            const newsDiv = document.getElementById('news-section');
+            newsDiv.innerHTML = '';
+            news.forEach(item => {
+                newsDiv.innerHTML += `
+                    <div class="news-item">
+                        <h3>${item.title}</h3>
+                        <p>Category: ${item.category.name}</p>
+                        <p>${item.excerpt}</p>
+                    </div>
+                `;
+            });
+        });
+
+    fetch('/api/portfolios/latest')
+        .then(res => res.json())
+        .then(projects => {
+            const portfolioDiv = document.getElementById('portfolio-section');
+            portfolioDiv.innerHTML = '';
+            projects.forEach(project => {
+                portfolioDiv.innerHTML += `
+                    <div class="portfolio-item">
+                        <h3>${project.title}</h3>
+                        <img src="{{ asset('storage') }}/${project.image}" alt="${project.title}">
+                        <p>${project.description}</p>
+                    </div>
+                `;
+            });
+        });
+});
+
+
+
+
 
 </script>
 @endpush

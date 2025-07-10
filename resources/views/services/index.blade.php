@@ -1054,27 +1054,69 @@
             
             <div class="col-lg-6">
                 <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <input type="text" class="form-control" placeholder="Your Name" required>
-                        <input type="email" class="form-control" placeholder="Your Email" required>
-                        <input type="tel" class="form-control" placeholder="Your Phone">
-                        <select class="form-control" required>
-                            <option value="">Select Service</option>
-                            <option value="web-development">Web Development</option>
-                            <option value="mobile-app">Mobile App Development</option>
-                            <option value="ui-design">UI/UX Design</option>
-                            <option value="digital-marketing">Digital Marketing</option>
-                            <option value="consulting">Tech Consulting</option>
-                        </select>
-                        <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn-submit">Request A Quote</button>
-                    </form>
+
+
+                   @if (session('success'))
+    <div class="alert alert-success" role="alert" style="padding: 1rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; color: #155724; background-color: #d4edda; border-color: #c3e6cb;">
+        {{ session('success') }}
+    </div>
+@endif
+
+{{-- This will show a RED error box if validation fails --}}
+@if ($errors->any())
+    <div class="alert alert-danger" role="alert" style="padding: 1rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; color: #721c24; background-color: #f8d7da; border-color: #f5c6cb;">
+        <strong>Whoops! Something went wrong.</strong>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<!-- THIS IS THE FULLY CORRECTED FORM -->
+<form id="contactForm" action="{{ route('quote.request.store') }}" method="POST">
+    
+    {{-- This security token is REQUIRED by Laravel for all POST forms. --}}
+    @csrf
+
+    {{-- Each input MUST have a 'name' attribute. This is how your Controller gets the data. --}}
+    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+    
+    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+    
+    <input type="tel" name="phone" class="form-control" placeholder="Your Phone">
+    
+    <select name="service" class="form-control" required>
+        <option value="">Select Service</option>
+        <option value="software-service">Software-Service</option>
+        <option value="smart-city">Smart-City</option>
+        <option value="safety-security">Safety-Security</option>
+        <option value="enterprise-network">Enterprise-Network</option>
+        <option value="consulting-training">Tech Consulting</option>
+        <option value="ict-support">Ict-Support</option>
+        <option value="gps-tracking">Gps-Tracking/option>
+        <option value="datacenter-facility">Datacenter-Facility</option>
+
+    </select>
+    
+    <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+    
+    <button type="submit" class="btn-submit">Request A Quote</button>
+</form>
                 </div>
             </div>
         </div>
     </div>
 </section>
 @endsection
+
+
+
+
+
+
+
+
 
 
 @push('scripts')
@@ -1339,21 +1381,25 @@
 
         
         // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        //document.getElementById('contactForm').addEventListener('submit', function(e) {
+            //e.preventDefault();
             
-            const submitBtn = this.querySelector('.btn-submit');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+           // const submitBtn = this.querySelector('.btn-submit');
+            //const originalText = submitBtn.textContent;
+            //submitBtn.textContent = 'Sending...';
+            //submitBtn.disabled = true;
             
-            setTimeout(() => {
-                alert('Thank you for your inquiry! We will get back to you within 24 hours.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
+            //setTimeout(() => {
+                //alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+              //  this.reset();
+                //submitBtn.textContent = originalText;
+            //    submitBtn.disabled = false;
+            //}, 2000);
+       // });
+
+
+
+
 
         // Intersection Observer for animations
         const observerOptions = {
