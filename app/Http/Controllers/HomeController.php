@@ -12,9 +12,9 @@ class HomeController extends Controller
 {
     public function index()
 
-    {
-        $latestNews = News::latest()->take(3)->get(); // or 4 if you want
-        $latestPortfolios = Portfolio::latest()->take(6)->get();
+     {
+    //     $latestNews = News::latest()->take(3)->get(); // or 4 if you want
+    //     $latestPortfolios = Portfolio::latest()->take(6)->get();
 
 
 
@@ -25,9 +25,9 @@ class HomeController extends Controller
             'companyDescription' => 'Sky Link is a leading IT services company in Ethiopia, dedicated to providing innovative technology solutions that help businesses thrive in the digital age. With years of experience and a team of skilled professionals, we deliver comprehensive IT services and solutions.',
             
             'stats' => [
-                ['number' => '15+', 'label' => 'Years Experience'],
-                ['number' => '84k', 'label' => 'Happy Clients'],
-                ['number' => '600+', 'label' => 'Projects Completed']
+                ['number' => '4+', 'label' => 'Years Experience'],
+                ['number' => '400+', 'label' => 'Happy Clients'],
+                ['number' => '100+', 'label' => 'Projects Completed']
             ],
             
             'services' => [
@@ -101,8 +101,11 @@ class HomeController extends Controller
             ]
         ];
         
-return view('pages.index', array_merge($data, [
+return view('pages.index', );    }
+}
+/** 
+ * array_merge($data, [
         'latestNews' => $latestNews,
         'latestPortfolios' => $latestPortfolios,
-    ]));    }
-}
+    ])
+ */
