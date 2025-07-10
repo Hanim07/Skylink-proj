@@ -1,127 +1,10 @@
 @extends('layouts.master')
 
+
 @push('styles')
 <style>
-/* Header Styles */
-.search-container .input-group-text {
-  background: transparent;
-  border-right: none;
-}
 
-.search-container .form-control {
-  border-left: none;
-  box-shadow: none;
-}
-
-.search-container .form-control:focus {
-  border-color: #dee2e6;
-  box-shadow: none;
-}
-
-/* Hero Banner */
-.hero-banner {
-  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-  min-height: 400px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-content {
-  padding: 60px 0;
-}
-
-.hero-image {
-  max-width: 300px;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
-}
-
-.custom-indicators {
-  bottom: 20px;
-}
-
-.custom-indicators button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin: 0 4px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-}
-
-.custom-indicators button.active {
-  background-color: white;
-}
-
-/* Product Cards - Updated */
-.product-card {
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%;
-  position: relative;
-  min-height: 350px;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    border: 2px solid #007bff;
-
-}
-
-.product-info {
-  position: relative;
-  height: calc(100% - 200px);
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 45px;
-}
-
-.add-to-cart-btn {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  border-radius: 8px;
-  font-size: 12px;
-  padding: 8px 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.add-to-cart-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-}
-
-.product-image {
-  position: relative;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.product-image img {
-  border-radius: 8px;
-  height: 200px;
-  object-fit: cover;
-}
-
-.product-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.product-price {
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 0;
-}
-
-/* Category Items */
+  /* Category Items */
 .category-item {
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -142,333 +25,39 @@
 .category-item:hover .category-icon img {
   border-color: #007bff;
 }
-
-/* Brands Slider */
-.brands-slider-container {
-  overflow: hidden;
-  position: relative;
-}
-
-.brands-slider {
-  display: flex;
-  animation: slide 20s linear infinite;
-  gap: 20px;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
+  .nav-pills .nav-link {
+    border-radius: 50rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    background-color: #f3f4f6;
+    color: #111827;
+    transition: background-color 0.3s ease;
   }
-  100% {
-    transform: translateX(-50%);
+  .nav-pills .nav-link.active {
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    color: white;
   }
-}
-
-.brand-card {
-  min-width: 280px;
-  height: 200px;
-  border-radius: 16px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.brand-card:hover {
-  transform: scale(1.05);
-}
-
-.brand-card.realme {
-  background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
-}
-
-.brand-card.xiaomi {
-  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-}
-
-.brand-card.oneplus {
-  background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
-}
-
-.brand-header {
-  padding: 15px 20px 0;
-}
-
-.brand-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 1px;
-}
-
-.brand-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.brand-logo {
-  flex: 1;
-}
-
-.realme-logo,
-.xiaomi-logo {
-  max-width: 80px;
-  height: auto;
-  filter: brightness(0) invert(1);
-}
-
-.brand-image {
-  flex: 1;
-  text-align: right;
-}
-
-.brand-image img {
-  max-width: 100px;
-  height: auto;
-  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
-}
-
-.brand-offer {
-  padding: 0 20px 20px;
-}
-
-/* Slider Indicators */
-.slider-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #dee2e6;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.indicator.active {
-  background-color: #007bff;
-}
-
-/* Feature Items */
-.feature-item {
-  padding: 20px;
-  transition: transform 0.3s ease;
-}
-
-.feature-item:hover {
-  transform: translateY(-5px);
-}
-
-.feature-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 123, 255, 0.1);
-  border-radius: 50%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 40px 0;
-    text-align: center;
+  .nav-pills .nav-link:hover:not(.active) {
+    background-color: #e5e7eb;
   }
-
-  .hero-text h1 {
-    font-size: 2rem;
+  .btn-gradient-primary {
+    background: linear-gradient(to right, #4f46e5, #3b82f6);
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
   }
-
-  .brand-card {
-    min-width: 250px;
-    height: 180px;
+  .btn-gradient-primary:hover {
+    opacity: 0.9;
   }
-
-  .brands-slider {
-    animation-duration: 15s;
+  .hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
   }
-}
-
-@media (max-width: 576px) {
-  .product-card {
-    margin-bottom: 20px;
-  }
-
-  .brand-card {
-    min-width: 220px;
-    height: 160px;
-  }
-
-  .brand-image img {
-    max-width: 80px;
-  }
-}
-
-/* Hover Effects */
-.btn:hover {
-  transform: translateY(-2px);
-  transition: transform 0.2s ease;
-}
-
-.nav-link:hover {
-  color: #007bff !important;
-  transition: color 0.3s ease;
-}
-
-/* Loading Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.product-card,
-.category-item,
-.feature-item {
-  animation: fadeIn 0.6s ease forwards;
-}
-
-/* Search Styles */
-.search-container {
-  position: relative;
-}
-
-.search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: white;
-  border: 1px solid #dee2e6;
-  border-top: none;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  max-height: 400px;
-  overflow-y: auto;
-  display: none;
-}
-
-.search-results.show {
-  display: block;
-}
-
-.search-item {
-  padding: 12px 16px;
-  border-bottom: 1px solid #f8f9fa;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-}
-
-.search-item:hover {
-  background-color: #f8f9fa;
-}
-
-.search-item:last-child {
-  border-bottom: none;
-}
-
-.search-item img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-right: 12px;
-}
-
-.search-item-info h6 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.search-item-info p {
-  margin: 0;
-  font-size: 12px;
-  color: #6c757d;
-}
-
-.no-results {
-  padding: 20px;
-  text-align: center;
-  color: #6c757d;
-}
-
-/* Custom Dropdown Styles */
-.custom-dropdown {
-  border: none;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 12px;
-  padding: 8px 0;
-  min-width: 220px;
-}
-
-.custom-dropdown .dropdown-item {
-  padding: 12px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  border-radius: 8px;
-  margin: 2px 8px;
-}
-
-.custom-dropdown .dropdown-item:hover {
-  color: black;
-  transform: translateX(5px);
-}
-
-.custom-dropdown .dropdown-item i {
-  width: 20px;
-  color: #007bff;
-  transition: color 0.2s ease;
-}
-
-.custom-dropdown .dropdown-item:hover i {
-  color: #007bff;
-}
-
-/* Search Results Container */
-#searchProductsContainer {
-  margin-bottom: 30px;
-}
-
-#searchProductsContainer .product-card {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
 </style>
-
 @endpush
+
 @section('content')
 <header class="bg-white shadow-sm">
         <div class="container">
@@ -857,6 +446,7 @@
 @endsection
 
 
+
 @push('scripts')
 <script>
   // Interactive functionality
@@ -1199,4 +789,5 @@ addToCartButtonsNew.forEach((button) => {
 
 
 </script>
+
 @endpush

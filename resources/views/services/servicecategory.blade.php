@@ -11,7 +11,7 @@
 @endphp
 
 <!-- Hero Section -->
-<section class="bg-dark text-white py-5" style="background: url('{{ asset($bannerExists ? $bannerPath : 'assets/images/service-banner.jpg') }}') center/cover no-repeat;">
+<section class="bg-black text-white py-5" style="background: url('{{ asset($bannerExists ? $bannerPath : 'assets/images/service-banner.jpg') }}') center/cover no-repeat;">
   <div class="container text-center">
     <h1 class="display-4 fw-bold">Explore {{ ucfirst(str_replace('-', ' ', $category)) }}</h1>
     <p class="lead">Premium services tailored to meet your business goals.</p>

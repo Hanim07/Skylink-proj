@@ -10,17 +10,19 @@
 <style>
     /* Hero Section - Updated to match the image */
     .hero-section {
-        background: linear-gradient(rgba(133, 174, 240, 0.4), rgba(42, 92, 255, 0.8)), url('{{ asset('assets/images/teammember.png') }}') center/cover;
-        min-height: 40vh;
-        display: flex;
-        padding-top: 100px;
-        
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-        position: relative;
-    }
+    background: 
+        linear-gradient(rgba(133, 174, 240, 0.4), rgba(42, 92, 255, 0.8)),
+        url('{{ asset('assets/images/about/teammember2.JPG') }}') no-repeat center top;
+    background-size: cover;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-position: center 35%; 
+}
 
     .hero-content {
         max-width: 800px;
@@ -284,19 +286,19 @@
     }
 
     .team-photo {
-        width: 100%;
-        height: 250px;
-        background: #e9ecef;
-        position: relative;
-        overflow: hidden;
-    }
+    width: 100%;
+    height: 350px;
+    background: #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
 
-    .team-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+object-position: 50% 15%; 
+}
     .team-info {
         padding: 25px;
     }
@@ -560,7 +562,7 @@
         <div class="hero-content">
             <h1 class="hero-title">About Us</h1>
             <div class="hero-breadcrumb">
-                <a href="">Home</a>
+                <a href="{{route('home')}}">Home</a>
                 <span class="breadcrumb-separator">/</span>
                 <span>About Us</span>
             </div>
@@ -615,7 +617,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-image-container">
-                    <img src="{{ asset('assets/images/teammember.png') }}" 
+                    <img src="{{ asset('assets/images/about/teammember.JPG') }}" 
                          alt="Team working together" class="about-main-image">
                 </div>
             </div>
@@ -658,7 +660,7 @@
              <div class="team-member">
                 
                 <div class="team-photo">
-                    <img src="{{ asset('assets/images/Mohammedkerem.jpg') }}" alt="Alex Taylor">
+                    <img src="{{ asset('assets/images/about/mohammedkerem.JPG') }}" alt="Alex Taylor">
                 </div>
                 <div class="team-info">
                     <h4 class="team-name">Mohammedkerem Ahmed</h4>
@@ -668,7 +670,7 @@
             <div class="team-member">
                 
                 <div class="team-photo">
-                    <img src="{{ asset('assets/images/mohammed oumer.png') }}" alt="Alex Taylor">
+                    <img src="{{ asset('assets/images/about/mohammed oumer.png') }}" alt="Alex Taylor">
                 </div>
                 <div class="team-info">
                     <h4 class="team-name">Mohammed Oumer</h4>
@@ -685,10 +687,18 @@
                     <p class="team-role">Head of software department</p>
                 </div>
             </div>
-            
             <div class="team-member">
                 <div class="team-photo">
-                    <img src="{{ asset('assets/images/bedru hussen.png') }}" alt="Rachel Taylor">
+                    <img src="{{ asset('assets/images/about/mohammed ahmed.JPG') }}" alt="Rachel Taylor">
+                </div>
+                <div class="team-info">
+                    <h4 class="team-name">Mohammed Ahmed</h4>
+                    <p class="team-role">project manager</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo">
+                    <img src="{{ asset('assets/images/about/bedru hussen.png') }}" alt="Rachel Taylor">
                 </div>
                 <div class="team-info">
                     <h4 class="team-name">Bedru Hussen</h4>
@@ -698,23 +708,15 @@
             
             <div class="team-member">
                 <div class="team-photo">
-                    <img src="{{ asset('assets/images/mohammed seid.png') }}" alt="Alex Taylor">
+                    <img src="{{ asset('assets/images/about/huda.png') }}" alt="Alex Taylor">
                 </div>
                 <div class="team-info">
-                    <h4 class="team-name">Mohammed Seid</h4>
+                    <h4 class="team-name">Huda Mohammed</h4>
                     <p class="team-role">Marketing manager</p>
                 </div>
             </div>
             
-            <div class="team-member">
-                <div class="team-photo">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=250&fit=crop&crop=face" alt="Lisa Patel">
-                </div>
-                <div class="team-info">
-                    <h4 class="team-name">Lisa Patel</h4>
-                    <p class="team-role">Professor</p>
-                </div>
-            </div>
+           
             
             
         </div>
@@ -783,8 +785,8 @@
 <section class="awards-section">
     <div class="container">
         <div class="awards-header">
-            <span class="section-tag">Our Awards</span>
-            <h2>We Have Achieved Different<br>Awards</h2>
+            <span class="section-tag">Our Achievements</span>
+            <h2>We Have Achieved Different<br>Milestones</h2>
         </div>
         
         <div class="awards-categories">
@@ -801,56 +803,36 @@
         <div class="awards-grid">
             <div class="award-item">
                 <div class="award-image">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=200&fit=crop" alt="Award">
+                    <img src="{{ asset('assets/images/about/diredawa.JPG') }}" alt="Award">
                 </div>
                 <div class="award-content">
-                    <h4 class="award-title">Global's most respected Architecture CEO</h4>
-                    <p class="award-year">2019</p>
+                    <h4 class="award-title">Secured a landmark agreement with Diredawa Administration to spearhead the innovative Smart City Project with Skylink.</h4>
+                    <p class="award-year">2024</p>
                 </div>
             </div>
             
             <div class="award-item">
                 <div class="award-image">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&h=200&fit=crop" alt="Award">
+                    <img src="{{ asset('assets/images/about/hobe.JPG') }}" alt="Award">
                 </div>
                 <div class="award-content">
-                    <h4 class="award-title">Architizer A+Awards Winning Project - Corporates</h4>
-                    <p class="award-year">2018</p>
+                    <h4 class="award-title">Established a key agreement with a customer to develop a cutting-edge app system.</h4>
+                    <p class="award-year">2024</p>
                 </div>
             </div>
             
             <div class="award-item">
                 <div class="award-image">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=300&h=200&fit=crop" alt="Award">
+                    <img src="{{ asset('assets/images/about/evergreen.JPG') }}" alt="Award">
                 </div>
                 <div class="award-content">
-                    <h4 class="award-title">International Architecture Awards - Corporates</h4>
-                    <p class="award-year">2017</p>
+                    <h4 class="award-title">Formed a strategic partnership with Evergreen.</h4>
+                    <p class="award-year">2024</p>
                 </div>
             </div>
         </div>
         
-        <div class="awards-grid-bottom">
-            <div class="award-item">
-                <div class="award-image">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&h=200&fit=crop" alt="Award">
-                </div>
-                <div class="award-content">
-                    <h4 class="award-title">1st Place - Design Competition for Juilliard Training Center</h4>
-                    <p class="award-year">2016</p>
-                </div>
-            </div>
-            
-            <div class="award-item">
-                <div class="award-image">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=300&h=200&fit=crop" alt="Award">
-                </div>
-                <div class="award-content">
-                    <h4 class="award-title">1st Place - Design Competition for New Campus - Ghent Univ</h4>
-                    <p class="award-year">2015</p>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </section>
 @endsection

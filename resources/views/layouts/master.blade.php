@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -743,3 +744,4 @@
     @stack('scripts')
 </body>
 </html>
+
