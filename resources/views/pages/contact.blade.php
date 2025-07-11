@@ -14,12 +14,6 @@
             --light-blue-bg: #e3f2fd;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
         /* Contact Hero Section */
         .contact-hero {
         background: #e5e7eb;
@@ -260,7 +254,7 @@
                 <div class="col-lg-6">
                     <div class="map-content">
                         <h2>Want To Find Us Through The Map ?</h2>
-                        <p>Reach out to discuss your business goals—we provide expert IT services designed to help you scale, automate, and grow efficiently. Our team is here to assist you, Monday to Friday from 8:00 AM to 6:00 PM.</p>
+                        <p>Reach out to discuss your business goals—we provide expert IT services designed to help you scale, automate, and grow efficiently. Our team is here to assist you, Monday to Friday from 8:00 AM to 5:00 PM.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
