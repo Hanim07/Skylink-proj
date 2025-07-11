@@ -215,11 +215,11 @@
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card">
               <div class="card h-100 shadow-sm border-0 hover-shadow" data-name="{{ strtolower($p['name']) }}">
 @php
-  $isExternal = Str::startsWith($p['image'], ['http://', 'https://']);
-@endphp
+        $isExternal = Str::startsWith($p['image'], ['http://', 'https://']);
+        $imagePath = $isExternal ? $p['image'] : asset('assets/images/products/' . $p['image']);
+      @endphp
 
-<img src="{{ $isExternal ? $p['image'] : asset('assets/' . $p['image']) }}" class="card-img-top" alt="{{ $p['name'] }}">
-                <div class="card-body d-flex flex-column">
+      <img src="{{ $imagePath }}" class="card-img-top" alt="{{ $p['name'] }}">            <div class="card-body d-flex flex-column">
                   <h5 class="card-title text-primary fw-semibold">{{ $p['name'] }}</h5>
                   <p class="card-text small">{{ Str::limit($p['description'], 90) }}</p>
                   <div class="mt-auto">
