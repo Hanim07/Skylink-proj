@@ -452,10 +452,11 @@
 }
 
 
-
-        @yield('additional-styles')
-    </style>
+ </style>
     
+
+@yield('additional-styles')
+   
     @stack('styles')
     @stack('scripts')
 
