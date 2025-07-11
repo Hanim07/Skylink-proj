@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.master')
 
 @section('content')
     <h1>{{ $service->title }}</h1>
@@ -27,5 +27,5 @@
         <button type="submit" onclick="return confirm('Delete this service?')">Delete</button>
     </form>
     <br><br>
-    <a href="{{ route('services.index') }}">Back to list</a>
+    <a href="{{ route('admin.services.index') }}">Back to list</a>
 @endsection

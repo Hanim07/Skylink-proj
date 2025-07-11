@@ -6,7 +6,7 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ServiceadminController extends Controller
 {
     public function index()
     {
@@ -29,7 +29,7 @@ class ServiceController extends Controller
             'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
             'price' => 'nullable',
             'features' => 'required|array',
-            'category_id' => 'required|exists:service_categories,id'
+        'category_id' => 'required|exists:service_categories,id',
         ]);
 
         $imagePath = $request->file('image')->store('services', 'public');
@@ -38,7 +38,7 @@ class ServiceController extends Controller
 
         Service::create($validated);
 
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        return redirect()->route('admin.services.index')->with('success', 'Service created successfully.');
     }
 
     public function show(Service $service)
@@ -71,12 +71,12 @@ class ServiceController extends Controller
 
         $service->update($validated);
 
-        return redirect()->route('services.index')->with('success', 'Service updated successfully.');
+        return redirect()->route('admin.services.index')->with('success', 'Service updated successfully.');
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully.');
+        return redirect()->route('admin.services.index')->with('success', 'Service deleted successfully.');
     }
 }

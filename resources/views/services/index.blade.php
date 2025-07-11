@@ -12,7 +12,7 @@
     /* Hero Section */
     .hero-section {
         background: #f8f9fa;
-        min-height: 80vh;
+        min-height: 70vh;
         position: relative;
         overflow: hidden;
         padding: 60px 0;
@@ -738,13 +738,13 @@
                         At Skylink Technologies, we craft innovative digital solutions that connect, automate, and elevate your business. From custom software to secure IT infrastructure, we deliver excellence—every step of the way.
                     </p>
                     
-                    <div class="search-container">
+                    {{-- <div class="search-container">
                         <input type="text" class="search-input" id="searchInput" placeholder='e.g. "software services"'>
                         <button class="search-btn" id="searchBtn">
                             <i class="fas fa-search"></i> Search
                         </button>
                         <div class="search-results" id="searchResults"></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

@@ -103,9 +103,9 @@
       {{-- Price and Subscribe Button --}}
       <div class="mt-5 d-flex flex-column align-items-start gap-3">
         <span class="h4 text-primary fw-semibold">ETB {{ number_format($product['price']) }}</span>
-        <button class="btn btn-lg btn-gradient-primary px-5 py-3 shadow">
+        {{-- <button class="btn btn-lg btn-gradient-primary px-5 py-3 shadow">
           Subscribe
-        </button>
+        </button> --}}
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\ServiceadminController; // <-- Import the controller
+use App\Http\Controllers\Admin\ServiceadminController; // <-- Import the controller
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminController;
@@ -73,6 +73,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
 //
 // Admin-only routes
@@ -80,16 +81,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     // Admin dashboard
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
-<<<<<<< HEAD
-    // Admin Portfolio
-    Route::get('/portfolio', [AdminPortfolioController::class, 'adminIndex'])->name('portfolio.index');
-    Route::get('/portfolio/create', [AdminPortfolioController::class, 'create'])->name('portfolio.create');
-    Route::post('/portfolio', [AdminPortfolioController::class, 'store'])->name('portfolio.store');
-    Route::get('/portfolio/{id}/edit', [AdminPortfolioController::class, 'edit'])->name('portfolio.edit');
-    Route::put('/portfolio/{id}', [AdminPortfolioController::class, 'update'])->name('portfolio.update');
-    Route::delete('/portfolio/{id}', [AdminPortfolioController::class, 'destroy'])->name('portfolio.destroy');
-
-=======
 
     // Admin Portfolio
     Route::get('/portfolio', [AdminPortfolioController::class, 'adminIndex'])->name('portfolio.index');
@@ -99,7 +90,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::put('/portfolio/{id}', [AdminPortfolioController::class, 'update'])->name('portfolio.update');
     Route::delete('/portfolio/{id}', [AdminPortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
->>>>>>> 62858a358871655f47d486bcf333cfdd1dfcaf23
     // Admin News
     Route::get('/news', [AdminNewsController::class, 'index'])->name('news.index');
     Route::get('/news/create', [AdminNewsController::class, 'create'])->name('news.create');
@@ -113,28 +103,24 @@ Route::delete('/news/{news}', [AdminNewsController::class, 'destroy'])->name('ne
 
     // Contact messages
     Route::resource('contact-messages', ContactMessageController::class)->only(['index']);
-<<<<<<< HEAD
 //service admin
     
     
 });
 Route::prefix('admin')->group(function () {
     Route::resource('services', ServiceadminController::class);
-=======
 
+// Admin services
+    Route::get('/services', [ServiceadminController::class, 'index'])->name('admin.services.index');
+    Route::get('/services/create', [ServiceadminController::class, 'create'])->name('admin.services.create');
+    Route::post('/services', [ServiceadminController::class, 'store'])->name('admin.services.store');
+    Route::get('/services/{services}/edit', [ServiceadminController::class, 'edit'])->name('admin.services.edit');
+    Route::put('/services/{services}', [ServiceadminController::class, 'update'])->name('admin.services.update');
+Route::delete('/services/{services}', [ServiceadminController::class, 'destroy'])->name('admin.services.destroy');
 
-
-    
->>>>>>> 62858a358871655f47d486bcf333cfdd1dfcaf23
 });
-
-
 
 //
 // Auth scaffolding
 // --------------------------------------------------
-<<<<<<< HEAD
-// require __DIR__.'/auth.php';
-=======
 require __DIR__.'/auth.php';
->>>>>>> 62858a358871655f47d486bcf333cfdd1dfcaf23

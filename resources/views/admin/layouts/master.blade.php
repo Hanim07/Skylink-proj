@@ -113,6 +113,20 @@
                     Create News
                 </a>
             </li>
+            
+            {{-- Portfolio --}}
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.services.*') ? 'active' : '' }}" 
+                   href="{{ route('admin.services.index') }}">
+                    Service
+                </a>
+            </li>
+            <li class="nav-item ps-3">
+                <a class="nav-link {{ request()->routeIs('admin.services.create') ? 'active' : '' }}" 
+                   href="{{ route('admin.services.create') }}">
+                    Create Service
+                </a>
+            </li>
 
             {{-- Subscribers --}}
             <li class="nav-item">

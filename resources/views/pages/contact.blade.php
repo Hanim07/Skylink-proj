@@ -22,7 +22,7 @@
 
         /* Contact Hero Section */
         .contact-hero {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        background: #e5e7eb;
             padding: 60px 0;
             text-align: center;
         }
