@@ -91,7 +91,9 @@
                 const category = item.getAttribute('data-category');
 
                 const matchesSearch = name.includes(searchTerm);
-                const matchesCategory = selectedCategory === 'all' || selectedCategory === category;if (matchesSearch && matchesCategory) {
+                const matchesCategory = selectedCategory === 'all' || selectedCategory === category;
+
+                if (matchesSearch && matchesCategory) {
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';

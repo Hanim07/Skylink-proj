@@ -1,3 +1,5 @@
+
+
 @extends('layouts.master')
 
 @section('title', 'Sky Link - IT Services in Ethiopia')
@@ -7,23 +9,10 @@
 
 @push('styles')
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        color: #333;
-        overflow-x: hidden;
-    }
-
     /* Hero Section */
     .hero-section {
         background: #f8f9fa;
-        min-height: 80vh;
+        min-height: 70vh;
         position: relative;
         overflow: hidden;
         padding: 60px 0;
@@ -749,13 +738,13 @@
                         At Skylink Technologies, we craft innovative digital solutions that connect, automate, and elevate your business. From custom software to secure IT infrastructure, we deliver excellence—every step of the way.
                     </p>
                     
-                    <div class="search-container">
+                    {{-- <div class="search-container">
                         <input type="text" class="search-input" id="searchInput" placeholder='e.g. "software services"'>
                         <button class="search-btn" id="searchBtn">
                             <i class="fas fa-search"></i> Search
                         </button>
                         <div class="search-results" id="searchResults"></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -766,7 +755,7 @@
     <!-- Tech Icons -->
     <div class="hero-icons-container">
         <div class="tech-icon laravel">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel">
         </div>
         <div class="tech-icon angular">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
@@ -888,10 +877,6 @@
       </div>
     </div>
   </div>
-  <div id="noResults" class="w-100 text-center mt-4 text-muted" style="display: none;">
-  No services matched your search.
-</div>
-
 @endforeach
 
 
@@ -919,58 +904,6 @@
       });
     });
   });
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const serviceCards = document.querySelectorAll('.service-card');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-
-    let activeCategory = 'all';
-
-    // Filter by category
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('bg-primary', 'text-white'));
-        button.classList.add('bg-primary', 'text-white');
-        activeCategory = button.getAttribute('data-filter');
-        filterServices();
-      });
-    });
-
-    // Search button click
-    searchBtn.addEventListener('click', () => {
-      filterServices();
-    });
-
-    // Search on typing (optional)
-    searchInput.addEventListener('keyup', function (event) {
-      if (event.key === 'Enter') {
-        filterServices();
-      }
-    });
-
-    function filterServices() {
-      const query = searchInput.value.toLowerCase().trim();
-
-      serviceCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        const title = card.querySelector('.card-title').textContent.toLowerCase();
-        const description = card.querySelector('.card-text').textContent.toLowerCase();
-
-        const matchesCategory = (activeCategory === 'all' || category === activeCategory);
-        const matchesSearch = (title.includes(query) || description.includes(query));
-
-        if (matchesCategory && matchesSearch) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  });
-</script>
-
 </script>
 
 
@@ -1190,7 +1123,32 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    
+    <!-- Filter Script -->
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".service-card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.getAttribute("data-filter");
+
+        cards.forEach(card => {
+          const category = card.getAttribute("data-category");
+          if (filter === "all" || category === filter) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+
     
     
     document.addEventListener('DOMContentLoaded', function() {
@@ -1461,18 +1419,66 @@
             observer.observe(el);
         });
 
-        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
 
-       
+        // Hero social icons functionality
+        document.querySelectorAll('.hero-social-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const iconClass = this.querySelector('i').classList;
+                if (iconClass.contains('fa-heart')) {
+                    const heartIcon = this.querySelector('i');
+                    if (heartIcon.classList.contains('far')) {
+                        heartIcon.classList.remove('far');
+                        heartIcon.classList.add('fas');
+                        this.style.background = '#ff6b6b';
+                        heartIcon.style.color = 'white';
+                    } else {
+                        heartIcon.classList.remove('fas');
+                        heartIcon.classList.add('far');
+                        this.style.background = 'white';
+                        heartIcon.style.color = '#3B82F6';
+                    }
+                } else if (iconClass.contains('fa-shopping-cart')) {
+                    alert('Shopping cart clicked!');
+                } else if (iconClass.contains('fa-bell')) {
+                    alert('You have 3 new notifications!');
+                    const badge = this.querySelector('.notification-badge');
+                    if (badge) badge.style.display = 'none';
+                }
+            });
         });
 
         
 
+        // View details button functionality
+        document.querySelectorAll('.btn-view-details').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.service-card');
+                const title = card.querySelector('h5').textContent;
+                alert(`Viewing details for: ${title}`);
+            });
+        });
+
+        // Mega dropdown interactions
         
 
-        
-
-    
+        console.log('All functionality loaded successfully!');
+    });
 
 
 
@@ -1545,9 +1551,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoScroll();
 });
 
- 
-  
-   
+    
 </script>
     
 @endpush

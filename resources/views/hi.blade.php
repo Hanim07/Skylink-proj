@@ -1,8 +1,138 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonial Carousel</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      background: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .carousel {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: max-content;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      margin: 0 10px;
+      padding: 20px;
+      width: 300px;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+
+    .testimonial-info h6 {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .testimonial-rating {
+      margin-top: 10px;
+      color: #fbbf24;
+    }
+
+    .testimonial-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .testimonial-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #ccc;
+      border-radius: 50%;
+      margin: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .testimonial-dot.active {
+      background: #3B82F6;
+    }
+
+    @media (max-width: 992px) {
+      .testimonial-card {
+        width: 90vw;
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title fade-in">What Our Clients Say About</h2>
+      <h3 class="text-center mb-5 fade-in" style="color: #3B82F6; font-weight: 600;">Our Digital Services</h3>
+
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Testimonials will be inserted by JavaScript -->
+        </div>
+      </div>
+
+      <div class="testimonial-dots" id="testimonialDots"></div>
+=======
 <!-- Live Chat Widget -->
 <div id="liveChatContainer" style="display:none; position: fixed; bottom: 20px; right: 20px; width: 350px; font-family: 'Arial', sans-serif; z-index: 9999;">
     <div style="background:#4CAF50; color:#fff; padding:10px; border-top-left-radius:10px; border-top-right-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:space-between;">
         <h4 style="margin:0;">💬 Live Support</h4>
         <button id="closeChatBtn" style="background:none; border:none; color:#fff; font-size:20px; cursor:pointer;">×</button>
+>>>>>>> aa90497886681e118393594b0f27cdd2c1c858ba
     </div>
     <div style="background:#fff; height:400px; display:flex; flex-direction:column; border:1px solid #ccc; border-top:none; border-radius:0 0 10px 10px; overflow:hidden;">
         <div id="chatMessages" style="flex:1; padding:10px; overflow-y:auto; background:#f1f1f1;">

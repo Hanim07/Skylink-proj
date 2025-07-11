@@ -6,28 +6,11 @@
 @push('styles')
     <style>
         :root {
-            --primary-blue: #2563eb;
-            --dark-blue: #1e40af;
-            --light-blue: #3b82f6;
-            --teal: #0891b2;
-            --light-teal: #67e8f9;
+            --primary-blue:rgb(63, 122, 249);
+            --dark-blue: #4a90e2;
+            --light-blue:rgb(212, 224, 244);
             --gray-bg: #f8f9fa;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        
 
         /* Floating Social Icons */
         .floating-social {
@@ -42,8 +25,13 @@
         }
 
         .floating-social a {
+<<<<<<< HEAD
+            width:55px;
+            height:55px;
+=======
             width: 42px;
             height: 42px;
+>>>>>>> aa90497886681e118393594b0f27cdd2c1c858ba
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -109,6 +97,25 @@
             line-height: 1.6;
             collor: white;
         }
+
+        .btn-get-started {
+        background: linear-gradient(135deg, #3B82F6,rgb(72, 113, 248));
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-get-started:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        color: white;
+    }
 
         .hero-btn {
             background: white;
@@ -232,9 +239,10 @@
             display: flex;
             justify-content: center;
             align-items: stretch;
-            gap: 2rem;
+            gap: 3rem;
             max-width: 1000px;
             margin: 0 auto;
+            padding: 25px 0;
         }
 
         .service-card {
@@ -242,21 +250,21 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: opacity 0.3s ease;
             position: relative;
         }
         
         .service-card.center {
-            background: var(--teal);
+            background: var(--dark-blue);
             color: white;
             transform: scale(1.14);
             z-index: 2;
-            box-shadow: 0 15px 40px rgba(8, 145, 178, 0.3);
+            box-shadow: 0 15px 40px #1e40af;
         }
 
         .service-card.side {
-            background: var(--light-teal);
+            background: var(--light-blue);
             color: #333;
         }
 
@@ -295,7 +303,7 @@
         .carousel-nav {
             position: absolute;
             top: 50%;
-            background: var(--teal);
+            background: var(--primary-blue);
             color: white;
             border: none;
             width: 50px;
@@ -332,7 +340,7 @@
         }
         
         .news-tab {
-            color: #2196F3;
+            color: #3B82F6;
             font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
@@ -638,7 +646,7 @@
 
 
 .btn-view-more {
-        background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        background: linear-gradient(135deg, #3a7bd5,rgb(0, 136, 255));
         color: white;
         border: none;
         padding: 12px 30px;
@@ -646,7 +654,7 @@
         border-radius: 50px;
         cursor: pointer;
         transition: all 0.3s ease;
-                text-decoration: none;
+        text-decoration: none;
         box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
         position: relative;
         overflow: hidden;
@@ -967,7 +975,7 @@
                         
                         <h1>Helping businesses succeed with the best IT services in Ethiopia</h1>
                         <p>Empowering businesses with cutting-edge technology solutions. We provide comprehensive IT services to help your business grow and thrive in the digital age.</p>
-                        <a href="#services" class="hero-btn">More</a>
+                        <a href="#services" class="btn-get-started">More</a>
                     </div>
                 </div>
             </div>
@@ -994,7 +1002,7 @@
                     </div>
                     <div class="col-4">
                         <div class="stat-item">
-                            <div class="stat-number" data-target="80+">0</div>
+                            <div class="stat-number" data-target="400+">0</div>
                             <small>Happy Clients</small>
                         </div>
                     </div>
@@ -1081,6 +1089,13 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
+
+            <div class="text-center mt-5">
+            <a href="{{ route('services') }}" class=" btn-view-more">
+                View More Services
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
         </div>
     </section>
 
@@ -1115,6 +1130,45 @@
                                 Read More <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
+<<<<<<< HEAD
+                    </article>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+     <!-- Featured Portfolio -->
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <div class="portfolio-header">
+                <div class="portfolio-label">PROJECTS</div>
+                <h2 class="portfolio-title">Featured Portfolio</h2>
+        </div>
+        <div class="row">
+            @php
+                $portfolioItems = [
+                    ['image' => asset('assets/images/kiribgebeya.webp'), 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
+                    ['image' => asset('assets/images/hayat.jpg'), 'title' => 'Mobile Banking App', 'description' => 'Secure and user-friendly mobile banking solution'],
+                    ['image' => asset('assets/images/mirkuz.jpg'), 'title' => 'Business Dashboard', 'description' => 'Comprehensive analytics and reporting dashboard'],
+                    ['image' => asset('assets/images/befan.jpg'), 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
+                    ['image' => asset('assets/images/bilalul.jpg'), 'title' => 'Learning Management', 'description' => 'Online education and training platform'],
+                    ['image' => asset('assets/images/elida.webp'), 'title' => 'Real Estate Portal', 'description' => 'Property listing and management system']
+                ];
+            @endphp
+            
+            @foreach($portfolioItems as $item)
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="portfolio-item">
+                    <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-content">
+                            <h5>{{ $item['title'] }}</h5>
+                            <p>{{ $item['description'] }}</p>
+                            
+                        </div>
+=======
+>>>>>>> aa90497886681e118393594b0f27cdd2c1c858ba
                     </div>
                 </div>
             @endforeach
@@ -1215,7 +1269,6 @@
             </div>
             
             <div class="carousel-container">
-                <div class="direction-indicator">→</div>
                 <div class="carousel-track" id="carouselTrack">
                     <!-- First set of cards -->
                     <div class="testimonial-card">
