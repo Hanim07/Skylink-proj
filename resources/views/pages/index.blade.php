@@ -25,48 +25,30 @@
         }
 
         .floating-social a {
+<<<<<<< HEAD
             width:55px;
             height:55px;
+=======
+            width: 42px;
+            height: 42px;
+>>>>>>> aa90497886681e118393594b0f27cdd2c1c858ba
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgb(92, 112, 244);
-            position: relative;
-            overflow: visible;
+            color: white;
             text-decoration: none;
             transition: transform 0.3s;
-            font-size: 2rem;
+            font-size: 1rem;
         }
 
-        .floating-social .mobile { background: #ffffff; }
-        .floating-social .telegram { background: #ffffff; }
-        .floating-social .chat { background: #ffffff; }
+        .floating-social .mobile { background: #3b5998; }
+        .floating-social .telegram { background: #1da1f2; }
+        .floating-social .chat { background: #0077b5; }
         .floating-social a:hover {
             transform: scale(1.1);
         }
         
-
-        .social-label {
-    position: absolute;
-    right: 110%;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #333;
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 18px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s, right 0.3s;
-}
-
-.floating-social a:hover .social-label {
-    opacity: 1;
-    right: 130%;
-}
 
         /* Hero Section */
         .hero {
@@ -505,14 +487,6 @@
             .card-image {
                 height: 160px;
             }
-
-            .carousel-prev {
-            left: 1px;
-        }
-
-        .carousel-next {
-            right: 1px;
-        }
         }
         /* Featured Portfolio */
         .portfolio-section {
@@ -565,8 +539,8 @@
         }
 
         .portfolio-item img {
-            width: 90%;
-            height: 200px;
+            width: 100%;
+            height: 250px;
             object-fit: cover;
             transition: transform 0.3s;
         }
@@ -985,20 +959,10 @@
 @section('content')
     <!-- Floating Social Icons -->
     <div class="floating-social">
-  <a href="tel:+251911027667" class="mobile">
-    <i class="fas fa-phone"></i>
-    <span class="social-label">Quick Contact</span>
-  </a>
-  <a href="https://t.me/Skylinktechnologies" target="_blank" class="telegram">
-    <i class="fab fa-telegram-plane"></i>
-    <span class="social-label">Telegram Chat</span>
-  </a>
-  <a href="#" class="chat">
-    <i class="fas fa-comments"></i>
-    <span class="social-label">Live Chat</span>
-  </a>
-</div>
-
+        <a href="#" class="mobile"><i class="fa fa-mobile-alt"></i></a>
+        <a href="#" class="telegram"><i class="fab fa-telegram"></i></a>
+        <a href="#" class="chat"><i class="fa fa-comment"></i></a>
+    </div>
 
 
 
@@ -1060,23 +1024,19 @@
         <h5 class="text-center mb-4">TRUSTED PARTNERS</h5>
         <div class="partners-slider">
             <div class="partners-track">
-                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Minber" class="partner-logo">
-                <img src="{{ asset('assets/images/iman.webp') }}" alt="iman" class="partner-logo">
-                <img src="{{ asset('assets/images/Ethiotel.jpg') }}" alt="ethiotel" class="partner-logo">
-                <img src="{{ asset('assets/images/evergreen.jfif') }}" alt="evergreen" class="partner-logo">
-                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="bilalul" class="partner-logo">
-                <img src="{{ asset('assets/images/aauLogo.png') }}" alt="aau" class="partner-logo">
-                <img src="{{ asset('assets/images/diredawa.JPG') }}" alt="diredawa" class="partner-logo">
-                <img src="{{ asset('assets/images/Safaricom.png') }}" alt="safaricom" class="partner-logo">
+                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('assets/images/iman.webp') }}" alt="Google" class="partner-logo">
+                <img src="{{ asset('assets/images/mirkuz.jpg') }}" alt="Zoom" class="partner-logo">
+                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="Amazon" class="partner-logo">
+                <img src="{{ asset('assets/images/befan.jpg') }}" alt="Facebook" class="partner-logo">
+                <img src="{{ asset('assets/images/newleaf.webp') }}" alt="Oracle" class="partner-logo">
                 <!-- Duplicate for seamless loop -->
-                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Minber" class="partner-logo">
-                <img src="{{ asset('assets/images/iman.webp') }}" alt="iman" class="partner-logo">
-                <img src="{{ asset('assets/images/Ethiotel.jpg') }}" alt="ethiotel" class="partner-logo">
-                <img src="{{ asset('assets/images/diredawa.JPG') }}" alt="diredawa" class="partner-logo">
-                <img src="{{ asset('assets/images/aauLogo.png') }}" alt="aau" class="partner-logo">
-                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="bilalul" class="partner-logo">
-                <img src="{{ asset('assets/images/evergreen.jfif') }}" alt="evergreen" class="partner-logo">
-                <img src="{{ asset('assets/images/Safaricom.png') }}" alt="safaricom" class="partner-logo">
+                <img src="{{ asset('assets/images/minbertv.webp') }}" alt="Microsoft" class="partner-logo">
+                <img src="{{ asset('assets/images/iman.webp') }}" alt="Google" class="partner-logo">
+                <img src="{{ asset('assets/images/mirkuz.jpg') }}" alt="Zoom" class="partner-logo">
+                <img src="{{ asset('assets/images/bilalul.jpg') }}" alt="Amazon" class="partner-logo">
+                <img src="{{ asset('assets/images/befan.jpg') }}" alt="Facebook" class="partner-logo">
+                <img src="{{ asset('assets/images/newleaf.webp') }}" alt="Oracle" class="partner-logo">
             </div>
         </div>
     </div>
@@ -1109,7 +1069,7 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="service-content">
-                        <h4>Mobile App</h4>
+                        <h4>SERVICE 1</h4>
                         <p>Our flagship mobile application development service provides comprehensive end-to-end solutions for iOS and Android platforms, ensuring seamless user experiences and robust functionality that drives business growth.</p>
                     </div>
                 </div>
@@ -1139,75 +1099,38 @@
         </div>
     </section>
 
-    <!-- Latest News -->
-    <section class="news-section">
-        <div class="container">
-            <div class="news-header">
-                <div class="news-tab">NEWS</div>
-                <h2 class="news-title">Latest News</h2>
-            </div>
-            
-            <div class="row">
-                @php
-                    $newsItems = [
-                        [
-                            'id' => 1,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 2,
-                            'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 3,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ]
-                    ];
-                @endphp
-                
-                @foreach($newsItems as $item)
-                <div class="col-lg-4 col-md-6">
-                    <article class="news-card" onclick="readMore({{ $item['id'] }})">
+
+
+
+
+
+    <section class="news-section" id="news">
+    <div class="container">
+        <div class="news-header text-center">
+            <div class="news-tab">Latest News</div>
+            <h2 class="news-title">Our Recent Announcements</h2>
+        </div>
+
+        <div class="row">
+            @foreach($latestNews as $news)
+                <div class="col-md-4">
+                    <div class="news-card">
                         <div class="card-image">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
-                            <div class="category-badge">{{ $item['category'] }}</div>
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}">
+                            <span class="category-badge">{{ $news->category->name ?? 'News' }}</span>
                         </div>
-                        
                         <div class="card-content">
                             <div class="card-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-user"></i>
-                                    <span>{{ $item['author'] }}</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>{{ $item['date'] }}</span>
-                                </div>
+                                <div class="meta-item"><i class="bi bi-calendar"></i> {{ $news->created_at->format('M d, Y') }}</div>
+                                {{-- Add more meta items if needed --}}
                             </div>
-                            
-                            <h3 class="card-title">{{ $item['title'] }}</h3>
-                            <p class="card-description">{{ $item['description'] }}</p>
-                            
-                            <a href="{{ route('news.index') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
-                                Read More
-                                <i class="fas fa-arrow-right"></i>
+                            <h5 class="card-title">{{ $news->title }}</h5>
+                            <p class="card-description">{{ Str::limit($news->excerpt, 100) }}</p>
+                            <a href="{{ route('news.show', $news->slug) }}" class="read-more">
+                                Read More <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
+<<<<<<< HEAD
                     </article>
                 </div>
                 @endforeach
@@ -1223,17 +1146,16 @@
                 <h2 class="portfolio-title">Featured Portfolio</h2>
         </div>
         <div class="row">
-           @php
-    $portfolioItems = [
-        ['image' => asset('assets/images/kiribgebeya.webp'), 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
-        ['image' => asset('assets/images/hayat.jpg'), 'title' => 'Food Complex Store System', 'description' => 'Comprehensive digital platform for managing food complex operations and inventory'],
-        ['image' => asset('assets/images/mirkuz.jpg'), 'title' => 'Event Management System', 'description' => 'Custom-built platform for organizing, scheduling, and tracking events efficiently'],
-        ['image' => asset('assets/images/befan.jpg'), 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
-        ['image' => asset('assets/images/bilalul.jpg'), 'title' => 'Learning Tool & Management', 'description' => 'A platform designed for effective learning and education management'],
-        ['image' => asset('assets/images/elida.webp'), 'title' => 'ELiDA Social Empowerment Platform', 'description' => 'ELiDA aspires to see socially responsible, economically independent and productive women, girls, and youth .']
-    ];
-@endphp
-
+            @php
+                $portfolioItems = [
+                    ['image' => asset('assets/images/kiribgebeya.webp'), 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
+                    ['image' => asset('assets/images/hayat.jpg'), 'title' => 'Mobile Banking App', 'description' => 'Secure and user-friendly mobile banking solution'],
+                    ['image' => asset('assets/images/mirkuz.jpg'), 'title' => 'Business Dashboard', 'description' => 'Comprehensive analytics and reporting dashboard'],
+                    ['image' => asset('assets/images/befan.jpg'), 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
+                    ['image' => asset('assets/images/bilalul.jpg'), 'title' => 'Learning Management', 'description' => 'Online education and training platform'],
+                    ['image' => asset('assets/images/elida.webp'), 'title' => 'Real Estate Portal', 'description' => 'Property listing and management system']
+                ];
+            @endphp
             
             @foreach($portfolioItems as $item)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -1245,19 +1167,52 @@
                             <p>{{ $item['description'] }}</p>
                             
                         </div>
+=======
+>>>>>>> aa90497886681e118393594b0f27cdd2c1c858ba
                     </div>
                 </div>
-            </div>
             @endforeach
-        </div>
-        <div class="text-center mt-5">
-            <a href="{{ route('portfolio') }}" class=" btn-view-more">
-                More Projects
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+<section class="portfolio-section" id="portfolio">
+    <div class="container">
+        <div class="portfolio-header">
+            <div class="portfolio-label">Featured Projects</div>
+            <h2 class="portfolio-title">Our Latest Work</h2>
+        </div>
+
+        <div class="row">
+            @foreach($latestPortfolios as $portfolio)
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h5>{{ $portfolio->title }}</h5>
+                                <p>{{ Str::limit($portfolio->description, 80) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">
@@ -1269,11 +1224,11 @@
             <div class="products-track">
                 @php
                     $products = [
-                        ['name' => 'Cctv Camera', 'description' => 'High-definition surveillance camera', 'image' => asset('assets/images/cctv.jfif'), 'rating' => 5],
-                        ['name' => 'Attendance Tracker', 'description' => 'Biometric and RFID-based attendance', 'image' => asset('assets/images/attendance.jfif'), 'rating' => 4],
-                        ['name' => 'Security Camera', 'description' => 'Advanced indoor/outdoor camera', 'image' => asset('assets/images/cctv3.jfif'), 'rating' => 5],
-                        ['name' => 'Ecommerce Application', 'description' => 'Custom-built online store solutions', 'image' => asset('assets/images/ecommerce.jfif'), 'rating' => 5],
-                        ['name' => 'Cctv Camera', 'description' => 'Durable and weatherproof CCTV system', 'image' => asset('assets/images/cctv4.jfif'), 'rating' => 4]
+                        ['name' => 'Cctv Camera', 'description' => 'Latest iPhone with advanced features', 'image' => asset('assets/images/cctv.jfif'), 'rating' => 5],
+                        ['name' => 'Attendance Tracker', 'description' => 'Wireless earbuds with noise cancellation', 'image' => asset('assets/images/attendance.jfif'), 'rating' => 4],
+                        ['name' => 'Security Camera', 'description' => 'Professional grade smartphone', 'image' => asset('assets/images/cctv3.jfif'), 'rating' => 5],
+                        ['name' => 'Ecommerce Application', 'description' => 'High-performance laptop for professionals', 'image' => asset('assets/images/ecommerce.jfif'), 'rating' => 5],
+                        ['name' => 'Cctv Camera', 'description' => 'Smart watch with health monitoring', 'image' => asset('assets/images/cctv4.jfif'), 'rating' => 4]
                     ];
                 @endphp
                 
@@ -1323,12 +1278,12 @@
                             </div>
                             <div class="client-info">
                                 <h5>Ibrahim Mohammed</h5>
-                                <p class="profession">CUSTOMER</p>
+                                <p class="profession">PROFESSION</p>
                             </div>
                         </div>
                         <p class="testimonial-text">
-                Skylink Technologies exceeded our expectations with their technical expertise and timely delivery. Their solutions are well-structured and scalable, making them ideal for any growing business.
-            </p>
+                            The Information Technology (IT) field encompasses a wide range of professions and career opportunities. IT professionals work with technology systems and software to design, develop, manage, and maintain various aspects of computing and information systems.
+                        </p>
                     </div>
 
                     <div class="testimonial-card">
@@ -1338,57 +1293,12 @@
                             </div>
                             <div class="client-info">
                                 <h5>Aisha Malik</h5>
-                                <p class="profession">CUSTOMER</p>
+                                <p class="profession">BUSINESS WOMEN</p>
                             </div>
                         </div>
                         <p class="testimonial-text">
-                Working with Skylink has been a game-changer. Their team helped digitize our operations with a custom e-commerce platform that increased our efficiency and customer satisfaction.
-            </p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="profile-section">
-                            <div class="profile-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="client-info">
-                                <h5>Khalid Kibrom</h5>
-                                <p class="profession">CUSTOMER</p>
-                            </div>
-                        </div>
-                        <p class="testimonial-text">
-                The collaboration with Skylink was smooth and productive. Their developers understood our vision and turned it into a responsive, user-friendly mobile app within a short timeframe.
-            </p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="profile-section">
-                            <div class="profile-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="client-info">
-                                <h5>Zain Karim</h5>
-                                <p class="profession">CUSTOMER</p>
-                            </div>
-                        </div>
-                        <p class="testimonial-text">
-                I was impressed by the professionalism and depth of knowledge at Skylink. Their network solutions significantly improved our infrastructure performance and security.
-            </p>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="profile-section">
-                            <div class="profile-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="client-info">
-                                <h5>Kalkidan Gezu</h5>
-                                <p class="profession">CUSTOMER</p>
-                            </div>
-                        </div>
-                        <p class="testimonial-text">
-                Skylink helped transform our business with a beautiful, easy-to-manage website. Their support team is always available and attentive to our needs.
-            </p>
+                            "Business women" refers to women who are actively engaged in various aspects of the business world. This can include women who are entrepreneurs, business owners, corporate executives, managers, professionals, or employees in various industries.
+                        </p>
                     </div>
 
                     <div class="testimonial-card">
@@ -1398,12 +1308,58 @@
                             </div>
                             <div class="client-info">
                                 <h5>Taye Abrar</h5>
-                                <p class="profession">CUSTOMER</p>
+                                <p class="profession">APPLICATION DEVELOPMENT</p>
                             </div>
                         </div>
                         <p class="testimonial-text">
-                Their commitment to quality and innovation is what sets Skylink apart. I’d recommend them to anyone looking to build a reliable tech solution.
-            </p>
+                            Application development refers to the process of creating software applications for various platforms and devices, such as mobile phones, desktop computers, web browsers, and more.
+                        </p>
+                    </div>
+
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="profile-section">
+                            <div class="profile-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="client-info">
+                                <h5>Zain Karim</h5>
+                                <p class="profession">PROFESSION</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            The Information Technology (IT) field encompasses a wide range of professions and career opportunities. IT professionals work with technology systems and software to design, develop, manage, and maintain various aspects of computing and information systems.
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="profile-section">
+                            <div class="profile-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="client-info">
+                                <h5>Kalkidan Gezu</h5>
+                                <p class="profession">BUSINESS WOMEN</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Business women" refers to women who are actively engaged in various aspects of the business world. This can include women who are entrepreneurs, business owners, corporate executives, managers, professionals, or employees in various industries.
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="profile-section">
+                            <div class="profile-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="client-info">
+                                <h5>Taye Abrar</h5>
+                                <p class="profession">APPLICATION DEVELOPMENT</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            Application development refers to the process of creating software applications for various platforms and devices, such as mobile phones, desktop computers, web browsers, and more.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1441,10 +1397,13 @@
 
 
     
-   
+
 
 
 @endsection
+
+
+
 
 @push('scripts')
 
@@ -1464,159 +1423,7 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-  // Counter animation for stats
-  function animateCounters() {
-    document.querySelectorAll('.stat-number').forEach(counter => {
-      if (counter.dataset.animated === "true") return;
-      counter.dataset.animated = "true";
-
-      const target = counter.getAttribute('data-target') || '0';
-      const isK = target.toLowerCase().includes('k');
-      const isPlus = target.includes('+');
-      const numericValue = parseFloat(target.replace(/[^\d.]/g, ''));
-      const numericTarget = isK ? numericValue * 1000 : numericValue;
-
-      const duration = 2000; // animation duration in ms
-      const startTime = performance.now();
-
-      function updateCounter(now) {
-        const elapsed = now - startTime;
-        let progress = Math.min(elapsed / duration, 1);
-        let current = Math.floor(progress * numericTarget);
-
-        if (isK) {
-          counter.textContent = Math.floor(current / 1000) + 'k';
-        } else if (isPlus) {
-          counter.textContent = current + '+';
-        } else {
-          counter.textContent = current;
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
-          counter.textContent = target;
-        }
-      }
-
-      requestAnimationFrame(updateCounter);
-    });
-  }
-
-  const statsSection = document.querySelector('.stats-section');
-  if (statsSection) {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          observer.unobserve(entry.target); // only once
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(statsSection);
-  }
-});
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-  // ========= SERVICES DATA =========
-  const services = [
-    {
-      icon: 'fas fa-laptop-code',
-      title: 'Web Development',
-      desc: 'We create modern, responsive websites and web applications using the latest technologies and best practices to ensure optimal performance and exceptional user experience for your business.'
-    },
-    {
-      icon: 'fas fa-mobile-alt',
-      title: 'Mobile Apps',
-      desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
-    },
-    {
-      icon: 'fas fa-shield-alt',
-      title: 'Physical Safety and Security',
-      desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
-    },
-    {
-      icon: 'fas fa-shield-alt',
-      title: 'Enterprise Network Solution',
-      desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
-    },
-    {
-      icon: 'fas fa-database',
-      title: 'ERP Consultancy',
-      desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
-    },
-    {
-      icon: 'fas fa-cogs',
-      title: 'ICT Support',
-      desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
-    },
-    {
-      icon: 'fas fa-database',
-      title: 'Smart City Projects',
-      desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
-    }
-  ];
-
-  let currentIndex = 1;
-
-  const container = document.querySelector('.services-container');
-  const cards = container.querySelectorAll('.service-card');
-  const prevBtn = document.querySelector('.carousel-prev');
-  const nextBtn = document.querySelector('.carousel-next');
-
-  function updateCard(card, service, position) {
-    card.className = 'service-card ' + position;
-    card.querySelector('.service-image i').className = service.icon;
-    card.querySelector('h4').textContent = service.title;
-    card.querySelector('p').textContent = service.desc;
-  }
-
-  function renderServices() {
-    if (cards.length < 3) {
-      console.warn('Not enough cards in the DOM. Expected 3.');
-      return;
-    }
-
-    const prev = services[(currentIndex - 1 + services.length) % services.length];
-    const current = services[currentIndex % services.length];
-    const next = services[(currentIndex + 1) % services.length];
-
-    updateCard(cards[0], prev, 'side');
-    updateCard(cards[1], current, 'center');
-    updateCard(cards[2], next, 'side');
-  }
-
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + services.length) % services.length;
-    renderServices();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % services.length;
-    renderServices();
-  });
-
-  // Swipe Support
-  let startX = 0;
-  container.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  container.addEventListener('touchend', (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const deltaX = endX - startX;
-
-    if (deltaX > 50) {
-      prevBtn.click();
-    } else if (deltaX < -50) {
-      nextBtn.click();
-    }
-  });
-
-   // Counter animation for stats
+        // Counter animation for stats
         function animateCounters() {
     document.querySelectorAll('.stat-number').forEach(counter => {
         if (counter.dataset.animated) return;
@@ -1759,11 +1566,160 @@ const observer = new IntersectionObserver(function(entries) {
         });
 
 
-  // INITIAL RENDER
+// JavaScript for infinite carousel with smooth transitions and swipe support (autoplay removed, bounce removed)
+const services = [
+  {
+    icon: 'fas fa-laptop-code',
+    title: 'Web Development',
+    desc: 'We create modern, responsive websites and web applications using the latest technologies and best practices to ensure optimal performance and exceptional user experience for your business.'
+  },
+  {
+    icon: 'fas fa-mobile-alt',
+    title: 'Mobile Apps',
+    desc: 'End-to-end mobile app development for iOS and Android that delivers seamless user experiences and powerful functionality.'
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Physical Safety and Security',
+    desc: 'Integrated physical security systems including surveillance, access control, and alarm solutions to safeguard your assets.'
+  },
+  {
+    icon: 'fas fa-shield-alt',
+    title: 'Enterprise Network Solution',
+    desc: 'Scalable and secure network infrastructure solutions designed to meet the demands of growing enterprise environments.'
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'ERP Consultancy',
+    desc: 'Expert guidance on ERP system selection, implementation, and optimization to streamline your business operations.'
+  },
+  {
+    icon: 'fas fa-cogs',
+    title: 'ICT Support',
+    desc: 'Reliable and timely technical support services to ensure your IT systems run smoothly with minimal downtime.'
+  },
+  {
+    icon: 'fas fa-database',
+    title: 'Smart City Projects',
+    desc: 'Innovative smart city technologies that enhance urban living through intelligent infrastructure and data-driven services.'
+  }
+];
+
+let currentIndex = 1;
+
+const container = document.querySelector('.services-container');
+const cards = container.querySelectorAll('.service-card');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+
+function updateCard(card, service, position) {
+  card.className = 'service-card ' + position;
+  card.querySelector('.service-image i').className = service.icon;
+  card.querySelector('h4').textContent = service.title;
+  card.querySelector('p').textContent = service.desc;
+}
+
+function renderServices() {
+  const prev = services[(currentIndex - 1 + services.length) % services.length];
+  const current = services[currentIndex % services.length];
+  const next = services[(currentIndex + 1) % services.length];
+
+  updateCard(cards[0], prev, 'side');
+  updateCard(cards[1], current, 'center');
+  updateCard(cards[2], next, 'side');
+}
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + services.length) % services.length;
   renderServices();
 });
 
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % services.length;
+  renderServices();
+});
+
+// Swipe support
+let startX = 0;
+container.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+container.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const deltaX = endX - startX;
+
+  if (deltaX > 50) {
+    prevBtn.click();
+  } else if (deltaX < -50) {
+    nextBtn.click();
+  }
+});
+
+// Initial render
+document.addEventListener('DOMContentLoaded', renderServices);
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/news/latest')
+        .then(res => res.json())
+        .then(news => {
+            const newsDiv = document.getElementById('news-section');
+            newsDiv.innerHTML = '';
+            news.forEach(item => {
+                newsDiv.innerHTML += `
+                    <div class="news-item">
+                        <h3>${item.title}</h3>
+                        <p>Category: ${item.category.name}</p>
+                        <p>${item.excerpt}</p>
+                    </div>
+                `;
+            });
+        });
+
+    fetch('/api/portfolios/latest')
+        .then(res => res.json())
+        .then(projects => {
+            const portfolioDiv = document.getElementById('portfolio-section');
+            portfolioDiv.innerHTML = '';
+            projects.forEach(project => {
+                portfolioDiv.innerHTML += `
+                    <div class="portfolio-item">
+                        <h3>${project.title}</h3>
+                        <img src="{{ asset('storage') }}/${project.image}" alt="${project.title}">
+                        <p>${project.description}</p>
+                    </div>
+                `;
+            });
+        });
+});
+
+
+
+
+
 </script>
 @endpush
+
+
+
+
+
+
+
+
+
+
 
    
