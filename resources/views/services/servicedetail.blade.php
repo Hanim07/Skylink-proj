@@ -141,18 +141,23 @@
 
 
 <!-- FAQ Section -->
-<section class="py-6 bg-light">
+<section class="py-8 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4 text-primary">FAQs</h2>
+    <h2 class="text-center mb-4 text-primary">Frequently Asked Questions</h2>
     <div class="accordion" id="faqAccordion">
       @foreach ([
-        ['q'=>'What payment methods do you accept?','a'=>'We accept all major credit cards, PayPal, and bank transfers.'],
-        ['q'=>'Is there a contract?','a'=>'No long-term contracts. Cancel anytime.'],
-        ['q'=>'How long does setup take?','a'=>'Most accounts are ready within 1-2 business days.']
+        ['q'=>'What kind of IT support does Skylink offer?', 'a'=>'We provide comprehensive IT support for businesses of all sizes, including network setup, hardware maintenance, software troubleshooting, and ongoing helpdesk services.'],
+        ['q'=>'Do you offer cybersecurity and smart CCTV solutions?', 'a'=>'Yes! We specialize in CCTV installations, access-control systems, cybersecurity audits and implementations tailored for Ethiopian businesses.'],
+        ['q'=>'Can Skylink handle ERP & School Management implementations?', 'a'=>'Absolutely — we deliver end-to-end implementation of ERP systems and School Management platforms, configured for local educational and business needs.'],
+        ['q'=>'How long does setup and deployment take?', 'a'=>'Most basic systems (networks, CCTV) are ready in 2–5 business days. Larger deployments like ERP or LMS may take 3–12 weeks depending on scope.'],
+        ['q'=>'What payment methods are accepted in Ethiopia?', 'a'=>'We accept bank transfers (CBE, Awash, Abyssinia), mobile payments (CBE Birr), and secured credit card payments.'],
+        ['q'=>'Do I need a long-term contract or subscription?', 'a'=>'No long-term contracts — you can opt for annual support or pay-per-service models based on your needs.'],
+        ['q'=>'Where is Skylink Technologies based?', 'a'=>'Our headquarters is in Addis Ababa, Ethiopia. We also provide on-site and remote services across the country.'],
       ] as $i => $faq)
       <div class="accordion-item mb-3">
-        <h2 class="accordion-header">
-          <button class="accordion-button {{ $i !== 0 ? 'collapsed' : '' }}" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ $i }}">
+        <h2 class="accordion-header" id="heading{{ $i }}">
+          <button class="accordion-button {{ $i !== 0 ? 'collapsed' : '' }}" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#faq{{ $i }}" aria-expanded="{{ $i === 0 ? 'true' : 'false' }}" aria-controls="faq{{ $i }}">
             {{ $faq['q'] }}
           </button>
         </h2>
@@ -164,6 +169,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- Contact Form Section -->
 <section id="contact" class="contact-section">
