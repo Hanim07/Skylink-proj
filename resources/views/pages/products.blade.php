@@ -1,262 +1,106 @@
 @extends('layouts.master')
 
-
-@push('styles')
-<style>
-
-  /* Category Items */
-.category-item {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.category-item:hover {
-  transform: translateY(-5px);
-}
-
-.category-icon img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border: 3px solid #f8f9fa;
-  transition: border-color 0.3s ease;
-}
-
-.category-item:hover .category-icon img {
-  border-color: #007bff;
-}
-  .nav-pills .nav-link {
-    border-radius: 50rem;
-    font-weight: 500;
-    padding: 0.5rem 1.2rem;
-    background-color: #f3f4f6;
-    color: #111827;
-    transition: background-color 0.3s ease;
-  }
-  .nav-pills .nav-link.active {
-    background: linear-gradient(to right, #4f46e5, #3b82f6);
-    color: white;
-  }
-  .nav-pills .nav-link:hover:not(.active) {
-    background-color: #e5e7eb;
-  }
-  .btn-gradient-primary {
-    background: linear-gradient(to right, #4f46e5, #3b82f6);
-    color: white;
-    border: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-  }
-  .btn-gradient-primary:hover {
-    opacity: 0.9;
-  }
-  .hover-shadow:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
-</style>
-@endpush
-
 @section('content')
+<div class="container my-5">
+    <h1 class="text-center mb-4">Explore Our Products</h1>
 
- <!-- Categories Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <h3 class="mb-1">Shop From <span class="text-primary">Top Categories</span></h3>
-                </div>
-                <a href="#" class="text-primary text-decoration-none">View All <i class="fas fa-chevron-right"></i></a>
-            </div>
-            
-            <div class="row text-center">
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=80&h=80&fit=crop" alt="Mobile" class="rounded-circle">
-                        </div>
-                        <h6 class="mt-3">Business Tools</h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=80&h=80&fit=crop" alt="Electronics" class="rounded-circle">
-                        </div>
-                        <h6 class="mt-3">Industry Solutions</h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=80&h=80&fit=crop" alt="Furniture" class="rounded-circle">
-                        </div>
-                        <h6 class="mt-3">Web Application</h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop" alt="Watches" class="rounded-circle">
-                        </div>
-                        <h6 class="mt-3">Office Tools</h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=80&h=80&fit=crop" alt="Decor" class="rounded-circle">
-                        </div>
-                        <h6 class="mt-3">Mobile Applications</h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mb-4">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=80&h=80&fit=crop" alt="Accessories" class="rounded-circle">
-                        </div>
-                        <h6 class="mt-3">Digital Services</h6>
-                    </div>
-                </div>
-            </div>
+    <!-- Search and Filter Controls -->
+    <div class="row mb-4 g-3">
+        <div class="col-md-6">
+            <input type="text" id="searchInput" class="form-control form-control-lg shadow-sm" placeholder="🔍 Search products...">
         </div>
-    </section>
-
-
-
-
-<div class="container py-5">
-  <h2 class="text-center mb-5 display-5 fw-bold">Explore Our Products</h2>
-
-  {{-- Search Bar --}}
-  <div class="row mb-4 justify-content-center">
-    <div class="col-md-6">
-      <input id="searchBox" type="text" class="form-control" placeholder="🔍 Search products..." onkeyup="filterProducts()">
-    </div>
-  </div>
-
-  {{-- Category Tabs --}}
-  <div class="d-flex justify-content-center mb-4 px-2" >
-    <ul class="nav nav-pills gap-2 flex-nowrap flex-md-wrap" id="pills-tab" role="tablist" style="white-space: nowrap;">
-      {{-- All Tab --}}
-      <li class="nav-item" role="presentation">
-        <button 
-          class="nav-link active text-nowrap" 
-          id="tab-all" 
-          data-bs-toggle="pill" 
-          data-bs-target="#content-all" 
-          type="button" 
-          role="tab"
-          aria-controls="content-all"
-          aria-selected="true"
-        >
-          All
-        </button>
-      </li>
-
-      {{-- Dynamic Category Tabs --}}
-      @foreach ($products as $cat => $items)
-        <li class="nav-item" role="presentation">
-          <button 
-            class="nav-link text-nowrap" 
-            id="tab-{{ $cat }}" 
-            data-bs-toggle="pill" 
-            data-bs-target="#content-{{ $cat }}" 
-            type="button" 
-            role="tab"
-            aria-controls="content-{{ $cat }}"
-            aria-selected="false"
-          >
-            {{ ucwords(str_replace('-', ' ', $cat)) }}
-          </button>
-        </li>
-      @endforeach
-    </ul>
-  </div>
-
-  {{-- Tab Contents --}}
-  <div class="tab-content" id="pills-tabContent">
-    {{-- All Products Tab Pane --}}
-    <div class="tab-pane fade show active" id="content-all" role="tabpanel" aria-labelledby="tab-all">
-      <div id="products-all">
-  @foreach ($products as $cat => $items)
-    <h4 class="mt-5 mb-3 text-primary border-bottom pb-1">{{ ucwords(str_replace('-', ' ', $cat)) }}</h4>
-    <div class="row">
-      @foreach ($items as $p)
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card">
-          <div class="card h-100 shadow-sm border-0 hover-shadow" data-name="{{ strtolower($p['name']) }}">
-            <img src="{{ asset('assets/' . $p['image']) }}" class="card-img-top" alt="{{ $p['name'] }}">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-primary fw-semibold">{{ $p['name'] }}</h5>
-              <p class="card-text small">{{ Str::limit($p['description'], 90) }}</p>
-              <div class="mt-auto">
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="fw-bold text-success">ETB {{ number_format($p['price']) }}</span>
-                  <a href="{{ route('products.detail', [$cat, $p['slug']]) }}" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details">Details</a>
-                </div>
-                <button class="btn btn-sm btn-gradient-primary w-100 mt-2">Subscribe</button>
-              </div>
-            </div>
-          </div>
+        <div class="col-md-6">
+            <select id="categoryFilter" class="form-select form-select-lg shadow-sm">
+                <option value="all">📂 All Categories</option>
+                @foreach ($products as $category => $items)
+                    <option value="{{ $category }}">{{ ucfirst(str_replace('-', ' ', $category)) }}</option>
+                @endforeach
+            </select>
         </div>
-      @endforeach
     </div>
-  @endforeach
+
+    <!-- Product Listing -->
+    <div id="productList">
+        @foreach ($products as $category => $items)
+            @foreach ($items as $product)
+                <div class="product-item row align-items-center mb-4 p-4 rounded-4 border shadow-sm bg-white"
+                     data-category="{{ $category }}"
+                     data-name="{{ strtolower($product['name']) }}">
+                    <div class="col-md-3 text-center">
+                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="img-fluid rounded-3 product-img">
+                    </div>
+                    <div class="col-md-7">
+                        <h4 class="mb-1">{{ $product['name'] }}</h4>
+                        <p class="text-muted mb-2">{{ $product['description'] }}</p>
+                        <ul class="list-unstyled small">
+                            @foreach ($product['features'] as $feature)
+                                <li><i class="bi bi-check2-circle text-success me-2"></i>{{ $feature }}</li>
+                            @endforeach
+                        </ul>
+                        <span class="badge bg-info fs-6 mt-2 text-dark">ETB {{ number_format($product['price']) }}</span>
+                    </div>
+                    <div class="col-md-2 text-end d-flex flex-column align-items-end justify-content-center">
+                        <a href="{{ url('products/'.$category.'/'.$product['slug']) }}" 
+                           class="btn btn-primary btn-lg fw-bold w-100 d-flex align-items-center justify-content-center gap-2 shadow detail-btn" 
+                           title="View Product Details">
+                            🔎 View Details
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        @endforeach
+    </div>
 </div>
 
-    </div>
+<!-- Custom Styles -->
+<style>
+    .product-img {
+        max-height: 160px;
+        transition: transform 0.4s ease;
+    }
+    .product-item:hover .product-img {
+        transform: scale(1.05);
+    }
 
-    {{-- Category Specific Tab Panes --}}
-    @foreach ($products as $cat => $items)
-      <div class="tab-pane fade" id="content-{{ $cat }}" role="tabpanel" aria-labelledby="tab-{{ $cat }}">
-        <div class="row" id="products-{{ $cat }}">
-          @foreach ($items as $p)
-            <div class="col-sm-6 col-md-4 col-lg-3 mb-4 product-card">
-              <div class="card h-100 shadow-sm border-0 hover-shadow" data-name="{{ strtolower($p['name']) }}">
-@php
-        $isExternal = Str::startsWith($p['image'], ['http://', 'https://']);
-        $imagePath = $isExternal ? $p['image'] : asset('assets/images/products/' . $p['image']);
-      @endphp
+    .detail-btn {
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+        border-radius: 1rem;
+    }
 
-      <img src="{{ $imagePath }}" class="card-img-top" alt="{{ $p['name'] }}">            <div class="card-body d-flex flex-column">
-                  <h5 class="card-title text-primary fw-semibold">{{ $p['name'] }}</h5>
-                  <p class="card-text small">{{ Str::limit($p['description'], 90) }}</p>
-                  <div class="mt-auto">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="fw-bold text-success">ETB {{ number_format($p['price']) }}</span>
-                      <a href="{{ route('products.detail', [$cat, $p['slug']]) }}" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="View Details">Details</a>
-                    </div>
-                    <button class="btn btn-sm btn-gradient-primary w-100 mt-2">Subscribe</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    @endforeach
-  </div>
-</div>
-@endsection
+    .detail-btn:hover {
+        background-color: #0a58ca;
+        color: #fff;
+    }
+</style>
 
-
-
-@push('scripts')
+<!-- JavaScript for Filtering & Search -->
 <script>
-  // Search filter function
-  function filterProducts() {
-    const query = document.getElementById('searchBox').value.toLowerCase();
-    document.querySelectorAll('.product-card').forEach(card => {
-      const name = card.querySelector('.card').dataset.name;
-      card.style.display = name.includes(query) ? 'block' : 'none';
-    });
-  }
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const products = document.querySelectorAll('.product-item');
 
-  // Bootstrap tooltip initialization
-  document.addEventListener('DOMContentLoaded', () => {
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
-  });
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+
+            products.forEach(item => {
+                const name = item.getAttribute('data-name');
+                const category = item.getAttribute('data-category');
+
+                const matchesSearch = name.includes(searchTerm);
+                const matchesCategory = selectedCategory === 'all' || selectedCategory === category;if (matchesSearch && matchesCategory) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterProducts);
+        categoryFilter.addEventListener('change', filterProducts);
+    });
 </script>
-@endpush
+@endsection
