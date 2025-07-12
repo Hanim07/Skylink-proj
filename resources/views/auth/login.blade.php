@@ -9,7 +9,7 @@
 
             @if (session('status'))
                 <div class="alert alert-info">
-                    {{ session('status') }}o
+                    {{ session('status') }}
                 </div>
             @endif
 

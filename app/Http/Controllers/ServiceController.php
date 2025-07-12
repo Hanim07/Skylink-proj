@@ -26,14 +26,15 @@ public function category(string $categorySlug)
     $items = Service::where('category_id', $category->id)->where('category_id', $category->id)->paginate(9);
 
 $items->getCollection()->transform(function ($service) {
-    // Extract numeric value from price string (e.g. "$199/mo" -> 199)
-    preg_match('/[\d\.]+/', $service->price, $matches);
-    $numericPrice = isset($matches[0]) ? (float)$matches[0] : 0;
-
-    $service->price_formatted = '$' . number_format($numericPrice, 2);
+    if (is_numeric($service->price)) {
+        $service->price_formatted = '$' . number_format($service->price, 2);
+    } else {
+        $service->price_formatted = $service->price; // Use the string as-is (e.g., "Custom Quote")
+    }
 
     return $service;
 });
+
 
 
 
@@ -43,7 +44,11 @@ $items->getCollection()->transform(function ($service) {
         'items' => $items
     ]);
 }
-// Eloquent accessor for formatted price
+public function getPriceFormattedAttribute()
+{
+    return is_numeric($this->price) ? '$' . number_format($this->price, 2) : $this->price;
+}
+
 
 
 

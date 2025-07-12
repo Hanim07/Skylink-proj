@@ -15,8 +15,10 @@ class Service extends Model
     ];
 
     protected $casts = [
-        'features' => 'array'
+        'features' => 'array',
+        
     ];
+    
 
     public function category()
     {

@@ -36,9 +36,10 @@
             <h5 class="card-title">{{ $item->title ?? 'Untitled' }}</h5>
             <p class="card-text text-muted">{{ \Illuminate\Support\Str::limit($item->desc ?? 'No description available.', 100) }}</p>
             <p class="fw-bold">
-            Starting from-{{ $item->price_formatted }}
-              {{ $item->currency ?? 'USD' }}
+                Price: {{ $item->price_formatted ?? 'N/A' }} {{ $item->currency ?? '' }}
             </p>
+
+
             <a 
               href="{{ route('services.detail', ['subcategory' => $item->slug ?? '']) }}" 
               class="btn btn-outline-primary mt-auto w-100"
