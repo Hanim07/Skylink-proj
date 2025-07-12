@@ -6,11 +6,12 @@
     {{-- Product Image --}}
     <div class="col-md-5">
       <img 
-        src="{{ asset('assets/' . $product['image']) }}" 
-        class="img-fluid rounded shadow-sm" 
-        alt="{{ $product['name'] }}"
-        loading="lazy"
-      >
+    src="{{ $product['image'] }}" 
+    class="img-fluid rounded shadow-sm" 
+    alt="{{ $product['name'] }}"
+    loading="lazy"
+    onerror="this.onerror=null; this.src='{{ asset('assets/default.png') }}';"
+  >
     </div>
 
     {{-- Product Details --}}
