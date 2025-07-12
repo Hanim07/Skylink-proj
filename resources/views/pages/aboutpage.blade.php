@@ -11,7 +11,7 @@
     /* Hero Section - Updated to match the image */
     .hero-section {
     background: 
-        linear-gradient(rgba(133, 174, 240, 0.4), rgba(42, 92, 255, 0.8)),
+        linear-gradient(rgba(133, 174, 240, 0.4), rgba(248, 248, 249, 0.8)),
         url('{{ asset('assets/images/about/teammember2.JPG') }}') no-repeat center top;
     background-size: cover;
     min-height: 40vh;
@@ -199,7 +199,7 @@
     .video-thumbnail {
         width: 100%;
         height: 450px;
-        background: url('{{ asset('assets/images/promo.jpg') }}') center/cover;
+        background: url('{{ asset('assets/images/about/promoo.jpg') }}') center/cover;
         position: relative;
     }
 

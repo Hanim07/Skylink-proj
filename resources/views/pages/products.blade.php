@@ -37,11 +37,11 @@
                                 <li><i class="bi bi-check2-circle text-success me-2"></i>{{ $feature }}</li>
                             @endforeach
                         </ul>
-                        <span class="badge bg-info fs-6 mt-2 text-dark">ETB {{ number_format($product['price']) }}</span>
+                        <span class="badge bg-info fs-6 mt-2 mb-3 text-dark">ETB {{ number_format($product['price']) }}</span>
                     </div>
                     <div class="col-md-2 text-end d-flex flex-column align-items-end justify-content-center">
                         <a href="{{ url('products/'.$category.'/'.$product['slug']) }}" 
-                           class="btn btn-primary btn-lg fw-bold w-100 d-flex align-items-center justify-content-center gap-2 shadow detail-btn" 
+                           class="btn btn-primary btn-lg fw-bold w-100 d-flex align-items-center justify-content-center gap-2 shadow detail-btn mt-2" 
                            title="View Product Details">
                             🔎 View Details
                         </a>

@@ -120,6 +120,10 @@ Route::delete('/services/{services}', [ServiceadminController::class, 'destroy']
 
 });
 
+
+Route::post('/chat-submit', [HomeController::class, 'submitChatMessage'])->name('chat.submit');
+
+
 //
 // Auth scaffolding
 // --------------------------------------------------

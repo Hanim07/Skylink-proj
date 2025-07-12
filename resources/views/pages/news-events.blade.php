@@ -36,15 +36,16 @@
             padding: 60px 0;
         }
 
-        .blog-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
+       .blog-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
         .blog-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
@@ -286,19 +287,19 @@
                                 <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>All Categories
                             </li>
                             <li class="category-filter" data-category="web-design">
-                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Web Design
+                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Software Services
                             </li>
                             <li class="category-filter" data-category="app-development">
-                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>App Development
+                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Smart city and Infrastructure
                             </li>
                             <li class="category-filter" data-category="web-development">
-                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Web Development
+                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Safety and Security
                             </li>
                             <li class="category-filter" data-category="keyword-research">
                                 <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Networking
                             </li>
                             <li class="category-filter" data-category="email-marketing">
-                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>Email Marketing
+                                <i class="fas fa-circle me-2" style="color: #64b5f6;"></i>ICT Support
                             </li>
                         </ul>
                     </div>

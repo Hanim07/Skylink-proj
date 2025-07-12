@@ -91,7 +91,7 @@
         .contact-card-icon {
             width: 50px;
             height: 50px;
-            background-color: var(--dark-purple);
+            background-color: var(--primary-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -149,6 +149,12 @@
             position: relative;
         }
 
+        @media (max-width: 768px) {
+            .contact-card {
+                flex-direction: row important!;
+            }
+        }
+
     </style>
 
 @endpush
@@ -162,11 +168,6 @@
             <p>Have a question, business proposal, or need technical support? Our experienced team is ready to provide tailored IT solutions that help your business operate more efficiently and grow with confidence. We’re just one message away.</p>
         </div>
     </section>
-
-
-
-
-
 
     <!-- Contact Form -->
     <section class="contact-form-section py-5">

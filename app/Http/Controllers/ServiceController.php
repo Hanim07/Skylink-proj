@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ServiceCategory;
 use App\Models\Service;
+use Illuminate\Support\Facades\Log;
+
 
 class ServiceController extends Controller
 {
@@ -42,13 +44,7 @@ $items->getCollection()->transform(function ($service) {
     ]);
 }
 // Eloquent accessor for formatted price
-public function getPriceFormattedAttribute()
-{
-    preg_match('/[\d\.]+/', $this->price, $matches);
-    $numericPrice = isset($matches[0]) ? (float)$matches[0] : 0;
 
-    return '$' . number_format($numericPrice, 2);
-}
 
 
 
@@ -77,7 +73,7 @@ public function index()
         });
     } catch (\Exception $e) {
         // Log the exception for debugging
-        \Log::error('Error loading services: ' . $e->getMessage());
+Log::error('Error loading services: ' . $e->getMessage());
 
         // Fallback to default data
         return view('services.index', [

@@ -1139,125 +1139,106 @@
         </div>
     </section>
 
+
+
+
+
+
     <!-- Latest News -->
-    <section class="news-section">
-        <div class="container">
-            <div class="news-header">
-                <div class="news-tab">NEWS</div>
-                <h2 class="news-title">Latest News</h2>
-            </div>
-            
-            <div class="row">
-                @php
-                    $newsItems = [
-                        [
-                            'id' => 1,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 2,
-                            'image' => 'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ],
-                        [
-                            'id' => 3,
-                            'image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                            'category' => 'Web Design',
-                            'author' => 'Admin',
-                            'date' => '01 Jan 2024',
-                            'title' => 'How to build a website',
-                            'description' => 'Building a website involves several steps, from planning and design to development and deployment.'
-                        ]
-                    ];
-                @endphp
-                
-                @foreach($newsItems as $item)
-                <div class="col-lg-4 col-md-6">
-                    <article class="news-card" onclick="readMore({{ $item['id'] }})">
+<section class="news-section">
+    <div class="container">
+        <div class="news-header">
+            <div class="news-tab">NEWS</div>
+            <h2 class="news-title">Latest News</h2>
+        </div>
+        
+        <div class="row">
+            {{-- This loop dynamically loads the latest news from the controller --}}
+            @forelse($latestNews as $news)
+            <div class="col-lg-4 col-md-6">
+                <article class="news-card">
+                    <a href="{{ route('news.show', $news->slug) }}" class="news-link-wrapper">
                         <div class="card-image">
-                            <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
-                            <div class="category-badge">{{ $item['category'] }}</div>
+                            {{-- Use asset() helper to get the image from storage --}}
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" loading="lazy">
+                            {{-- Display category name from the relationship, with a fallback --}}
+                            <div class="category-badge">{{ $news->category->name ?? 'News' }}</div>
                         </div>
                         
                         <div class="card-content">
                             <div class="card-meta">
                                 <div class="meta-item">
                                     <i class="fas fa-user"></i>
-                                    <span>{{ $item['author'] }}</span>
+                                    {{-- Assuming an author relationship or field, otherwise defaults to 'Admin' --}}
+                                    <span>{{ $news->author->name ?? 'Admin' }}</span>
                                 </div>
                                 <div class="meta-item">
                                     <i class="fas fa-calendar"></i>
-                                    <span>{{ $item['date'] }}</span>
+                                    {{-- Format the date --}}
+                                    <span>{{ $news->created_at->format('d M Y') }}</span>
                                 </div>
                             </div>
                             
-                            <h3 class="card-title">{{ $item['title'] }}</h3>
-                            <p class="card-description">{{ $item['description'] }}</p>
+                            <h3 class="card-title">{{ $news->title }}</h3>
+                            {{-- Use the excerpt field and limit its length --}}
+                            <p class="card-description">{{ Str::limit($news->excerpt, 120) }}</p>
                             
-                            <a href="{{ route('news.index') }}" class="read-more" onclick="event.stopPropagation(); readMore({{ $item['id'] }})">
+                            <span class="read-more">
                                 Read More
                                 <i class="fas fa-arrow-right"></i>
-                            </a>
+                            </span>
                         </div>
-                    </article>
-                </div>
-                @endforeach
+                    </a>
+                </article>
             </div>
+            @empty
+            <div class="col-12 text-center">
+                <p class="text-muted">No news available at the moment.</p>
+            </div>
+            @endforelse
         </div>
-    </section>
+    </div>
+</section>
 
-     <!-- Featured Portfolio -->
+<!-- Featured Portfolio -->
 <section id="portfolio" class="portfolio-section">
     <div class="container">
         <div class="portfolio-header">
-                <div class="portfolio-label">PROJECTS</div>
-                <h2 class="portfolio-title">Featured Portfolio</h2>
+            <div class="portfolio-label">PROJECTS</div>
+            <h2 class="portfolio-title">Featured Portfolio</h2>
         </div>
         <div class="row">
-           @php
-    $portfolioItems = [
-        ['image' => asset('assets/images/kiribgebeya.webp'), 'title' => 'E-Commerce Platform', 'description' => 'Modern online shopping platform with advanced features'],
-        ['image' => asset('assets/images/hayat.jpg'), 'title' => 'Food Complex Store System', 'description' => 'Comprehensive digital platform for managing food complex operations and inventory'],
-        ['image' => asset('assets/images/mirkuz.jpg'), 'title' => 'Event Management System', 'description' => 'Custom-built platform for organizing, scheduling, and tracking events efficiently'],
-        ['image' => asset('assets/images/befan.jpg'), 'title' => 'Healthcare System', 'description' => 'Digital healthcare management platform'],
-        ['image' => asset('assets/images/bilalul.jpg'), 'title' => 'Learning Tool & Management', 'description' => 'A platform designed for effective learning and education management'],
-        ['image' => asset('assets/images/elida.webp'), 'title' => 'ELiDA Social Empowerment Platform', 'description' => 'ELiDA aspires to see socially responsible, economically independent and productive women, girls, and youth .']
-    ];
-@endphp
-
-            
-            @foreach($portfolioItems as $item)
+            {{-- This loop dynamically loads the latest portfolios from the controller --}}
+            @forelse($latestPortfolios as $portfolio)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="portfolio-item">
-                    <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}">
+                    {{-- Use asset() helper to get the image from storage --}}
+                    <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
                     <div class="portfolio-overlay">
                         <div class="portfolio-content">
-                            <h5>{{ $item['title'] }}</h5>
-                            <p>{{ $item['description'] }}</p>
-                            
+                            <h5>{{ $portfolio->title }}</h5>
+                            <p>{{ Str::limit($portfolio->description, 100) }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="col-12 text-center">
+                <p class="text-muted">No projects available at the moment.</p>
+            </div>
+            @endforelse
         </div>
         <div class="text-center mt-5">
-            <a href="{{ route('portfolio') }}" class=" btn-view-more">
+            <a href="{{ route('portfolio') }}" class="btn-view-more">
                 More Projects
                 <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </div>
 </section>
+
+
+
      <!-- Featured Products -->
 <section class="products-section">
     <div class="container">

@@ -22,4 +22,16 @@ class Service extends Model
     {
         return $this->belongsTo(ServiceCategory::class, 'service_category_id');
     }
+
+
+
+    public function getPriceFormattedAttribute()
+    {
+        preg_match('/[\d\.]+/', $this->price, $matches);
+        $numericPrice = isset($matches[0]) ? (float)$matches[0] : 0;
+
+        return '$' . number_format($numericPrice, 2);
+    }
+
+
 }

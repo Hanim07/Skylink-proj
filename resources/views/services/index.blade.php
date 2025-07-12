@@ -920,8 +920,8 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="testimonial-info">
-                                <h6>Andrew Anderson</h6>
-                                <small>CEO, TechCorp</small>
+                                <h6>Khalid Kibrom</h6>
+                                <small>customer</small>
                             </div>
                             
                         </div>
@@ -933,8 +933,8 @@
                     <div class="testimonial-card center">
                         <div class="testimonial-header">
                             <div class="testimonial-info">
-                                <h6>Sarah Johnson</h6>
-                                <small>Marketing Director</small>
+                                <h6>Aisha Malik</h6>
+                                <small>Customer</small>
                             </div>
                         </div>
                         <hr class="testimonial-divider">
@@ -945,8 +945,8 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="testimonial-info">
-                                <h6>James Wilson</h6>
-                                <small>Startup Founder</small>
+                                <h6>Taye Abrar </h6>
+                                <small>Customer </small>
                             </div>
                         </div>
                         <hr class="testimonial-divider">
@@ -957,8 +957,8 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="testimonial-info">
-                                <h6>Michael Chen</h6>
-                                <small>Product Manager</small>
+                                <h6>Kalkidan Gezu</h6>
+                                <small>Customer</small>
                             </div>
                         </div>
                         <hr class="testimonial-divider">
@@ -969,8 +969,8 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="testimonial-info">
-                                <h6>Emily Rodriguez</h6>
-                                <small>Creative Director</small>
+                                <h6>Zain Gezu</h6>
+                                <small>Customer</small>
                             </div>
                         </div>
                         <hr class="testimonial-divider">
@@ -981,8 +981,8 @@
                     <div class="testimonial-card">
                         <div class="testimonial-header">
                             <div class="testimonial-info">
-                                <h6>David Thompson</h6>
-                                <small>Operations Manager</small>
+                                <h6>Mohammed Ahmed </h6>
+                                <small>Customer</sall>
                             </div>
                         </div>
                         <hr class="testimonial-divider">
