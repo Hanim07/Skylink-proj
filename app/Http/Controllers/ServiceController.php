@@ -25,7 +25,7 @@ public function category(string $categorySlug)
 
 $items->getCollection()->transform(function ($service) {
     if (is_numeric($service->price)) {
-        $service->price_formatted = '$' . number_format($service->price, 2);
+        $service->price_formatted = 'Br ' . number_format($service->price, 2);
     } else {
         $service->price_formatted = $service->price; // Use the string as-is (e.g., "Custom Quote")
     }
@@ -44,8 +44,11 @@ $items->getCollection()->transform(function ($service) {
 }
 public function getPriceFormattedAttribute()
 {
-    return is_numeric($this->price) ? '$' . number_format($this->price, 2) : $this->price;
+    return is_numeric($this->price)
+        ? 'Br ' . number_format($this->price, 2)
+        : $this->price;
 }
+
 
 
 
