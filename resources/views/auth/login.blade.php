@@ -2,7 +2,7 @@
     <div class="min-vh-100 d-flex align-items-center justify-content-center bg-gradient bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-4">
         <div class="card shadow-lg border-0 rounded-4 p-4 bg-white bg-opacity-75 backdrop-blur-lg animate-fade-in-down" style="max-width: 420px; width: 100%;">
             <div class="text-center mb-4">
-                <img src="{{ asset('images/logo.png') }}" alt="Skylink Technologies" class="rounded-circle" width="80" height="80">
+                <img src="{{ asset('assets/images/skylink-logo.svg') }}" alt="Skylink Technologies" class="rounded-circle" width="80" height="80">
                 <h2 class="fw-bold mt-3 text-dark">Welcome, Admin</h2>
                 <p class="text-muted small">Log in to manage <span class="text-primary fw-semibold">Skylink</span> Dashboard</p>
             </div>

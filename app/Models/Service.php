@@ -28,12 +28,8 @@ class Service extends Model
 
 
     public function getPriceFormattedAttribute()
-    {
-        preg_match('/[\d\.]+/', $this->price, $matches);
-        $numericPrice = isset($matches[0]) ? (float)$matches[0] : 0;
-
-        return '$' . number_format($numericPrice, 2);
-    }
-
+{
+    return is_numeric($this->price) ? '' . number_format($this->price, 2) : $this->price;
+}
 
 }
