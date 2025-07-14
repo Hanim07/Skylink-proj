@@ -387,7 +387,7 @@ object-position: 50% 15%;
     .growth-image {
     width: 100%;
     height: 300px;
-    background: url('{{ asset('assets/images/growing.png') }}') no-repeat;
+    background: url('{{ asset('assets/images/about/growing.png') }}') no-repeat;
     background-size: contain; /* Ensures the entire image is visible */
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -680,7 +680,7 @@ object-position: 50% 15%;
             
             <div class="team-member">
                 <div class="team-photo">
-                    <img src="{{ asset('assets/images/jemil.png') }}" alt="Lisa Patel">
+                    <img src="{{ asset('assets/images/about/jemil.png') }}" alt="Lisa Patel">
                 </div>
                 <div class="team-info">
                     <h4 class="team-name">Jemil Gragn</h4>
@@ -791,13 +791,10 @@ object-position: 50% 15%;
         
         <div class="awards-categories">
             <div class="award-category">
-                <h4>Awards/Features</h4>
-                <span>Awards</span>
+                <h4>Achievements/Features</h4>
+                <span>Achievements</span>
             </div>
-            <div class="award-category">
-                <h4>Features</h4>
-                <span>Features</span>
-            </div>
+            
         </div>
         
         <div class="awards-grid">

@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-// --- IMPORTANT ---
-// Add the 'use' statements for your models here.
-// Make sure these paths are correct for your project structure.
+
 use App\Models\News;
 use App\Models\Portfolio;
 use App\Models\ContactMessage;

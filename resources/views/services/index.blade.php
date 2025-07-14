@@ -696,37 +696,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-content">
-                    {{-- <div class="service-bar">
-                        <div class="hero-service-tag">Our Service</div>
-
-                        <div class="dropdown">
-                            <button class="categories-dropdown dropdown-toggle" data-bs-toggle="dropdown">
-                                <i class="fas fa-th-large"></i>
-                                Categories
-                                <i class="fas fa-chevron-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-filter="web">Web Development</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="mobile">Mobile Development</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="design">UI/UX Design</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="marketing">Digital Marketing</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="ecommerce">E-commerce</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="analytics">Analytics</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="cloud">Cloud Solutions</a></li>
-                                <li><a class="dropdown-item" href="#" data-filter="consulting">Consulting</a></li>
-                            </ul>
-                        </div>
-                        <!-- Hero Social Icons -->
-                        {{-- <div class="hero-social-icons">
-                            <div class="hero-social-icon">
-                                <i class="far fa-heart"></i>
-                            </div>
-                            <div class="hero-social-icon">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            
-                        </div> --}}
-                    {{-- </div> --}} 
+                    
 
                     
                     <h1 class="hero-title">
@@ -1481,7 +1451,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startAutoScroll() {
-        autoScrollInterval = setInterval(updateScroll, 3000);
+        autoScrollInterval = setInterval(updateScroll, 2000);
     }
 
     function stopAutoScroll() {

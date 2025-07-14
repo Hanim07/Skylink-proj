@@ -53,34 +53,10 @@ class HomeController extends Controller
                 ['number' => '600+', 'label' => 'Projects Completed']
             ],
             
-            'services' => [
-                [
-                    'title' => 'Web Development',
-                    'description' => 'Professional web development services using modern technologies and frameworks to create responsive, user-friendly websites.',
-                    'icon' => 'fas fa-laptop-code',
-                    'featured' => false
-                ],
-                [
-                    'title' => 'Mobile Development',
-                    'description' => 'Comprehensive mobile application development for iOS and Android platforms with cutting-edge features and seamless user experience.',
-                    'icon' => 'fas fa-mobile-alt',
-                    'featured' => true
-                ],
-                [
-                    'title' => 'Cloud Solutions',
-                    'description' => 'Scalable cloud infrastructure and migration services to help your business leverage the power of cloud computing.',
-                    'icon' => 'fas fa-cloud',
-                    'featured' => false
-                ]
-            ],
+            
             
 
 
-
-            
-
-            
-           
 
 
             'products' => [
@@ -100,28 +76,9 @@ class HomeController extends Controller
                             'image' => asset('assets/images/products/erp.png'),
                             'rating' => 5
                         ]
-            ],
-            
-            'testimonials' => [
-                [
-                    'name' => 'Abebe Kebede',
-                    'position' => 'CEO, Tech Solutions Ethiopia',
-                    'avatar' => asset('assets/images/clients/client1.jpg'),
-                    'content' => 'Sky Link provided exceptional IT services that transformed our business operations. Their team is professional and delivers quality results on time.'
-                ],
-                [
-                    'name' => 'Meron Tadesse',
-                    'position' => 'CTO, Digital Innovations',
-                    'avatar' => asset('assets/images/clients/client2.jpg'),
-                    'content' => 'Outstanding service and support. Sky Link helped us implement modern solutions that improved our efficiency and productivity significantly.'
-                ],
-                [
-                    'name' => 'Daniel Haile',
-                    'position' => 'Manager, StartUp Ethiopia',
-                    'avatar' => asset('assets/images/clients/client3.jpg'),
-                    'content' => 'Reliable, innovative, and customer-focused. Sky Link is our go-to partner for all IT-related needs and digital transformation solutions.'
-                ]
             ]
+            
+            
         ];
         
 return view('pages.index', array_merge($data, [

@@ -104,9 +104,7 @@ Route::delete('/news/{news}', [AdminNewsController::class, 'destroy'])->name('ne
     // Contact messages
     Route::resource('contact-messages', ContactMessageController::class)->only(['index']);
 //service admin
-    
-    
-});
+  
 Route::prefix('admin')->group(function () {
     Route::resource('services', ServiceadminController::class);
 
@@ -119,6 +117,9 @@ Route::prefix('admin')->group(function () {
 Route::delete('/services/{services}', [ServiceadminController::class, 'destroy'])->name('admin.services.destroy');
 
 });
+    
+});
+
 
 
 Route::post('/chat-submit', [HomeController::class, 'submitChatMessage'])->name('chat.submit');

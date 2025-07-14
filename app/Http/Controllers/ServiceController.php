@@ -73,26 +73,7 @@ class ServiceController extends Controller
                     ]
                 ],
                 'portfolioItems' => $portfolioItems,
-                'testimonials' => [
-                    [
-                        'name' => 'Michael Anderson',
-                        'position' => 'IT Professional',
-                        'avatar' => 'https://via.placeholder.com/50x50/2563EB/FFFFFF?text=MA',
-                        'content' => 'Sky Link has provided exceptional service...'
-                    ],
-                    [
-                        'name' => 'Emily Davis',
-                        'position' => 'Business Executive',
-                        'avatar' => 'https://via.placeholder.com/50x50/0891B2/FFFFFF?text=ED',
-                        'content' => 'As a business owner, I have been thoroughly impressed with Sky Link\'s understanding of various aspects of the business world. They excel in supporting entrepreneurs, executives, managers, and professionals across various industries.'
-                    ],
-                    [
-                        'name' => 'James Wilson',
-                        'position' => 'Application Developer',
-                        'avatar' => 'https://via.placeholder.com/50x50/10B981/FFFFFF?text=JW',
-                        'content' => 'The application development services have been outstanding. Sky Link creates innovative software applications for various platforms including mobile phones, desktop computers, web browsers, and enterprise systems.'
-                    ]
-                ],
+                
                 'quoteSection' => [
                     'title' => 'Need A Free Quote? Please Feel Free to Contact Us',
                     'subtitle' => 'REQUEST A QUOTE',
